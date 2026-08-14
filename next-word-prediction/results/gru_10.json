@@ -10,7 +10,7 @@
     "dropout": 0.3,
     "batch_size": 128,
     "lr": 0.001,
-    "epochs": 8,
+    "epochs": 5,
     "min_freq": 1,
     "seed": 42,
     "target_train": 20000,
@@ -31,7 +31,7 @@
       "val_loss": 7.142668208923999,
       "val_acc": 0.0760039827414537,
       "val_ppl": 1264.798637847479,
-      "epoch_seconds": 1.786599799990654
+      "epoch_seconds": 2.890086200000951
     },
     {
       "epoch": 2,
@@ -41,7 +41,7 @@
       "val_loss": 7.069772907716667,
       "val_acc": 0.11616329239960173,
       "val_ppl": 1175.8809704317514,
-      "epoch_seconds": 1.4913563999871258
+      "epoch_seconds": 2.6138426999968942
     },
     {
       "epoch": 3,
@@ -51,7 +51,7 @@
       "val_loss": 7.053884686167122,
       "val_acc": 0.12446067042814471,
       "val_ppl": 1157.3459472417162,
-      "epoch_seconds": 1.5168591999972705
+      "epoch_seconds": 2.5688475999922957
     },
     {
       "epoch": 4,
@@ -61,7 +61,7 @@
       "val_loss": 7.06286320130848,
       "val_acc": 0.13043478260869565,
       "val_ppl": 1167.7839842688948,
-      "epoch_seconds": 1.5067319000081625
+      "epoch_seconds": 2.520115999999689
     },
     {
       "epoch": 5,
@@ -71,47 +71,17 @@
       "val_loss": 7.103952560082964,
       "val_acc": 0.1384002655160969,
       "val_ppl": 1216.7669267764545,
-      "epoch_seconds": 1.509100600000238
-    },
-    {
-      "epoch": 6,
-      "train_loss": 5.79510967083312,
-      "train_acc": 0.13446338917333597,
-      "train_ppl": 328.6882295173112,
-      "val_loss": 7.161070749445528,
-      "val_acc": 0.13607699966810488,
-      "val_ppl": 1288.2896300616176,
-      "epoch_seconds": 1.5268059000081848
-    },
-    {
-      "epoch": 7,
-      "train_loss": 5.572198018725731,
-      "train_acc": 0.1435601729880201,
-      "train_ppl": 263.01156871654734,
-      "val_loss": 7.224501748279682,
-      "val_acc": 0.14138732160637238,
-      "val_ppl": 1372.654517742001,
-      "epoch_seconds": 1.504943199994159
-    },
-    {
-      "epoch": 8,
-      "train_loss": 5.350830551430382,
-      "train_acc": 0.15061887955460557,
-      "train_ppl": 210.7832915502857,
-      "val_loss": 7.306169382330195,
-      "val_acc": 0.1400597411218055,
-      "val_ppl": 1489.4606928770859,
-      "epoch_seconds": 1.517938699995284
+      "epoch_seconds": 2.571548400010215
     }
   ],
-  "train_time_seconds": 12.3604861000058,
+  "train_time_seconds": 13.164626600017073,
   "peak_gpu_memory_mb": 198.5302734375,
-  "inference_time_seconds_full_test_set": 0.08051050000358373,
-  "inference_ms_per_example": 0.026694462865909725,
+  "inference_time_seconds_full_test_set": 0.10441600001649931,
+  "inference_ms_per_example": 0.03462068966064301,
   "n_test_examples": 3016,
-  "test_loss": 7.251116380767417,
-  "test_accuracy": 0.11936339522546419,
-  "test_perplexity": 1409.6777071671308,
+  "test_loss": 7.062815535922265,
+  "test_accuracy": 0.11438992042440319,
+  "test_perplexity": 1167.7283227208443,
   "errors_sample": [
     {
       "context": "= Robert <unk> = Robert <unk> is an English film",
@@ -141,7 +111,7 @@
     {
       "context": "in 2003 on two episodes of The Bill , as",
       "target": "character",
-      "predicted": "a"
+      "predicted": "the"
     },
     {
       "context": "Plymouth , and the <unk> <unk> Factory in London .",
@@ -156,12 +126,17 @@
     {
       "context": ": \" I loved working with a guy called Robert",
       "target": "<unk>",
-      "predicted": "\""
+      "predicted": ","
     },
     {
       "context": "How to Curse was performed at Bush Theatre in the",
       "target": "London",
-      "predicted": "United"
+      "predicted": "<unk>"
+    },
+    {
+      "context": "<unk> Punch , who <unk> along with character \" Josh",
+      "target": "\"",
+      "predicted": "<unk>"
     },
     {
       "context": "television series <unk> in 2010 , as \" <unk> Fletcher",
@@ -174,9 +149,14 @@
       "predicted": ","
     },
     {
+      "context": "Tang dynasty . Along with Li <unk> ( Li Po",
+      "target": ")",
+      "predicted": ","
+    },
+    {
       "context": "he was little @-@ known to other writers , his",
       "target": "works",
-      "predicted": "<unk>"
+      "predicted": "and"
     },
     {
       "context": "Virgil , Horace , <unk> , Shakespeare , Milton ,",
@@ -186,7 +166,7 @@
     {
       "context": ". Another reason , identified by the Chinese historian William",
       "target": "<unk>",
-      "predicted": "and"
+      "predicted": ","
     },
     {
       "context": "the poem or fail to understand it altogether \" .",
@@ -196,7 +176,7 @@
     {
       "context": "a noted politician and poet during the reign of Empress",
       "target": "Wu",
-      "predicted": "."
+      "predicted": ","
     },
     {
       "context": "was partially raised by his aunt . He had an",
@@ -226,11 +206,6 @@
     {
       "context": "one in the other direction . They met again only",
       "target": "once",
-      "predicted": ","
-    },
-    {
-      "context": "directly in <unk> , 754 and probably again in <unk>",
-      "target": ".",
       "predicted": ","
     },
     {
@@ -306,11 +281,6 @@
     {
       "context": "the era \" . Du Fu 's political comments are",
       "target": "based",
-      "predicted": "\""
-    },
-    {
-      "context": "epithet of Chinese critics is that of \" poet sage",
-      "target": "\"",
       "predicted": ","
     }
   ]

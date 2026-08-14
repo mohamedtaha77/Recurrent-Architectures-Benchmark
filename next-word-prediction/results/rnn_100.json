@@ -10,7 +10,7 @@
     "dropout": 0.3,
     "batch_size": 128,
     "lr": 0.001,
-    "epochs": 8,
+    "epochs": 5,
     "min_freq": 1,
     "seed": 42,
     "target_train": 20000,
@@ -31,7 +31,7 @@
       "val_loss": 7.147164141514387,
       "val_acc": 0.08200531208499336,
       "val_ppl": 1270.4978893889238,
-      "epoch_seconds": 2.1572942000057083
+      "epoch_seconds": 3.394407499989029
     },
     {
       "epoch": 2,
@@ -41,7 +41,7 @@
       "val_loss": 7.096971914587742,
       "val_acc": 0.10358565737051793,
       "val_ppl": 1208.3026855155624,
-      "epoch_seconds": 1.8660855000052834
+      "epoch_seconds": 3.1873731999949086
     },
     {
       "epoch": 3,
@@ -51,7 +51,7 @@
       "val_loss": 7.16429287377265,
       "val_acc": 0.11288180610889774,
       "val_ppl": 1292.4473541738687,
-      "epoch_seconds": 1.89512570000079
+      "epoch_seconds": 3.1470673000148963
     },
     {
       "epoch": 4,
@@ -61,7 +61,7 @@
       "val_loss": 7.113364667373191,
       "val_acc": 0.11354581673306773,
       "val_ppl": 1228.2733324571002,
-      "epoch_seconds": 1.8917566000018269
+      "epoch_seconds": 3.2628136000130326
     },
     {
       "epoch": 5,
@@ -71,47 +71,17 @@
       "val_loss": 7.22019126089129,
       "val_acc": 0.11719787516600266,
       "val_ppl": 1366.7504416191118,
-      "epoch_seconds": 1.8854724999982864
-    },
-    {
-      "epoch": 6,
-      "train_loss": 5.817601021774059,
-      "train_acc": 0.11841320342016305,
-      "train_ppl": 336.16463388908244,
-      "val_loss": 7.264564863714089,
-      "val_acc": 0.11620185922974767,
-      "val_ppl": 1428.7637855109967,
-      "epoch_seconds": 1.8727192999940598
-    },
-    {
-      "epoch": 7,
-      "train_loss": 5.6048378175427125,
-      "train_acc": 0.12343408232252932,
-      "train_ppl": 271.7378507479629,
-      "val_loss": 7.317046292749534,
-      "val_acc": 0.12184594953519257,
-      "val_ppl": 1505.749850668311,
-      "epoch_seconds": 1.8587299000064377
-    },
-    {
-      "epoch": 8,
-      "train_loss": 5.415614180262413,
-      "train_acc": 0.12939948299860807,
-      "train_ppl": 224.8906266550632,
-      "val_loss": 7.3050977889285145,
-      "val_acc": 0.12284196547144755,
-      "val_ppl": 1487.8654515042542,
-      "epoch_seconds": 1.8827534000010928
+      "epoch_seconds": 3.174771399993915
     }
   ],
-  "train_time_seconds": 15.310091899998952,
+  "train_time_seconds": 16.16657880001003,
   "peak_gpu_memory_mb": 296.171875,
-  "inference_time_seconds_full_test_set": 0.10683889999927487,
-  "inference_ms_per_example": 0.035447544790734864,
+  "inference_time_seconds_full_test_set": 0.1243743000086397,
+  "inference_ms_per_example": 0.04126552754102179,
   "n_test_examples": 3014,
-  "test_loss": 7.068987491357065,
-  "test_accuracy": 0.1426675514266755,
-  "test_perplexity": 1174.9577768737502,
+  "test_loss": 6.9921395466987395,
+  "test_accuracy": 0.12806901128069012,
+  "test_perplexity": 1088.0469147912013,
   "errors_sample": [
     {
       "context": "= Robert <unk> = Robert <unk> is an English film , television and theatre actor . He had a guest @-@ starring role on the television series The Bill in 2000 . This was followed by a starring role in the play Herons written by Simon Stephens , which was performed in 2001 at the Royal Court Theatre . He had a guest role in the television series Judge John <unk> in 2002 . In 2004 <unk> landed a role as \" Craig \" in the episode \" Teddy 's Story \" of the television series The Long Firm ;",
@@ -126,7 +96,7 @@
     {
       "context": "2011 film <unk> directed by Paris <unk> . = = Career = = = = = 2000 – 2005 = = = In 2000 <unk> had a guest @-@ starring role on the television series The Bill ; he portrayed \" Scott Parry \" in the episode , \" In Safe Hands \" . <unk> starred as \" Scott \" in the play Herons written by Simon Stephens , which was performed in 2001 at the Royal Court Theatre . A review of <unk> 's performance in The Independent on Sunday described him as \" horribly menacing \" in the",
       "target": "role",
-      "predicted": "first"
+      "predicted": "<unk>"
     },
     {
       "context": "A review of <unk> 's performance in The Independent on Sunday described him as \" horribly menacing \" in the role , and he received critical reviews in The Herald , and Evening Standard . He appeared in the television series Judge John <unk> in 2002 as \" <unk> <unk> \" in the episode \" Political <unk> \" , and had a role as a different character \" Toby Steele \" on The Bill . He had a recurring role in 2003 on two episodes of The Bill , as character \" Connor Price \" . In 2004 <unk> landed",
@@ -141,7 +111,7 @@
     {
       "context": "Plymouth , and the <unk> <unk> Factory in London . He was directed by John <unk> and starred alongside Ben <unk> , Shane <unk> , Harry Kent , Fraser <unk> , Sophie Stanton and Dominic Hall . <unk> received a favorable review in The Daily Telegraph : \" The acting is <unk> intense , with <unk> performances from Ben <unk> ( now <unk> from his performance as Trevor <unk> 's Hamlet ) , Robert <unk> , Shane <unk> and Fraser <unk> . \" The Guardian noted , \" Ben <unk> and Robert <unk> offer <unk> amid the <unk> . \"",
       "target": "=",
-      "predicted": "The"
+      "predicted": ","
     },
     {
       "context": "How to Curse was performed at Bush Theatre in the London Borough of <unk> and Fulham . In a review of the production for The Daily Telegraph , theatre critic Charles Spencer noted , \" Robert <unk> brings a touching vulnerability to the stage as William . \" <unk> starred in two films in 2008 , <unk> <unk> by filmmaker Paris <unk> , and <unk> Punch directed by <unk> Blackburn . <unk> portrayed a character named \" Sean \" in <unk> Punch , who <unk> along with character \" Josh \" as the \" quiet brother ... who hits it",
@@ -151,7 +121,7 @@
     {
       "context": "<unk> Punch , who <unk> along with character \" Josh \" as the \" quiet brother ... who hits it off with <unk> \" . <unk> guest starred on a two @-@ part episode arc \" <unk> \" in May 2008 of the television series Waking the Dead as character \" Jimmy <unk> \" . He appeared on the television series <unk> as \" Neil \" in November 2008 . He had a recurring role in ten episodes of the television series <unk> in 2010 , as \" <unk> Fletcher \" . He portrayed an emergency physician applying for a",
       "target": "medical",
-      "predicted": "few"
+      "predicted": "<unk>"
     },
     {
       "context": "television series <unk> in 2010 , as \" <unk> Fletcher \" . He portrayed an emergency physician applying for a medical <unk> . He commented on the inherent difficulties in portraying a physician on television : \" Playing a doctor is a strange experience . <unk> you know what you 're talking about when you don 't is very bizarre but there are advisers on set who are fantastic at taking you through procedures and giving you the confidence to stand there and look like you know what you 're doing . \" <unk> starred in the 2011 film <unk>",
@@ -161,7 +131,7 @@
     {
       "context": "stand there and look like you know what you 're doing . \" <unk> starred in the 2011 film <unk> directed by Paris <unk> . = = Filmography = = = = = Film = = = = = = Television = = = = = = Theatre = = = = Du Fu = Du Fu ( Wade – Giles : Tu Fu ; Chinese : <unk> ; <unk> – 770 ) was a prominent Chinese poet of the Tang dynasty . Along with Li <unk> ( Li Po ) , he is frequently called the greatest of the",
       "target": "Chinese",
-      "predicted": "first"
+      "predicted": "<unk>"
     },
     {
       "context": "Tang dynasty . Along with Li <unk> ( Li Po ) , he is frequently called the greatest of the Chinese poets . His greatest ambition was to serve his country as a successful civil servant , but he proved unable to make the necessary accommodations . His life , like the whole country , was devastated by the An <unk> Rebellion of <unk> , and his last 15 years were a time of almost constant unrest . Although initially he was little @-@ known to other writers , his works came to be hugely influential in both Chinese and",
@@ -206,7 +176,7 @@
     {
       "context": "his father 's rank , but he is thought to have given up the privilege in favour of one of his half brothers . He spent the next four years living in the Luoyang area , fulfilling his duties in domestic affairs . In the autumn of <unk> , he met Li <unk> ( Li Po ) for the first time , and the two poets formed a friendship . David Young describes this as \" the most significant formative element in Du Fu 's artistic development \" because it gave him a living example of the reclusive poet @-@",
       "target": "scholar",
-      "predicted": "year"
+      "predicted": ","
     },
     {
       "context": "element in Du Fu 's artistic development \" because it gave him a living example of the reclusive poet @-@ scholar life to which he was attracted after his failure in the civil service exam . The relationship was somewhat one @-@ sided , however . Du Fu was by some years the younger , while Li <unk> was already a poetic star . We have twelve poems to or about Li <unk> from the younger poet , but only one in the other direction . They met again only once , in <unk> . In 746 , he moved",
@@ -226,7 +196,7 @@
     {
       "context": "away from the city , took his family to a place of safety and attempted to join the court of the new emperor ( <unk> ) , but he was captured by the rebels and taken to Chang 'an . In the autumn , his youngest son , Du <unk> ( Baby Bear ) , was born . Around this time Du Fu is thought to have contracted malaria . He escaped from Chang 'an the following year , and was appointed <unk> when he rejoined the court in May <unk> . This post gave access to the emperor but",
       "target": "was",
-      "predicted": "."
+      "predicted": "of"
     },
     {
       "context": "was appointed <unk> when he rejoined the court in May <unk> . This post gave access to the emperor but was largely ceremonial . Du Fu 's <unk> compelled him to try to make use of it : he caused trouble for himself by protesting the removal of his friend and patron Fang Guan on a petty charge . He was arrested but was <unk> in June . He was granted leave to visit his family in September , but he soon rejoined the court and on December 8 , <unk> , he returned to Chang 'an with the emperor",
@@ -246,7 +216,7 @@
     {
       "context": "appointed governor general at <unk> . Despite his financial problems , this was one of the <unk> and most peaceful periods of his life . Many of Du 's poems from this period are peaceful depictions of his life at \" <unk> <unk> \" . In 762 , he left the city to escape a rebellion , but he returned in summer <unk> when he was appointed an advisor to Yan , who was involved in campaigns against the <unk> Empire . = = = Last years = = = Luoyang , the region of his birthplace , was recovered",
       "target": "by",
-      "predicted": "in"
+      "predicted": ","
     },
     {
       "context": "old age in addition to his previous <unk> ) . They stayed in <unk> ( in what is now <unk> , <unk> ) at the entrance to the Three <unk> for almost two years from late spring <unk> . This period was Du Fu 's last great poetic flowering , and here he wrote 400 poems in his dense , late style . In autumn <unk> , Bo <unk> became governor of the region : he supported Du Fu financially and employed him as his unofficial secretary . In March <unk> , he began his journey again and got as",
@@ -269,6 +239,11 @@
       "predicted": "the"
     },
     {
+      "context": ") . The most directly historical of his poems are those commenting on military tactics or the successes and failures of the government , or the poems of advice which he wrote to the emperor . <unk> , he wrote about the effect of the times in which he lived on himself , and on the ordinary people of China . As Watson notes , this is information \" of a kind seldom found in the officially compiled histories of the era \" . Du Fu 's political comments are based on emotion rather than calculation : his <unk> have",
+      "target": "been",
+      "predicted": ","
+    },
+    {
       "context": "epithet of Chinese critics is that of \" poet sage \" ( <unk> <unk> <unk> ) , a counterpart to the philosophical sage , <unk> . One of the earliest surviving works , The Song of the <unk> ( from around 750 ) , gives voice to the <unk> of a <unk> soldier in the imperial army and a clear @-@ sighted consciousness of suffering . These concerns are continuously articulated in poems on the lives of both soldiers and civilians produced by Du Fu throughout his life . Although Du Fu 's frequent references to his own difficulties can",
       "target": "give",
       "predicted": ","
@@ -281,7 +256,7 @@
     {
       "context": "himself and for others , was part of his general broadening of the scope of poetry : he devoted many works to topics which had previously been considered unsuitable for poetic treatment . Zhang Jie wrote that for Du Fu , \" everything in this world is poetry \" , Du wrote extensively on subjects such as domestic life , calligraphy , paintings , animals , and other poems . = = = Technical excellence = = = Du Fu 's work is notable above all for its range . Chinese critics traditionally used the term <unk> ( <unk> \"",
       "target": "complete",
-      "predicted": "<unk>"
+      "predicted": ","
     },
     {
       "context": "'s work is notable above all for its range . Chinese critics traditionally used the term <unk> ( <unk> \" complete <unk> \" ) , a reference to <unk> ' description of <unk> . Yuan <unk> was the first to note the breadth of Du Fu 's achievement , writing in <unk> that his predecessor , \" united in his work traits which previous men had displayed only singly \" . He mastered all the forms of Chinese poetry : Chou says that in every form he \" either made outstanding advances or contributed outstanding examples \" . Furthermore ,",
@@ -306,11 +281,6 @@
     {
       "context": "while the poems from the late <unk> period have a \" density and power of vision \" . Although he wrote in all poetic forms , Du Fu is best known for his <unk> , a type of poem with strict constraints on form and content , for example : About two thirds of Du Fu 's 1500 extant works are in this form , and he is generally considered to be its leading exponent . His best <unk> use the <unk> required by the form to add expressive content rather than as mere technical restrictions . Hawkes comments that",
       "target": ",",
-      "predicted": "the"
-    },
-    {
-      "context": ", compressed language makes use of all the <unk> overtones of a phrase and of all the <unk> <unk> of the individual word , qualities that no translation can ever reveal . \" In his lifetime and immediately following his death , Du Fu was not greatly appreciated . In part this can be attributed to his stylistic and formal innovations , some of which are still \" considered extremely daring and bizarre by Chinese critics . \" There are few contemporary references to him — only eleven poems from six writers — and these describe him in terms of",
-      "target": "affection",
       "predicted": "the"
     }
   ]

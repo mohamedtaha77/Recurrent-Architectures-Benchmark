@@ -10,7 +10,7 @@
     "dropout": 0.3,
     "batch_size": 128,
     "lr": 0.001,
-    "epochs": 8,
+    "epochs": 5,
     "min_freq": 1,
     "seed": 42,
     "target_train": 20000,
@@ -31,7 +31,7 @@
       "val_loss": 7.1534838321950405,
       "val_acc": 0.08762031198141387,
       "val_ppl": 1278.552467474026,
-      "epoch_seconds": 1.6577987000055145
+      "epoch_seconds": 2.7553486000106204
     },
     {
       "epoch": 2,
@@ -41,7 +41,7 @@
       "val_loss": 7.127926937417259,
       "val_acc": 0.11317623630932626,
       "val_ppl": 1246.2906485288795,
-      "epoch_seconds": 1.4096812000061618
+      "epoch_seconds": 2.5503841000027023
     },
     {
       "epoch": 3,
@@ -51,7 +51,7 @@
       "val_loss": 7.147668857175648,
       "val_acc": 0.11881845336873548,
       "val_ppl": 1271.139291420507,
-      "epoch_seconds": 1.4490943999990122
+      "epoch_seconds": 2.6392605000000913
     },
     {
       "epoch": 4,
@@ -61,7 +61,7 @@
       "val_loss": 7.198784596493503,
       "val_acc": 0.12280119482243611,
       "val_ppl": 1337.8038044533516,
-      "epoch_seconds": 1.454687000004924
+      "epoch_seconds": 2.55636630000663
     },
     {
       "epoch": 5,
@@ -71,47 +71,17 @@
       "val_loss": 7.221732579866518,
       "val_acc": 0.12446067042814471,
       "val_ppl": 1368.858664313633,
-      "epoch_seconds": 1.4195535000035306
-    },
-    {
-      "epoch": 6,
-      "train_loss": 5.829625878886567,
-      "train_acc": 0.1241735845304966,
-      "train_ppl": 340.23136752022253,
-      "val_loss": 7.308803539674938,
-      "val_acc": 0.12877530700298706,
-      "val_ppl": 1493.3893387649757,
-      "epoch_seconds": 1.4274522999912733
-    },
-    {
-      "epoch": 7,
-      "train_loss": 5.618326768786472,
-      "train_acc": 0.12864741263607893,
-      "train_ppl": 275.4281424960849,
-      "val_loss": 7.362687311416206,
-      "val_acc": 0.1294390972452705,
-      "val_ppl": 1576.0662580062158,
-      "epoch_seconds": 1.419704100000672
-    },
-    {
-      "epoch": 8,
-      "train_loss": 5.416282252821657,
-      "train_acc": 0.13535815479445246,
-      "train_ppl": 225.04092010943904,
-      "val_loss": 7.426790691949266,
-      "val_acc": 0.13674078991038832,
-      "val_ppl": 1680.405969890452,
-      "epoch_seconds": 1.4140946999978041
+      "epoch_seconds": 2.4966875000100117
     }
   ],
-  "train_time_seconds": 11.652232799999183,
+  "train_time_seconds": 12.998271100019338,
   "peak_gpu_memory_mb": 197.2705078125,
-  "inference_time_seconds_full_test_set": 0.06907319999299943,
-  "inference_ms_per_example": 0.02290225463958867,
+  "inference_time_seconds_full_test_set": 0.11344610000378452,
+  "inference_ms_per_example": 0.03761475464316463,
   "n_test_examples": 3016,
-  "test_loss": 7.384670710373936,
-  "test_accuracy": 0.11273209549071618,
-  "test_perplexity": 1611.0971900458778,
+  "test_loss": 7.174116235829159,
+  "test_accuracy": 0.10908488063660478,
+  "test_perplexity": 1305.2060967470022,
   "errors_sample": [
     {
       "context": "as \" Craig \" in the episode \" Teddy 's",
@@ -161,7 +131,7 @@
     {
       "context": "How to Curse was performed at Bush Theatre in the",
       "target": "London",
-      "predicted": "United"
+      "predicted": "<unk>"
     },
     {
       "context": "<unk> Punch , who <unk> along with character \" Josh",
@@ -176,6 +146,11 @@
     {
       "context": "stand there and look like you know what you 're",
       "target": "doing",
+      "predicted": ","
+    },
+    {
+      "context": "Tang dynasty . Along with Li <unk> ( Li Po",
+      "target": ")",
       "predicted": ","
     },
     {
@@ -206,7 +181,7 @@
     {
       "context": "was partially raised by his aunt . He had an",
       "target": "elder",
-      "predicted": "<unk>"
+      "predicted": "the"
     },
     {
       "context": ". He later claimed to have produced <unk> poems by",
@@ -226,7 +201,7 @@
     {
       "context": "element in Du Fu 's artistic development \" because it",
       "target": "gave",
-      "predicted": "was"
+      "predicted": "the"
     },
     {
       "context": "one in the other direction . They met again only",
@@ -261,7 +236,7 @@
     {
       "context": "was appointed <unk> when he rejoined the court in May",
       "target": "<unk>",
-      "predicted": ","
+      "predicted": "."
     },
     {
       "context": "he soon rejoined the court and on December 8 ,",
@@ -307,11 +282,6 @@
       "context": ") . The most directly historical of his poems are",
       "target": "those",
       "predicted": ","
-    },
-    {
-      "context": "the era \" . Du Fu 's political comments are",
-      "target": "based",
-      "predicted": "the"
     }
   ]
 }

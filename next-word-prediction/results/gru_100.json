@@ -10,7 +10,7 @@
     "dropout": 0.3,
     "batch_size": 128,
     "lr": 0.001,
-    "epochs": 8,
+    "epochs": 5,
     "min_freq": 1,
     "seed": 42,
     "target_train": 20000,
@@ -31,7 +31,7 @@
       "val_loss": 7.1675393432576655,
       "val_acc": 0.07669322709163347,
       "val_ppl": 1296.6500633625242,
-      "epoch_seconds": 2.55642049999733
+      "epoch_seconds": 4.017069399997126
     },
     {
       "epoch": 2,
@@ -41,7 +41,7 @@
       "val_loss": 7.097490185918719,
       "val_acc": 0.099933598937583,
       "val_ppl": 1208.9290764628213,
-      "epoch_seconds": 2.2611600999953225
+      "epoch_seconds": 3.8905456000065897
     },
     {
       "epoch": 3,
@@ -51,7 +51,7 @@
       "val_loss": 7.0875594701425015,
       "val_acc": 0.11620185922974767,
       "val_ppl": 1196.9829603289643,
-      "epoch_seconds": 2.2945804000046337
+      "epoch_seconds": 3.8545844000182115
     },
     {
       "epoch": 4,
@@ -61,7 +61,7 @@
       "val_loss": 7.047014870966573,
       "val_acc": 0.12084993359893759,
       "val_ppl": 1149.4224421310257,
-      "epoch_seconds": 2.271953300005407
+      "epoch_seconds": 3.8657278000027873
     },
     {
       "epoch": 5,
@@ -71,47 +71,17 @@
       "val_loss": 7.175806249438687,
       "val_acc": 0.12682602921646746,
       "val_ppl": 1307.4137777937967,
-      "epoch_seconds": 2.375168099999428
-    },
-    {
-      "epoch": 6,
-      "train_loss": 5.833006412899027,
-      "train_acc": 0.1272121694173792,
-      "train_ppl": 341.3834775065343,
-      "val_loss": 7.150152810541282,
-      "val_acc": 0.13247011952191234,
-      "val_ppl": 1274.3006668707358,
-      "epoch_seconds": 2.265387699997518
-    },
-    {
-      "epoch": 7,
-      "train_loss": 5.596196216910183,
-      "train_acc": 0.13536488367468683,
-      "train_ppl": 269.3997179205456,
-      "val_loss": 7.231458290323002,
-      "val_acc": 0.13280212483399734,
-      "val_ppl": 1382.2367375199567,
-      "epoch_seconds": 2.2663891999982297
-    },
-    {
-      "epoch": 8,
-      "train_loss": 5.377847458359071,
-      "train_acc": 0.14212567110757607,
-      "train_ppl": 216.5556283588883,
-      "val_loss": 7.343183589013291,
-      "val_acc": 0.13645418326693226,
-      "val_ppl": 1545.6249238588214,
-      "epoch_seconds": 2.2558830000052694
+      "epoch_seconds": 3.71749079998699
     }
   ],
-  "train_time_seconds": 18.54715519999445,
+  "train_time_seconds": 19.345540300011635,
   "peak_gpu_memory_mb": 359.92578125,
-  "inference_time_seconds_full_test_set": 0.1307954000076279,
-  "inference_ms_per_example": 0.04339595222549034,
+  "inference_time_seconds_full_test_set": 0.15826240001479164,
+  "inference_ms_per_example": 0.05250909091399855,
   "n_test_examples": 3014,
-  "test_loss": 7.097798823993888,
-  "test_accuracy": 0.15096217650962176,
-  "test_perplexity": 1209.3022555916784,
+  "test_loss": 6.956112503768121,
+  "test_accuracy": 0.14465826144658261,
+  "test_perplexity": 1049.5455120373472,
   "errors_sample": [
     {
       "context": "= Robert <unk> = Robert <unk> is an English film , television and theatre actor . He had a guest @-@ starring role on the television series The Bill in 2000 . This was followed by a starring role in the play Herons written by Simon Stephens , which was performed in 2001 at the Royal Court Theatre . He had a guest role in the television series Judge John <unk> in 2002 . In 2004 <unk> landed a role as \" Craig \" in the episode \" Teddy 's Story \" of the television series The Long Firm ;",
@@ -149,14 +119,9 @@
       "predicted": "."
     },
     {
-      "context": ": \" I loved working with a guy called Robert <unk> , who was in the triple bill of Burn , <unk> and <unk> at the National . He played my brother in Mercury Fur . \" He portrayed \" Jason Tyler \" on the 2006 episode of the television series , Doctors , titled \" Something I <unk> \" . <unk> starred as \" William \" in the 2007 production of How to Curse directed by <unk> <unk> . How to Curse was performed at Bush Theatre in the London Borough of <unk> and Fulham . In a review",
-      "target": "of",
-      "predicted": ","
-    },
-    {
       "context": "How to Curse was performed at Bush Theatre in the London Borough of <unk> and Fulham . In a review of the production for The Daily Telegraph , theatre critic Charles Spencer noted , \" Robert <unk> brings a touching vulnerability to the stage as William . \" <unk> starred in two films in 2008 , <unk> <unk> by filmmaker Paris <unk> , and <unk> Punch directed by <unk> Blackburn . <unk> portrayed a character named \" Sean \" in <unk> Punch , who <unk> along with character \" Josh \" as the \" quiet brother ... who hits it",
       "target": "off",
-      "predicted": ","
+      "predicted": "."
     },
     {
       "context": "<unk> Punch , who <unk> along with character \" Josh \" as the \" quiet brother ... who hits it off with <unk> \" . <unk> guest starred on a two @-@ part episode arc \" <unk> \" in May 2008 of the television series Waking the Dead as character \" Jimmy <unk> \" . He appeared on the television series <unk> as \" Neil \" in November 2008 . He had a recurring role in ten episodes of the television series <unk> in 2010 , as \" <unk> Fletcher \" . He portrayed an emergency physician applying for a",
@@ -179,14 +144,14 @@
       "predicted": "the"
     },
     {
-      "context": "Virgil , Horace , <unk> , Shakespeare , Milton , Burns , <unk> , <unk> , Hugo or <unk> \" . = = Life = = Traditional Chinese literary criticism emphasized the life of the author when interpreting a work , a practice which Burton Watson attributes to \" the close links that traditional Chinese thought posits between art and morality \" . Since many of Du Fu 's poems feature morality and history , this practice is particularly important . Another reason , identified by the Chinese historian William <unk> , is that Chinese poems are typically <unk> ,",
-      "target": "<unk>",
-      "predicted": "the"
+      "context": "he was little @-@ known to other writers , his works came to be hugely influential in both Chinese and Japanese literary culture . Of his poetic writing , nearly fifteen hundred poems have been preserved over the ages . He has been called the \" Poet @-@ Historian \" and the \" Poet @-@ Sage \" by Chinese critics , while the range of his work has allowed him to be introduced to Western readers as \" the Chinese Virgil , Horace , <unk> , Shakespeare , Milton , Burns , <unk> , <unk> , Hugo or <unk> \"",
+      "target": ".",
+      "predicted": ","
     },
     {
-      "context": ". Another reason , identified by the Chinese historian William <unk> , is that Chinese poems are typically <unk> , <unk> context that might be relevant , but which an informed contemporary could be assumed to know . For modern Western readers , \" The less accurately we know the time , the place and the circumstances in the background , the more liable we are to imagine it incorrectly , and the result will be that we either <unk> the poem or fail to understand it altogether \" . Stephen Owen suggests a third factor particular to Du Fu",
-      "target": ",",
-      "predicted": "in"
+      "context": "Virgil , Horace , <unk> , Shakespeare , Milton , Burns , <unk> , <unk> , Hugo or <unk> \" . = = Life = = Traditional Chinese literary criticism emphasized the life of the author when interpreting a work , a practice which Burton Watson attributes to \" the close links that traditional Chinese thought posits between art and morality \" . Since many of Du Fu 's poems feature morality and history , this practice is particularly important . Another reason , identified by the Chinese historian William <unk> , is that Chinese poems are typically <unk> ,",
+      "target": "<unk>",
+      "predicted": "and"
     },
     {
       "context": "the poem or fail to understand it altogether \" . Stephen Owen suggests a third factor particular to Du Fu , arguing that the variety of the poet 's work required consideration of his whole life , rather than the \" <unk> \" <unk> used for more limited poets . = = = Early years = = = Most of what is known of Du Fu 's life comes from his poems . His paternal grandfather was Du <unk> , a noted politician and poet during the reign of Empress Wu . Du Fu was born in <unk> ; the",
@@ -196,7 +161,7 @@
     {
       "context": "a noted politician and poet during the reign of Empress Wu . Du Fu was born in <unk> ; the exact birthplace is unknown , except that it was near Luoyang , Henan province ( Gong county is a favourite candidate ) . In later life , he considered himself to belong to the capital city of Chang 'an , ancestral hometown of the Du family . Du Fu 's mother died shortly after he was born , and he was partially raised by his aunt . He had an elder brother , who died young . He also had",
       "target": "three",
-      "predicted": "been"
+      "predicted": "the"
     },
     {
       "context": "was partially raised by his aunt . He had an elder brother , who died young . He also had three half brothers and one half sister , to whom he frequently refers in his poems , although he never mentions his stepmother . The son of a minor scholar @-@ official , his youth was spent on the standard education of a future civil servant : study and <unk> of the Confucian classics of philosophy , history and poetry . He later claimed to have produced <unk> poems by his early teens , but these have been lost .",
@@ -221,7 +186,7 @@
     {
       "context": "element in Du Fu 's artistic development \" because it gave him a living example of the reclusive poet @-@ scholar life to which he was attracted after his failure in the civil service exam . The relationship was somewhat one @-@ sided , however . Du Fu was by some years the younger , while Li <unk> was already a poetic star . We have twelve poems to or about Li <unk> from the younger poet , but only one in the other direction . They met again only once , in <unk> . In 746 , he moved",
       "target": "to",
-      "predicted": "the"
+      "predicted": ","
     },
     {
       "context": "one in the other direction . They met again only once , in <unk> . In 746 , he moved to the capital in an attempt to resurrect his official career . He took the civil service exam a second time during the following year , but all the candidates were failed by the prime minister ( apparently in order to prevent the emergence of possible rivals ) . He never again attempted the examinations , instead <unk> the emperor directly in <unk> , 754 and probably again in <unk> . He married around <unk> , and by <unk> the",
@@ -251,17 +216,12 @@
     {
       "context": "<unk> ( modern Gansu ) . He departed on December 24 for <unk> ( Sichuan province ) , where he was hosted by local <unk> and fellow poet <unk> Di . Du subsequently based himself in Sichuan for most of the next five years . By the autumn of that year he was in financial trouble , and sent poems <unk> help to various acquaintances . He was relieved by Yan Wu , a friend and former colleague who was appointed governor general at <unk> . Despite his financial problems , this was one of the <unk> and most peaceful",
       "target": "periods",
-      "predicted": ","
+      "predicted": "."
     },
     {
       "context": "appointed governor general at <unk> . Despite his financial problems , this was one of the <unk> and most peaceful periods of his life . Many of Du 's poems from this period are peaceful depictions of his life at \" <unk> <unk> \" . In 762 , he left the city to escape a rebellion , but he returned in summer <unk> when he was appointed an advisor to Yan , who was involved in campaigns against the <unk> Empire . = = = Last years = = = Luoyang , the region of his birthplace , was recovered",
       "target": "by",
-      "predicted": "in"
-    },
-    {
-      "context": "Empire . = = = Last years = = = Luoyang , the region of his birthplace , was recovered by government forces in the winter of 762 , and in the spring of <unk> Du Fu and his family sailed down the Yangtze , apparently with the intention of making their way there . They traveled slowly , held up by his ill @-@ health ( by this time he was suffering from poor eyesight , <unk> and general old age in addition to his previous <unk> ) . They stayed in <unk> ( in what is now <unk>",
-      "target": ",",
-      "predicted": ")"
+      "predicted": ","
     },
     {
       "context": "old age in addition to his previous <unk> ) . They stayed in <unk> ( in what is now <unk> , <unk> ) at the entrance to the Three <unk> for almost two years from late spring <unk> . This period was Du Fu 's last great poetic flowering , and here he wrote 400 poems in his dense , late style . In autumn <unk> , Bo <unk> became governor of the region : he supported Du Fu financially and employed him as his unofficial secretary . In March <unk> , he began his journey again and got as",
@@ -269,9 +229,14 @@
       "predicted": "a"
     },
     {
+      "context": "and employed him as his unofficial secretary . In March <unk> , he began his journey again and got as far as <unk> province , where he died in <unk> ( now <unk> ) in November or December 770 , in his <unk> year . He was survived by his wife and two sons , who remained in the area for some years at least . His last known descendant is a grandson who requested a grave inscription for the poet from Yuan <unk> in <unk> . <unk> <unk> his life by concluding that , \" He appeared to be",
+      "target": "a",
+      "predicted": "<unk>"
+    },
+    {
       "context": "poet from Yuan <unk> in <unk> . <unk> <unk> his life by concluding that , \" He appeared to be a <unk> son , an affectionate father , a generous brother , a faithful husband , a loyal friend , a <unk> official , and a patriotic subject . \" Below is an example of one of Du Fu 's later works , To My <unk> Friend <unk> ( Chinese : <unk> ) . Like many other poems in the Tang it featured the theme of a long parting between friends , which was often due to officials being frequently",
       "target": "transferred",
-      "predicted": "to"
+      "predicted": ","
     },
     {
       "context": "Tang it featured the theme of a long parting between friends , which was often due to officials being frequently transferred to the provinces : = = Works = = Criticism of Du Fu 's works has focused on his strong sense of history , his moral engagement , and his technical excellence . = = = History = = = Since the Song dynasty , critics have called Du Fu the \" poet historian \" ( <unk> <unk> <unk> ) . The most directly historical of his poems are those commenting on military tactics or the successes and failures",
@@ -291,7 +256,7 @@
     {
       "context": "civilians produced by Du Fu throughout his life . Although Du Fu 's frequent references to his own difficulties can give the impression of an all @-@ consuming <unk> , Hawkes argues that his \" famous compassion in fact includes himself , viewed quite <unk> and almost as an <unk> \" . He therefore \" lends grandeur \" to the wider picture by comparing it to \" his own slightly comical triviality \" . Du Fu 's compassion , for himself and for others , was part of his general broadening of the scope of poetry : he devoted many",
       "target": "works",
-      "predicted": "to"
+      "predicted": ","
     },
     {
       "context": "himself and for others , was part of his general broadening of the scope of poetry : he devoted many works to topics which had previously been considered unsuitable for poetic treatment . Zhang Jie wrote that for Du Fu , \" everything in this world is poetry \" , Du wrote extensively on subjects such as domestic life , calligraphy , paintings , animals , and other poems . = = = Technical excellence = = = Du Fu 's work is notable above all for its range . Chinese critics traditionally used the term <unk> ( <unk> \"",
@@ -306,12 +271,17 @@
     {
       "context": "Chou says that in every form he \" either made outstanding advances or contributed outstanding examples \" . Furthermore , his poems use a wide range of registers , from the direct and <unk> to the <unk> and self @-@ consciously literary . This variety is <unk> even within individual works : Owen identifies the , \" rapid stylistic and thematic shifts \" in poems which enable the poet to represent different <unk> of a situation , while Chou uses the term \" juxtaposition \" as the major analytical tool in her work . Du Fu is noted for having",
       "target": "written",
-      "predicted": "the"
+      "predicted": "to"
     },
     {
       "context": "the term \" juxtaposition \" as the major analytical tool in her work . Du Fu is noted for having written more on <unk> and painting than any other writer of his time . He wrote eighteen poems on painting alone , more than any other Tang poet . Du Fu 's seemingly negative commentary on the prized horse paintings of Han <unk> <unk> a controversy that has persisted to the present day . The tenor of his work changed as he developed his style and adapted to his surroundings ( \" <unk> @-@ like \" according to Watson )",
       "target": ":",
       "predicted": ","
+    },
+    {
+      "context": "as he developed his style and adapted to his surroundings ( \" <unk> @-@ like \" according to Watson ) : his earliest works are in a relatively derivative , courtly style , but he came into his own in the years of the rebellion . Owen comments on the \" <unk> simplicity \" of the <unk> poems , which mirrors the desert landscape ; the works from his <unk> period are \" light , often finely observed \" ; while the poems from the late <unk> period have a \" density and power of vision \" . Although he",
+      "target": "wrote",
+      "predicted": "was"
     }
   ]
 }

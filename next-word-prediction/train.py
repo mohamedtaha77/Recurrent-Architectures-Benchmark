@@ -30,6 +30,7 @@ from dataset import WindowDataset, build_vocab, collate, read_tokens, stride_for
 from models import WordLM
 
 RESULTS_DIR = os.path.join(os.path.dirname(__file__), "results")
+CHECKPOINTS_DIR = os.path.join(os.path.dirname(__file__), "checkpoints")
 
 
 def run_epoch(model, loader, device, criterion, optimizer=None):
@@ -181,6 +182,24 @@ def main():
     out_path = os.path.join(RESULTS_DIR, f"{tag}.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
+
+    os.makedirs(CHECKPOINTS_DIR, exist_ok=True)
+    ckpt_path = os.path.join(CHECKPOINTS_DIR, f"{tag}.pt")
+    torch.save({
+        "state_dict": model.state_dict(),
+        "arch": a.arch,
+        "seq_len": a.seq_len,
+        "stoi": stoi,
+        "itos": itos,
+        "model_kwargs": {
+            "vocab_size": len(itos), "cell": a.arch, "emb_dim": a.emb_dim,
+            "hidden_dim": a.hidden_dim, "num_layers": a.num_layers,
+            "dropout": a.dropout,
+        },
+        "test_perplexity": test_ppl,
+        "test_accuracy": test_acc,
+    }, ckpt_path)
+    print(f"[{tag}] wrote {ckpt_path}")
 
     print(f"\n[{tag}] test_loss={test_loss:.4f} test_ppl={test_ppl:.1f} test_acc={test_acc:.4f} "
           f"train_time={train_time:.1f}s inference={per_example_ms:.4f}ms/example "

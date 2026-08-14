@@ -10,7 +10,7 @@
     "dropout": 0.3,
     "batch_size": 128,
     "lr": 0.001,
-    "epochs": 8,
+    "epochs": 5,
     "min_freq": 1,
     "seed": 42,
     "target_train": 20000,
@@ -31,7 +31,7 @@
       "val_loss": 6.969897636099587,
       "val_acc": 0.0896116827082642,
       "val_ppl": 1064.1138181219062,
-      "epoch_seconds": 1.9920376999943983
+      "epoch_seconds": 3.2319652999867685
     },
     {
       "epoch": 2,
@@ -41,7 +41,7 @@
       "val_loss": 6.9384467229074,
       "val_acc": 0.10421506803849984,
       "val_ppl": 1031.1672818654886,
-      "epoch_seconds": 1.7669525000092108
+      "epoch_seconds": 2.9469461000117008
     },
     {
       "epoch": 3,
@@ -51,7 +51,7 @@
       "val_loss": 6.962302919008627,
       "val_acc": 0.1191503484898772,
       "val_ppl": 1056.0627860744419,
-      "epoch_seconds": 1.7416147000039928
+      "epoch_seconds": 2.9439780000247993
     },
     {
       "epoch": 4,
@@ -61,7 +61,7 @@
       "val_loss": 6.984343610093161,
       "val_acc": 0.12412877530700299,
       "val_ppl": 1079.5975481764606,
-      "epoch_seconds": 1.7331282999948598
+      "epoch_seconds": 2.942476500000339
     },
     {
       "epoch": 5,
@@ -71,47 +71,17 @@
       "val_loss": 7.008722210974936,
       "val_acc": 0.1297709923664122,
       "val_ppl": 1106.2400600043134,
-      "epoch_seconds": 1.7224174000002677
-    },
-    {
-      "epoch": 6,
-      "train_loss": 6.073306422634877,
-      "train_acc": 0.12506835015161305,
-      "train_ppl": 434.1136745083364,
-      "val_loss": 7.014487750024602,
-      "val_acc": 0.13906405575838035,
-      "val_ppl": 1112.636552162191,
-      "epoch_seconds": 1.7305371000111336
-    },
-    {
-      "epoch": 7,
-      "train_loss": 5.905212175148633,
-      "train_acc": 0.1288462494407715,
-      "train_ppl": 366.94507415407907,
-      "val_loss": 7.078149857728378,
-      "val_acc": 0.13906405575838035,
-      "val_ppl": 1185.7726397061208,
-      "epoch_seconds": 1.7250694999966072
-    },
-    {
-      "epoch": 8,
-      "train_loss": 5.72539744420039,
-      "train_acc": 0.13719739523785854,
-      "train_ppl": 306.55507957303774,
-      "val_loss": 7.153951122323184,
-      "val_acc": 0.14570195818121473,
-      "val_ppl": 1279.1500620345348,
-      "epoch_seconds": 1.7523205000034068
+      "epoch_seconds": 2.958639199991012
     }
   ],
-  "train_time_seconds": 14.16424700000789,
+  "train_time_seconds": 15.024159900000086,
   "peak_gpu_memory_mb": 215.54638671875,
-  "inference_time_seconds_full_test_set": 0.09444080000685062,
-  "inference_ms_per_example": 0.03132364842681613,
+  "inference_time_seconds_full_test_set": 0.11950110000907443,
+  "inference_ms_per_example": 0.03963552239106946,
   "n_test_examples": 3015,
-  "test_loss": 7.242289605148594,
-  "test_accuracy": 0.14063018242122718,
-  "test_perplexity": 1397.289552513858,
+  "test_loss": 7.0973516845386815,
+  "test_accuracy": 0.12570480928689884,
+  "test_perplexity": 1208.7616497120491,
   "errors_sample": [
     {
       "context": "= Robert <unk> = Robert <unk> is an English film , television and theatre actor . He had a guest @-@ starring role on the",
@@ -121,7 +91,7 @@
     {
       "context": "as \" Craig \" in the episode \" Teddy 's Story \" of the television series The Long Firm ; he starred alongside actors Mark",
       "target": "Strong",
-      "predicted": "."
+      "predicted": ","
     },
     {
       "context": ", Fraser <unk> , Sophie Stanton and Dominic Hall . In 2006 , <unk> starred alongside <unk> in the play <unk> written by Mark <unk>",
@@ -161,7 +131,7 @@
     {
       "context": "How to Curse was performed at Bush Theatre in the London Borough of <unk> and Fulham . In a review of the production for The",
       "target": "Daily",
-      "predicted": "<unk>"
+      "predicted": ","
     },
     {
       "context": "<unk> Punch , who <unk> along with character \" Josh \" as the \" quiet brother ... who hits it off with <unk> \" .",
@@ -186,12 +156,12 @@
     {
       "context": "he was little @-@ known to other writers , his works came to be hugely influential in both Chinese and Japanese literary culture . Of",
       "target": "his",
-      "predicted": "the"
+      "predicted": "<unk>"
     },
     {
       "context": ". Another reason , identified by the Chinese historian William <unk> , is that Chinese poems are typically <unk> , <unk> context that might be",
       "target": "relevant",
-      "predicted": "a"
+      "predicted": ","
     },
     {
       "context": "a noted politician and poet during the reign of Empress Wu . Du Fu was born in <unk> ; the exact birthplace is unknown ,",
@@ -221,12 +191,12 @@
     {
       "context": "element in Du Fu 's artistic development \" because it gave him a living example of the reclusive poet @-@ scholar life to which he",
       "target": "was",
-      "predicted": "the"
+      "predicted": "."
     },
     {
       "context": "one in the other direction . They met again only once , in <unk> . In 746 , he moved to the capital in an",
       "target": "attempt",
-      "predicted": "<unk>"
+      "predicted": "the"
     },
     {
       "context": "directly in <unk> , 754 and probably again in <unk> . He married around <unk> , and by <unk> the couple had had five children",
@@ -246,12 +216,17 @@
     {
       "context": "Even when he learned of the death of his youngest child , he turned to the suffering of others in his poetry instead of dwelling",
       "target": "upon",
-      "predicted": "."
+      "predicted": ","
+    },
+    {
+      "context": "away from the city , took his family to a place of safety and attempted to join the court of the new emperor ( <unk>",
+      "target": ")",
+      "predicted": ","
     },
     {
       "context": "was appointed <unk> when he rejoined the court in May <unk> . This post gave access to the emperor but was largely ceremonial . Du",
       "target": "Fu",
-      "predicted": "the"
+      "predicted": "="
     },
     {
       "context": "he soon rejoined the court and on December 8 , <unk> , he returned to Chang 'an with the emperor following its recapture by government",
@@ -266,7 +241,7 @@
     {
       "context": "<unk> ( modern Gansu ) . He departed on December 24 for <unk> ( Sichuan province ) , where he was hosted by local <unk>",
       "target": "and",
-      "predicted": "."
+      "predicted": ","
     },
     {
       "context": "appointed governor general at <unk> . Despite his financial problems , this was one of the <unk> and most peaceful periods of his life .",
@@ -291,12 +266,12 @@
     {
       "context": "poet from Yuan <unk> in <unk> . <unk> <unk> his life by concluding that , \" He appeared to be a <unk> son , an",
       "target": "affectionate",
-      "predicted": "<unk>"
+      "predicted": "the"
     },
     {
       "context": "Tang it featured the theme of a long parting between friends , which was often due to officials being frequently transferred to the provinces :",
       "target": "=",
-      "predicted": "<unk>"
+      "predicted": ","
     },
     {
       "context": "the era \" . Du Fu 's political comments are based on emotion rather than calculation : his <unk> have been <unk> as , \"",
@@ -307,11 +282,6 @@
       "context": "epithet of Chinese critics is that of \" poet sage \" ( <unk> <unk> <unk> ) , a counterpart to the philosophical sage , <unk>",
       "target": ".",
       "predicted": ","
-    },
-    {
-      "context": "civilians produced by Du Fu throughout his life . Although Du Fu 's frequent references to his own difficulties can give the impression of an",
-      "target": "all",
-      "predicted": "<unk>"
     }
   ]
 }

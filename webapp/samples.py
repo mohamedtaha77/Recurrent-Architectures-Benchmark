@@ -1,0 +1,75 @@
+# -*- coding: utf-8 -*-
+"""Curated example inputs per task, for the "random sample" autofill button."""
+
+NER_SAMPLES = [
+    "Barack Obama was born in Hawaii and served as President of the United States.",
+    "Apple Inc. unveiled its new headquarters in Cupertino, California.",
+    "The United Nations Security Council met in New York to discuss the crisis in Ukraine.",
+    "Lionel Messi left Paris Saint-Germain to join Inter Miami in Florida.",
+    "Angela Merkel served as Chancellor of Germany for sixteen years.",
+    "Google and Microsoft are both investing heavily in artificial intelligence research.",
+    "The Eiffel Tower in Paris attracts millions of tourists from around the world every year.",
+    "NASA announced that its Artemis mission will send astronauts back to the Moon.",
+    "Amazon founder Jeff Bezos stepped down as CEO to focus on Blue Origin.",
+    "The World Health Organization warned about a new outbreak in Southeast Asia.",
+    "Elon Musk's company SpaceX launched a rocket from Cape Canaveral, Florida.",
+    "The Bank of England raised interest rates to combat inflation across the United Kingdom.",
+    "Cristiano Ronaldo signed a new contract with Al Nassr in Saudi Arabia.",
+    "The European Union imposed new sanctions on Russia following the invasion of Ukraine.",
+    "Tesla opened a new Gigafactory near Berlin, Germany.",
+    "Queen Elizabeth II passed away at Balmoral Castle in Scotland.",
+    "Facebook, now known as Meta, is headquartered in Menlo Park, California.",
+    "The Olympics will be hosted by Los Angeles in the United States in 2028.",
+    "Nelson Mandela became the first Black president of South Africa in 1994.",
+    "Microsoft acquired Activision Blizzard in a deal worth billions of dollars.",
+]
+
+NWP_SAMPLES = [
+    "The president of the United States",
+    "According to the latest report , the economy",
+    "In the early twentieth century , scientists discovered",
+    "The film received positive reviews from critics who praised",
+    "During World War II , the country was forced to",
+    "The band released their first album in",
+    "Researchers at the university found that the new drug",
+    "The novel tells the story of a young woman who",
+    "After years of decline , the population began to",
+    "The team's coach announced that the star player would",
+    "Historians believe that the ancient city was destroyed by",
+    "The company reported a significant increase in",
+    "Following the earthquake , thousands of people were",
+    "The composer wrote the symphony while living in",
+    "Critics argue that the government's policy failed to",
+    "The species is found mainly in the forests of",
+    "In his speech , the senator called for greater",
+    "The museum's new exhibit features artifacts from",
+    "The river flows through several countries before reaching",
+    "The scientist spent decades studying the effects of",
+]
+
+# Each string wraps the erroneous span in **double asterisks**; roughly
+# covers the six error types the model is trained on (punctuation,
+# hamza_alef, split, other, char_ins_del, ta_marbuta) without claiming exact
+# ground-truth labels for each one.
+ARABIC_SAMPLES = [
+    "اكل **احمد** التفاحة في الصباح",
+    "**انا** ذاهب إلى المدرسة اليوم",
+    "هل تعرف **اين** يقع المتحف الجديد",
+    "**اسرة** الطالب فخورة بنجاحه",
+    "ذهبت الفتاة إلى **المدرسه** صباحا",
+    "قرأت **القصه** كاملة في ليلة واحدة",
+    "اشترت أمي **سياره** جديدة أمس",
+    "تناولنا وجبة **لذيذه** في المطعم",
+    "ذهب علي إلى السوق **,** واشترى الخضروات",
+    "ما اسمك **؟** سألني الرجل الغريب",
+    "قال المعلم **:** افتحوا كتبكم",
+    "أحضرت الكتب والأقلام **والدفاتر** إلى المدرسة",
+    "**فيالبيت** أطفال يلعبون بسعادة",
+    "**لكيتنجح** يجب أن تجتهد في دراستك",
+    "**علىالرغم** من التعب واصل العمل",
+    "ذهب الولد إلى **المدرسسة** في الصباح الباكر",
+    "اشترى الرجل **كتاا** جديدا من المكتبة",
+    "شربت **الحليبب** قبل النوم",
+    "يعمل والدي في **شركه كبيره** للتجارة",
+    "زرنا **المتحفف** الوطني في العاصمة",
+]

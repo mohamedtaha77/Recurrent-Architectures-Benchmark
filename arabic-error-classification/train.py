@@ -30,6 +30,7 @@ from dataset import ClassificationDataset, build_vocab, collate, read_labels, re
 from models import SequenceClassifier
 
 RESULTS_DIR = os.path.join(os.path.dirname(__file__), "results")
+CHECKPOINTS_DIR = os.path.join(os.path.dirname(__file__), "checkpoints")
 
 
 def run_epoch(model, loader, device, criterion, optimizer=None):
@@ -177,6 +178,25 @@ def main():
     out_path = os.path.join(RESULTS_DIR, f"{a.arch}.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
+
+    os.makedirs(CHECKPOINTS_DIR, exist_ok=True)
+    ckpt_path = os.path.join(CHECKPOINTS_DIR, f"{a.arch}.pt")
+    torch.save({
+        "state_dict": model.state_dict(),
+        "arch": a.arch,
+        "stoi": stoi,
+        "itos": itos,
+        "labels": labels,
+        "model_kwargs": {
+            "vocab_size": len(itos), "num_classes": len(labels), "cell": a.arch,
+            "emb_dim": a.emb_dim, "hidden_dim": a.hidden_dim,
+            "num_layers": a.num_layers, "dropout": a.dropout,
+            "bidirectional": a.bidirectional,
+        },
+        "test_accuracy": acc,
+        "test_f1_macro": f1_macro,
+    }, ckpt_path)
+    print(f"[{a.arch}] wrote {ckpt_path}")
 
     print(f"\n[{a.arch}] test_acc={acc:.4f} macro_P={p_macro:.4f} macro_R={r_macro:.4f} "
           f"macro_F1={f1_macro:.4f}  train_time={train_time:.1f}s "

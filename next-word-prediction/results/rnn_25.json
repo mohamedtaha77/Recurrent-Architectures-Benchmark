@@ -10,7 +10,7 @@
     "dropout": 0.3,
     "batch_size": 128,
     "lr": 0.001,
-    "epochs": 8,
+    "epochs": 5,
     "min_freq": 1,
     "seed": 42,
     "target_train": 20000,
@@ -31,7 +31,7 @@
       "val_loss": 7.0162743059773005,
       "val_acc": 0.0965814802522403,
       "val_ppl": 1114.6261163223048,
-      "epoch_seconds": 1.8374725000030594
+      "epoch_seconds": 2.953110899979947
     },
     {
       "epoch": 2,
@@ -41,7 +41,7 @@
       "val_loss": 7.012284654103914,
       "val_acc": 0.11682708264188517,
       "val_ppl": 1110.1880052950833,
-      "epoch_seconds": 1.6056559999997262
+      "epoch_seconds": 2.5823365000251215
     },
     {
       "epoch": 3,
@@ -51,7 +51,7 @@
       "val_loss": 6.980870804595187,
       "val_acc": 0.12246929970129439,
       "val_ppl": 1075.8548185231737,
-      "epoch_seconds": 1.6312449999968521
+      "epoch_seconds": 2.615276799973799
     },
     {
       "epoch": 4,
@@ -61,7 +61,7 @@
       "val_loss": 7.058109439966333,
       "val_acc": 0.1297709923664122,
       "val_ppl": 1162.2457919601986,
-      "epoch_seconds": 1.590710600008606
+      "epoch_seconds": 2.6829785999725573
     },
     {
       "epoch": 5,
@@ -71,52 +71,22 @@
       "val_loss": 7.086190750541142,
       "val_acc": 0.13176236309326253,
       "val_ppl": 1195.3457469872606,
-      "epoch_seconds": 1.5932689999899594
-    },
-    {
-      "epoch": 6,
-      "train_loss": 5.7678230417860945,
-      "train_acc": 0.12327881890938013,
-      "train_ppl": 319.8406943842698,
-      "val_loss": 7.132279858017854,
-      "val_acc": 0.13209425821440424,
-      "val_ppl": 1251.727477224292,
-      "epoch_seconds": 1.5627501999988453
-    },
-    {
-      "epoch": 7,
-      "train_loss": 5.5664440409980855,
-      "train_acc": 0.1285977034349058,
-      "train_ppl": 261.5025515968963,
-      "val_loss": 7.218668425553983,
-      "val_acc": 0.13773647527381347,
-      "val_ppl": 1364.670689711101,
-      "epoch_seconds": 1.5669351999968057
-    },
-    {
-      "epoch": 8,
-      "train_loss": 5.366906641989393,
-      "train_acc": 0.13341949594870012,
-      "train_ppl": 214.19924686892858,
-      "val_loss": 7.243454523273295,
-      "val_acc": 0.1380683703949552,
-      "val_ppl": 1398.918228892172,
-      "epoch_seconds": 1.5381487999984529
+      "epoch_seconds": 2.7699709000007715
     }
   ],
-  "train_time_seconds": 12.926354300012463,
+  "train_time_seconds": 13.603830899985041,
   "peak_gpu_memory_mb": 197.91015625,
-  "inference_time_seconds_full_test_set": 0.07312559999991208,
-  "inference_ms_per_example": 0.024253930348229546,
+  "inference_time_seconds_full_test_set": 0.11629529998754151,
+  "inference_ms_per_example": 0.03857223880183798,
   "n_test_examples": 3015,
-  "test_loss": 7.326280439354689,
-  "test_accuracy": 0.1316749585406302,
-  "test_perplexity": 1519.718560840318,
+  "test_loss": 7.176058306939171,
+  "test_accuracy": 0.12603648424543948,
+  "test_perplexity": 1307.7433627781645,
   "errors_sample": [
     {
       "context": "= Robert <unk> = Robert <unk> is an English film , television and theatre actor . He had a guest @-@ starring role on the",
       "target": "television",
-      "predicted": "first"
+      "predicted": "<unk>"
     },
     {
       "context": "as \" Craig \" in the episode \" Teddy 's Story \" of the television series The Long Firm ; he starred alongside actors Mark",
@@ -186,12 +156,12 @@
     {
       "context": "he was little @-@ known to other writers , his works came to be hugely influential in both Chinese and Japanese literary culture . Of",
       "target": "his",
-      "predicted": "the"
+      "predicted": "="
     },
     {
       "context": ". Another reason , identified by the Chinese historian William <unk> , is that Chinese poems are typically <unk> , <unk> context that might be",
       "target": "relevant",
-      "predicted": "in"
+      "predicted": ","
     },
     {
       "context": "a noted politician and poet during the reign of Empress Wu . Du Fu was born in <unk> ; the exact birthplace is unknown ,",
@@ -216,7 +186,7 @@
     {
       "context": "his father 's rank , but he is thought to have given up the privilege in favour of one of his half brothers . He",
       "target": "spent",
-      "predicted": "wears"
+      "predicted": "the"
     },
     {
       "context": "element in Du Fu 's artistic development \" because it gave him a living example of the reclusive poet @-@ scholar life to which he",
@@ -231,7 +201,7 @@
     {
       "context": "directly in <unk> , 754 and probably again in <unk> . He married around <unk> , and by <unk> the couple had had five children",
       "target": "—",
-      "predicted": "to"
+      "predicted": ","
     },
     {
       "context": "swept away by events . = = = War = = = The An <unk> Rebellion began in December <unk> , and was not completely",
@@ -247,6 +217,11 @@
       "context": "Even when he learned of the death of his youngest child , he turned to the suffering of others in his poetry instead of dwelling",
       "target": "upon",
       "predicted": "."
+    },
+    {
+      "context": "away from the city , took his family to a place of safety and attempted to join the court of the new emperor ( <unk>",
+      "target": ")",
+      "predicted": ","
     },
     {
       "context": "was appointed <unk> when he rejoined the court in May <unk> . This post gave access to the emperor but was largely ceremonial . Du",
@@ -281,7 +256,7 @@
     {
       "context": "old age in addition to his previous <unk> ) . They stayed in <unk> ( in what is now <unk> , <unk> ) at the",
       "target": "entrance",
-      "predicted": "first"
+      "predicted": "<unk>"
     },
     {
       "context": "and employed him as his unofficial secretary . In March <unk> , he began his journey again and got as far as <unk> province ,",
@@ -291,7 +266,7 @@
     {
       "context": "poet from Yuan <unk> in <unk> . <unk> <unk> his life by concluding that , \" He appeared to be a <unk> son , an",
       "target": "affectionate",
-      "predicted": "\""
+      "predicted": "<unk>"
     },
     {
       "context": "Tang it featured the theme of a long parting between friends , which was often due to officials being frequently transferred to the provinces :",
@@ -307,11 +282,6 @@
       "context": "epithet of Chinese critics is that of \" poet sage \" ( <unk> <unk> <unk> ) , a counterpart to the philosophical sage , <unk>",
       "target": ".",
       "predicted": ","
-    },
-    {
-      "context": "civilians produced by Du Fu throughout his life . Although Du Fu 's frequent references to his own difficulties can give the impression of an",
-      "target": "all",
-      "predicted": "<unk>"
     }
   ]
 }

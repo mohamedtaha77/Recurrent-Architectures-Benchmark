@@ -10,7 +10,7 @@
     "dropout": 0.3,
     "batch_size": 128,
     "lr": 0.001,
-    "epochs": 8,
+    "epochs": 5,
     "min_freq": 1,
     "seed": 42,
     "target_train": 20000,
@@ -31,7 +31,7 @@
       "val_loss": 7.135268714165149,
       "val_acc": 0.08300132802124834,
       "val_ppl": 1255.4743071679036,
-      "epoch_seconds": 1.929154400000698
+      "epoch_seconds": 2.80493139999453
     },
     {
       "epoch": 2,
@@ -41,7 +41,7 @@
       "val_loss": 7.099860367388681,
       "val_acc": 0.10192563081009297,
       "val_ppl": 1211.7978561796049,
-      "epoch_seconds": 1.6660173999989638
+      "epoch_seconds": 1.621437700028764
     },
     {
       "epoch": 3,
@@ -51,7 +51,7 @@
       "val_loss": 7.143348583028928,
       "val_acc": 0.10690571049136786,
       "val_ppl": 1265.6594668983107,
-      "epoch_seconds": 1.6976017000124557
+      "epoch_seconds": 1.629119899997022
     },
     {
       "epoch": 4,
@@ -61,7 +61,7 @@
       "val_loss": 7.157621227254272,
       "val_acc": 0.1102257636122178,
       "val_ppl": 1283.8533023983787,
-      "epoch_seconds": 1.6888669999898411
+      "epoch_seconds": 1.7111509999958798
     },
     {
       "epoch": 5,
@@ -71,47 +71,17 @@
       "val_loss": 7.2204507964540765,
       "val_acc": 0.11553784860557768,
       "val_ppl": 1367.1052079994213,
-      "epoch_seconds": 1.6714297999860719
-    },
-    {
-      "epoch": 6,
-      "train_loss": 5.780215189910501,
-      "train_acc": 0.12238405328826366,
-      "train_ppl": 323.82886762509963,
-      "val_loss": 7.301279418813596,
-      "val_acc": 0.12084993359893759,
-      "val_ppl": 1482.1950632392534,
-      "epoch_seconds": 1.6544304999988526
-    },
-    {
-      "epoch": 7,
-      "train_loss": 5.568043734637751,
-      "train_acc": 0.12829944822786699,
-      "train_ppl": 261.92121033902595,
-      "val_loss": 7.323911246392198,
-      "val_acc": 0.12118193891102258,
-      "val_ppl": 1516.1223161020366,
-      "epoch_seconds": 1.6859785999986343
-    },
-    {
-      "epoch": 8,
-      "train_loss": 5.369202964732653,
-      "train_acc": 0.13386687875925835,
-      "train_ppl": 214.69168265045673,
-      "val_loss": 7.4103070673239655,
-      "val_acc": 0.12184594953519257,
-      "val_ppl": 1652.9338309127616,
-      "epoch_seconds": 1.7132026000035694
+      "epoch_seconds": 1.6861065999837592
     }
   ],
-  "train_time_seconds": 13.706883299993933,
+  "train_time_seconds": 9.452875499991933,
   "peak_gpu_memory_mb": 228.15185546875,
-  "inference_time_seconds_full_test_set": 0.1208831999974791,
-  "inference_ms_per_example": 0.040093930347422584,
+  "inference_time_seconds_full_test_set": 0.10212650001631118,
+  "inference_ms_per_example": 0.03387280265880968,
   "n_test_examples": 3015,
-  "test_loss": 7.3035502433776855,
-  "test_accuracy": 0.13532338308457711,
-  "test_perplexity": 1485.5646926682703,
+  "test_loss": 7.114544603401551,
+  "test_accuracy": 0.1253731343283582,
+  "test_perplexity": 1229.7234717823121,
   "errors_sample": [
     {
       "context": "= Robert <unk> = Robert <unk> is an English film , television and theatre actor . He had a guest @-@ starring role on the television series The Bill in 2000 . This was followed by a starring role in the play Herons written by Simon Stephens , which was",
@@ -199,14 +169,9 @@
       "predicted": "The"
     },
     {
-      "context": "a noted politician and poet during the reign of Empress Wu . Du Fu was born in <unk> ; the exact birthplace is unknown , except that it was near Luoyang , Henan province ( Gong county is a favourite candidate ) . In later life , he considered himself",
-      "target": "to",
-      "predicted": ","
-    },
-    {
       "context": "was partially raised by his aunt . He had an elder brother , who died young . He also had three half brothers and one half sister , to whom he frequently refers in his poems , although he never mentions his stepmother . The son of a minor scholar",
       "target": "@-@",
-      "predicted": "of"
+      "predicted": ","
     },
     {
       "context": ". He later claimed to have produced <unk> poems by his early teens , but these have been lost . In the early <unk> , he travelled in the <unk> / Zhejiang area ; his earliest surviving poem , describing a poetry contest , is thought to date from the",
@@ -236,7 +201,7 @@
     {
       "context": "directly in <unk> , 754 and probably again in <unk> . He married around <unk> , and by <unk> the couple had had five children — three sons and two daughters — but one of the sons died in infancy in <unk> . From 754 he began to have lung",
       "target": "problems",
-      "predicted": "the"
+      "predicted": ","
     },
     {
       "context": "Fu was forced to move his family due to the turmoil of a famine brought about by massive floods in the region . In <unk> , he received an appointment as <unk> of the Right Commandant 's office of the Crown Prince 's Palace . Although this was a minor",
@@ -269,6 +234,11 @@
       "predicted": ","
     },
     {
+      "context": "he soon rejoined the court and on December 8 , <unk> , he returned to Chang 'an with the emperor following its recapture by government forces . However , his advice continued to be <unk> , and in the summer of <unk> he was demoted to a post as Commissioner",
+      "target": "of",
+      "predicted": ","
+    },
+    {
       "context": "Especially when they bring more papers to pile higher on my desk . He moved on in the summer of <unk> ; this has traditionally been ascribed to famine , but <unk> believes that frustration is a more likely reason . He next spent around six weeks in <unk> (",
       "target": "now",
       "predicted": "<unk>"
@@ -276,7 +246,7 @@
     {
       "context": "<unk> ( modern Gansu ) . He departed on December 24 for <unk> ( Sichuan province ) , where he was hosted by local <unk> and fellow poet <unk> Di . Du subsequently based himself in Sichuan for most of the next five years . By the autumn of that",
       "target": "year",
-      "predicted": "it"
+      "predicted": ","
     },
     {
       "context": "Empire . = = = Last years = = = Luoyang , the region of his birthplace , was recovered by government forces in the winter of 762 , and in the spring of <unk> Du Fu and his family sailed down the Yangtze , apparently with the intention of",
@@ -286,12 +256,12 @@
     {
       "context": "and employed him as his unofficial secretary . In March <unk> , he began his journey again and got as far as <unk> province , where he died in <unk> ( now <unk> ) in November or December 770 , in his <unk> year . He was survived by his",
       "target": "wife",
-      "predicted": "first"
+      "predicted": "<unk>"
     },
     {
       "context": "poet from Yuan <unk> in <unk> . <unk> <unk> his life by concluding that , \" He appeared to be a <unk> son , an affectionate father , a generous brother , a faithful husband , a loyal friend , a <unk> official , and a patriotic subject . \"",
       "target": "Below",
-      "predicted": "<unk>"
+      "predicted": "The"
     },
     {
       "context": "Tang it featured the theme of a long parting between friends , which was often due to officials being frequently transferred to the provinces : = = Works = = Criticism of Du Fu 's works has focused on his strong sense of history , his moral engagement , and",

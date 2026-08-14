@@ -31,6 +31,7 @@ from dataset import NERDataset, build_vocab, collate, entity_scores, read_jsonl,
 from models import TokenTagger
 
 RESULTS_DIR = os.path.join(os.path.dirname(__file__), "results")
+CHECKPOINTS_DIR = os.path.join(os.path.dirname(__file__), "checkpoints")
 
 
 def run_epoch(model, loader, device, criterion, tag2idx, optimizer=None):
@@ -199,6 +200,25 @@ def main():
     out_path = os.path.join(RESULTS_DIR, f"{a.arch}.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
+
+    os.makedirs(CHECKPOINTS_DIR, exist_ok=True)
+    ckpt_path = os.path.join(CHECKPOINTS_DIR, f"{a.arch}.pt")
+    torch.save({
+        "state_dict": model.state_dict(),
+        "arch": a.arch,
+        "stoi": stoi,
+        "itos": itos,
+        "tags": tags,
+        "model_kwargs": {
+            "vocab_size": len(itos), "num_tags": len(tags), "cell": a.arch,
+            "emb_dim": a.emb_dim, "hidden_dim": a.hidden_dim,
+            "num_layers": a.num_layers, "dropout": a.dropout,
+            "bidirectional": a.bidirectional,
+        },
+        "token_accuracy": token_acc,
+        "entity_f1": entity_overall["f1"],
+    }, ckpt_path)
+    print(f"[{a.arch}] wrote {ckpt_path}")
 
     print(f"\n[{a.arch}] token_acc={token_acc:.4f} token_macro_F1={f1_macro:.4f}  "
           f"entity_P={entity_overall['precision']:.4f} entity_R={entity_overall['recall']:.4f} "

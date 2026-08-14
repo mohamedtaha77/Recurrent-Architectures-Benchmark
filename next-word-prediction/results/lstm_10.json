@@ -10,7 +10,7 @@
     "dropout": 0.3,
     "batch_size": 128,
     "lr": 0.001,
-    "epochs": 8,
+    "epochs": 5,
     "min_freq": 1,
     "seed": 42,
     "target_train": 20000,
@@ -31,7 +31,7 @@
       "val_loss": 7.111151565953105,
       "val_acc": 0.0879522071025556,
       "val_ppl": 1225.558044712616,
-      "epoch_seconds": 1.8813380999927176
+      "epoch_seconds": 2.88860829998157
     },
     {
       "epoch": 2,
@@ -41,7 +41,7 @@
       "val_loss": 7.049914429364234,
       "val_acc": 0.10952538997676735,
       "val_ppl": 1152.7600961485075,
-      "epoch_seconds": 1.6668279000004986
+      "epoch_seconds": 2.68870169998263
     },
     {
       "epoch": 3,
@@ -51,7 +51,7 @@
       "val_loss": 7.049903137201967,
       "val_acc": 0.12147361433786924,
       "val_ppl": 1152.747079067942,
-      "epoch_seconds": 1.5406580999988364
+      "epoch_seconds": 2.6553329000016674
     },
     {
       "epoch": 4,
@@ -61,7 +61,7 @@
       "val_loss": 7.081762494417349,
       "val_acc": 0.12479256554928643,
       "val_ppl": 1190.0641526201753,
-      "epoch_seconds": 1.6300273000088055
+      "epoch_seconds": 2.6506571999925654
     },
     {
       "epoch": 5,
@@ -71,47 +71,17 @@
       "val_loss": 7.094207363749041,
       "val_acc": 0.12877530700298706,
       "val_ppl": 1204.9668844333096,
-      "epoch_seconds": 1.5520326999976533
-    },
-    {
-      "epoch": 6,
-      "train_loss": 6.029466534499981,
-      "train_acc": 0.12735497340557736,
-      "train_ppl": 415.4933188986763,
-      "val_loss": 7.141352848004868,
-      "val_acc": 0.12545635579156986,
-      "val_ppl": 1263.1360648301822,
-      "epoch_seconds": 1.5538680000026943
-    },
-    {
-      "epoch": 7,
-      "train_loss": 5.85416336636032,
-      "train_acc": 0.13292240393696872,
-      "train_ppl": 348.6830580126539,
-      "val_loss": 7.1784426855004355,
-      "val_acc": 0.13342183869897112,
-      "val_ppl": 1310.8652384036081,
-      "epoch_seconds": 1.5849560000060592
-    },
-    {
-      "epoch": 8,
-      "train_loss": 5.684569508463949,
-      "train_acc": 0.1390366356812646,
-      "train_ppl": 294.29112793770946,
-      "val_loss": 7.219009323449298,
-      "val_acc": 0.1364088947892466,
-      "val_ppl": 1365.1359823811615,
-      "epoch_seconds": 1.5997451000002911
+      "epoch_seconds": 2.690235699992627
     }
   ],
-  "train_time_seconds": 13.009643800003687,
+  "train_time_seconds": 13.57366599998204,
   "peak_gpu_memory_mb": 199.78515625,
-  "inference_time_seconds_full_test_set": 0.08011760000954382,
-  "inference_ms_per_example": 0.026564190984596756,
+  "inference_time_seconds_full_test_set": 0.10174100002041087,
+  "inference_ms_per_example": 0.0337337533224174,
   "n_test_examples": 3016,
-  "test_loss": 7.207931523613968,
-  "test_accuracy": 0.12002652519893899,
-  "test_perplexity": 1350.0967339105714,
+  "test_loss": 7.0743359203996325,
+  "test_accuracy": 0.10543766578249338,
+  "test_perplexity": 1181.2587904128793,
   "errors_sample": [
     {
       "context": "= Robert <unk> = Robert <unk> is an English film",
@@ -121,12 +91,17 @@
     {
       "context": "as \" Craig \" in the episode \" Teddy 's",
       "target": "Story",
-      "predicted": "<unk>"
+      "predicted": "the"
     },
     {
       "context": ", Fraser <unk> , Sophie Stanton and Dominic Hall .",
       "target": "In",
       "predicted": "The"
+    },
+    {
+      "context": "2008 , <unk> <unk> by filmmaker Paris <unk> , and",
+      "target": "<unk>",
+      "predicted": "the"
     },
     {
       "context": "2011 film <unk> directed by Paris <unk> . = =",
@@ -141,7 +116,7 @@
     {
       "context": "in 2003 on two episodes of The Bill , as",
       "target": "character",
-      "predicted": "a"
+      "predicted": "the"
     },
     {
       "context": "Plymouth , and the <unk> <unk> Factory in London .",
@@ -156,12 +131,12 @@
     {
       "context": ": \" I loved working with a guy called Robert",
       "target": "<unk>",
-      "predicted": "."
+      "predicted": ","
     },
     {
       "context": "How to Curse was performed at Bush Theatre in the",
       "target": "London",
-      "predicted": "United"
+      "predicted": "<unk>"
     },
     {
       "context": "<unk> Punch , who <unk> along with character \" Josh",
@@ -176,7 +151,7 @@
     {
       "context": "stand there and look like you know what you 're",
       "target": "doing",
-      "predicted": ","
+      "predicted": "the"
     },
     {
       "context": "Tang dynasty . Along with Li <unk> ( Li Po",
@@ -196,7 +171,7 @@
     {
       "context": ". Another reason , identified by the Chinese historian William",
       "target": "<unk>",
-      "predicted": "to"
+      "predicted": ","
     },
     {
       "context": "the poem or fail to understand it altogether \" .",
@@ -231,12 +206,12 @@
     {
       "context": "element in Du Fu 's artistic development \" because it",
       "target": "gave",
-      "predicted": "."
+      "predicted": ","
     },
     {
       "context": "one in the other direction . They met again only",
       "target": "once",
-      "predicted": ","
+      "predicted": "the"
     },
     {
       "context": "directly in <unk> , 754 and probably again in <unk>",
@@ -301,17 +276,12 @@
     {
       "context": "poet from Yuan <unk> in <unk> . <unk> <unk> his",
       "target": "life",
-      "predicted": "<unk>"
+      "predicted": "the"
     },
     {
       "context": "Tang it featured the theme of a long parting between",
       "target": "friends",
       "predicted": "the"
-    },
-    {
-      "context": ") . The most directly historical of his poems are",
-      "target": "those",
-      "predicted": ","
     }
   ]
 }
