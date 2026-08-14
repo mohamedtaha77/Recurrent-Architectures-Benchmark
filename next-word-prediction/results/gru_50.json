@@ -1,0 +1,317 @@
+{
+  "arch": "gru",
+  "seq_len": 50,
+  "hyperparams": {
+    "arch": "gru",
+    "seq_len": 50,
+    "emb_dim": 128,
+    "hidden_dim": 128,
+    "num_layers": 1,
+    "dropout": 0.3,
+    "batch_size": 128,
+    "lr": 0.001,
+    "epochs": 8,
+    "min_freq": 1,
+    "seed": 42,
+    "target_train": 20000,
+    "target_eval": 3000
+  },
+  "vocab_size": 33279,
+  "n_train_windows": 20117,
+  "n_val_windows": 3012,
+  "train_stride": 102,
+  "n_params": 8651775,
+  "device": "cuda",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 8.130743351680488,
+      "train_acc": 0.05313913605408361,
+      "train_ppl": 3397.324033270586,
+      "val_loss": 7.1452490165730715,
+      "val_acc": 0.08200531208499336,
+      "val_ppl": 1268.067055611229,
+      "epoch_seconds": 2.1339815000101225
+    },
+    {
+      "epoch": 2,
+      "train_loss": 6.82950860685908,
+      "train_acc": 0.09057016453745588,
+      "train_ppl": 924.7362917430961,
+      "val_loss": 7.105443238895411,
+      "val_acc": 0.10225763612217796,
+      "val_ppl": 1218.5820880289712,
+      "epoch_seconds": 1.8638610000052722
+    },
+    {
+      "epoch": 3,
+      "train_loss": 6.510865060213031,
+      "train_acc": 0.10791867574688074,
+      "train_ppl": 672.4078393411688,
+      "val_loss": 7.099428376986844,
+      "val_acc": 0.11221779548472775,
+      "val_ppl": 1211.2744841907459,
+      "epoch_seconds": 1.8525620000000345
+    },
+    {
+      "epoch": 4,
+      "train_loss": 6.253509110281362,
+      "train_acc": 0.11542476512402446,
+      "train_ppl": 519.8337818985491,
+      "val_loss": 7.099419334811835,
+      "val_acc": 0.11918990703851262,
+      "val_ppl": 1211.2635316843935,
+      "epoch_seconds": 1.9050735000055283
+    },
+    {
+      "epoch": 5,
+      "train_loss": 6.015832764375765,
+      "train_acc": 0.12322910970820698,
+      "train_ppl": 409.8670194880329,
+      "val_loss": 7.12565507673489,
+      "val_acc": 0.12416998671978752,
+      "val_ppl": 1243.4624636431422,
+      "epoch_seconds": 1.8507073000073433
+    },
+    {
+      "epoch": 6,
+      "train_loss": 5.783242384458374,
+      "train_acc": 0.13083461748769698,
+      "train_ppl": 324.810645874757,
+      "val_loss": 7.163366900338911,
+      "val_acc": 0.12782204515272244,
+      "val_ppl": 1291.251136177912,
+      "epoch_seconds": 1.8426199999958044
+    },
+    {
+      "epoch": 7,
+      "train_loss": 5.543905431804609,
+      "train_acc": 0.13530844559327931,
+      "train_ppl": 255.67457177350525,
+      "val_loss": 7.278517167090103,
+      "val_acc": 0.13645418326693226,
+      "val_ppl": 1448.8380467422412,
+      "epoch_seconds": 1.8849220000120113
+    },
+    {
+      "epoch": 8,
+      "train_loss": 5.320020788225649,
+      "train_acc": 0.14256598896455733,
+      "train_ppl": 204.38813081538842,
+      "val_loss": 7.339006535402174,
+      "val_acc": 0.13645418326693226,
+      "val_ppl": 1539.1822307939026,
+      "epoch_seconds": 1.9055890000017826
+    }
+  ],
+  "train_time_seconds": 15.239480299991556,
+  "peak_gpu_memory_mb": 259.40771484375,
+  "inference_time_seconds_full_test_set": 0.1061760000011418,
+  "inference_ms_per_example": 0.03521592039838866,
+  "n_test_examples": 3015,
+  "test_loss": 7.247480595527004,
+  "test_accuracy": 0.14129353233830846,
+  "test_perplexity": 1404.5617277026352,
+  "errors_sample": [
+    {
+      "context": "= Robert <unk> = Robert <unk> is an English film , television and theatre actor . He had a guest @-@ starring role on the television series The Bill in 2000 . This was followed by a starring role in the play Herons written by Simon Stephens , which was",
+      "target": "performed",
+      "predicted": "the"
+    },
+    {
+      "context": ", Fraser <unk> , Sophie Stanton and Dominic Hall . In 2006 , <unk> starred alongside <unk> in the play <unk> written by Mark <unk> . He appeared on a 2006 episode of the television series , Doctors , followed by a role in the 2007 theatre production of How",
+      "target": "to",
+      "predicted": ","
+    },
+    {
+      "context": "2008 , <unk> <unk> by filmmaker Paris <unk> , and <unk> Punch directed by <unk> Blackburn . In May 2008 , <unk> made a guest appearance on a two @-@ part episode arc of the television series Waking the Dead , followed by an appearance on the television series <unk>",
+      "target": "in",
+      "predicted": ","
+    },
+    {
+      "context": "2011 film <unk> directed by Paris <unk> . = = Career = = = = = 2000 – 2005 = = = In 2000 <unk> had a guest @-@ starring role on the television series The Bill ; he portrayed \" Scott Parry \" in the episode , \" In",
+      "target": "Safe",
+      "predicted": "the"
+    },
+    {
+      "context": "A review of <unk> 's performance in The Independent on Sunday described him as \" horribly menacing \" in the role , and he received critical reviews in The Herald , and Evening Standard . He appeared in the television series Judge John <unk> in 2002 as \" <unk> <unk>",
+      "target": "\"",
+      "predicted": ","
+    },
+    {
+      "context": "in 2003 on two episodes of The Bill , as character \" Connor Price \" . In 2004 <unk> landed a role as \" Craig \" in the episode \" Teddy 's Story \" of the television series The Long Firm ; he starred alongside actors Mark Strong and Derek",
+      "target": "Jacobi",
+      "predicted": ","
+    },
+    {
+      "context": "Plymouth , and the <unk> <unk> Factory in London . He was directed by John <unk> and starred alongside Ben <unk> , Shane <unk> , Harry Kent , Fraser <unk> , Sophie Stanton and Dominic Hall . <unk> received a favorable review in The Daily Telegraph : \" The acting",
+      "target": "is",
+      "predicted": "of"
+    },
+    {
+      "context": "<unk> . \" The Guardian noted , \" Ben <unk> and Robert <unk> offer <unk> amid the <unk> . \" = = = 2006 – present = = = In 2006 <unk> starred in the play <unk> written by Mark <unk> . The play was part of a series which",
+      "target": "featured",
+      "predicted": "of"
+    },
+    {
+      "context": ": \" I loved working with a guy called Robert <unk> , who was in the triple bill of Burn , <unk> and <unk> at the National . He played my brother in Mercury Fur . \" He portrayed \" Jason Tyler \" on the 2006 episode of the television",
+      "target": "series",
+      "predicted": "of"
+    },
+    {
+      "context": "How to Curse was performed at Bush Theatre in the London Borough of <unk> and Fulham . In a review of the production for The Daily Telegraph , theatre critic Charles Spencer noted , \" Robert <unk> brings a touching vulnerability to the stage as William . \" <unk> starred",
+      "target": "in",
+      "predicted": ","
+    },
+    {
+      "context": "<unk> Punch , who <unk> along with character \" Josh \" as the \" quiet brother ... who hits it off with <unk> \" . <unk> guest starred on a two @-@ part episode arc \" <unk> \" in May 2008 of the television series Waking the Dead as character",
+      "target": "\"",
+      "predicted": ","
+    },
+    {
+      "context": "television series <unk> in 2010 , as \" <unk> Fletcher \" . He portrayed an emergency physician applying for a medical <unk> . He commented on the inherent difficulties in portraying a physician on television : \" Playing a doctor is a strange experience . <unk> you know what you",
+      "target": "'re",
+      "predicted": "the"
+    },
+    {
+      "context": "Tang dynasty . Along with Li <unk> ( Li Po ) , he is frequently called the greatest of the Chinese poets . His greatest ambition was to serve his country as a successful civil servant , but he proved unable to make the necessary accommodations . His life ,",
+      "target": "like",
+      "predicted": "the"
+    },
+    {
+      "context": "he was little @-@ known to other writers , his works came to be hugely influential in both Chinese and Japanese literary culture . Of his poetic writing , nearly fifteen hundred poems have been preserved over the ages . He has been called the \" Poet @-@ Historian \"",
+      "target": "and",
+      "predicted": "\""
+    },
+    {
+      "context": "Virgil , Horace , <unk> , Shakespeare , Milton , Burns , <unk> , <unk> , Hugo or <unk> \" . = = Life = = Traditional Chinese literary criticism emphasized the life of the author when interpreting a work , a practice which Burton Watson attributes to \" the",
+      "target": "close",
+      "predicted": "\""
+    },
+    {
+      "context": ". Another reason , identified by the Chinese historian William <unk> , is that Chinese poems are typically <unk> , <unk> context that might be relevant , but which an informed contemporary could be assumed to know . For modern Western readers , \" The less accurately we know the",
+      "target": "time",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "the poem or fail to understand it altogether \" . Stephen Owen suggests a third factor particular to Du Fu , arguing that the variety of the poet 's work required consideration of his whole life , rather than the \" <unk> \" <unk> used for more limited poets .",
+      "target": "=",
+      "predicted": "The"
+    },
+    {
+      "context": "a noted politician and poet during the reign of Empress Wu . Du Fu was born in <unk> ; the exact birthplace is unknown , except that it was near Luoyang , Henan province ( Gong county is a favourite candidate ) . In later life , he considered himself",
+      "target": "to",
+      "predicted": ","
+    },
+    {
+      "context": "was partially raised by his aunt . He had an elder brother , who died young . He also had three half brothers and one half sister , to whom he frequently refers in his poems , although he never mentions his stepmother . The son of a minor scholar",
+      "target": "@-@",
+      "predicted": "of"
+    },
+    {
+      "context": ". He later claimed to have produced <unk> poems by his early teens , but these have been lost . In the early <unk> , he travelled in the <unk> / Zhejiang area ; his earliest surviving poem , describing a poetry contest , is thought to date from the",
+      "target": "end",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "and that of centuries of later critics . <unk> concludes that he probably failed because his prose style at the time was too dense and obscure , while Chou suggests his failure to <unk> connections in the capital may have been to blame . After this failure , he went",
+      "target": "back",
+      "predicted": "was"
+    },
+    {
+      "context": "his father 's rank , but he is thought to have given up the privilege in favour of one of his half brothers . He spent the next four years living in the Luoyang area , fulfilling his duties in domestic affairs . In the autumn of <unk> , he",
+      "target": "met",
+      "predicted": "was"
+    },
+    {
+      "context": "element in Du Fu 's artistic development \" because it gave him a living example of the reclusive poet @-@ scholar life to which he was attracted after his failure in the civil service exam . The relationship was somewhat one @-@ sided , however . Du Fu was by",
+      "target": "some",
+      "predicted": "the"
+    },
+    {
+      "context": "one in the other direction . They met again only once , in <unk> . In 746 , he moved to the capital in an attempt to resurrect his official career . He took the civil service exam a second time during the following year , but all the candidates",
+      "target": "were",
+      "predicted": "of"
+    },
+    {
+      "context": "directly in <unk> , 754 and probably again in <unk> . He married around <unk> , and by <unk> the couple had had five children — three sons and two daughters — but one of the sons died in infancy in <unk> . From 754 he began to have lung",
+      "target": "problems",
+      "predicted": "the"
+    },
+    {
+      "context": "Fu was forced to move his family due to the turmoil of a famine brought about by massive floods in the region . In <unk> , he received an appointment as <unk> of the Right Commandant 's office of the Crown Prince 's Palace . Although this was a minor",
+      "target": "post",
+      "predicted": "of"
+    },
+    {
+      "context": "swept away by events . = = = War = = = The An <unk> Rebellion began in December <unk> , and was not completely suppressed for almost eight years . It caused enormous disruption to Chinese society : the census of 754 recorded 52 @.@ 9 million people ,",
+      "target": "but",
+      "predicted": "and"
+    },
+    {
+      "context": "largely itinerant life <unk> by wars , associated <unk> and imperial <unk> . This period of <unk> was the making of Du Fu as a poet : Even Shan Chou has written that , \" What he saw around him — the lives of his family , neighbors , and",
+      "target": "strangers",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Even when he learned of the death of his youngest child , he turned to the suffering of others in his poetry instead of dwelling upon his own <unk> . Du Fu wrote : <unk> on what I have lived through , if even I know such suffering , the",
+      "target": "common",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "away from the city , took his family to a place of safety and attempted to join the court of the new emperor ( <unk> ) , but he was captured by the rebels and taken to Chang 'an . In the autumn , his youngest son , Du <unk>",
+      "target": "(",
+      "predicted": ","
+    },
+    {
+      "context": "was appointed <unk> when he rejoined the court in May <unk> . This post gave access to the emperor but was largely ceremonial . Du Fu 's <unk> compelled him to try to make use of it : he caused trouble for himself by protesting the removal of his friend",
+      "target": "and",
+      "predicted": "."
+    },
+    {
+      "context": "he soon rejoined the court and on December 8 , <unk> , he returned to Chang 'an with the emperor following its recapture by government forces . However , his advice continued to be <unk> , and in the summer of <unk> he was demoted to a post as Commissioner",
+      "target": "of",
+      "predicted": ","
+    },
+    {
+      "context": "Especially when they bring more papers to pile higher on my desk . He moved on in the summer of <unk> ; this has traditionally been ascribed to famine , but <unk> believes that frustration is a more likely reason . He next spent around six weeks in <unk> (",
+      "target": "now",
+      "predicted": ")"
+    },
+    {
+      "context": "<unk> ( modern Gansu ) . He departed on December 24 for <unk> ( Sichuan province ) , where he was hosted by local <unk> and fellow poet <unk> Di . Du subsequently based himself in Sichuan for most of the next five years . By the autumn of that",
+      "target": "year",
+      "predicted": "the"
+    },
+    {
+      "context": "appointed governor general at <unk> . Despite his financial problems , this was one of the <unk> and most peaceful periods of his life . Many of Du 's poems from this period are peaceful depictions of his life at \" <unk> <unk> \" . In 762 , he left",
+      "target": "the",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Empire . = = = Last years = = = Luoyang , the region of his birthplace , was recovered by government forces in the winter of 762 , and in the spring of <unk> Du Fu and his family sailed down the Yangtze , apparently with the intention of",
+      "target": "making",
+      "predicted": "the"
+    },
+    {
+      "context": "and employed him as his unofficial secretary . In March <unk> , he began his journey again and got as far as <unk> province , where he died in <unk> ( now <unk> ) in November or December 770 , in his <unk> year . He was survived by his",
+      "target": "wife",
+      "predicted": "first"
+    },
+    {
+      "context": "poet from Yuan <unk> in <unk> . <unk> <unk> his life by concluding that , \" He appeared to be a <unk> son , an affectionate father , a generous brother , a faithful husband , a loyal friend , a <unk> official , and a patriotic subject . \"",
+      "target": "Below",
+      "predicted": "The"
+    },
+    {
+      "context": "Tang it featured the theme of a long parting between friends , which was often due to officials being frequently transferred to the provinces : = = Works = = Criticism of Du Fu 's works has focused on his strong sense of history , his moral engagement , and",
+      "target": "his",
+      "predicted": "the"
+    },
+    {
+      "context": ") . The most directly historical of his poems are those commenting on military tactics or the successes and failures of the government , or the poems of advice which he wrote to the emperor . <unk> , he wrote about the effect of the times in which he lived",
+      "target": "on",
+      "predicted": ","
+    }
+  ]
+}

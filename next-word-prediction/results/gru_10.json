@@ -1,0 +1,317 @@
+{
+  "arch": "gru",
+  "seq_len": 10,
+  "hyperparams": {
+    "arch": "gru",
+    "seq_len": 10,
+    "emb_dim": 128,
+    "hidden_dim": 128,
+    "num_layers": 1,
+    "dropout": 0.3,
+    "batch_size": 128,
+    "lr": 0.001,
+    "epochs": 8,
+    "min_freq": 1,
+    "seed": 42,
+    "target_train": 20000,
+    "target_eval": 3000
+  },
+  "vocab_size": 33279,
+  "n_train_windows": 20117,
+  "n_val_windows": 3013,
+  "train_stride": 102,
+  "n_params": 8651775,
+  "device": "cuda",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 8.162184684930908,
+      "train_acc": 0.0529900084505642,
+      "train_ppl": 3505.8373935616655,
+      "val_loss": 7.142668208923999,
+      "val_acc": 0.0760039827414537,
+      "val_ppl": 1264.798637847479,
+      "epoch_seconds": 1.786599799990654
+    },
+    {
+      "epoch": 2,
+      "train_loss": 6.82687187230379,
+      "train_acc": 0.09101754734801412,
+      "train_ppl": 922.3012193386961,
+      "val_loss": 7.069772907716667,
+      "val_acc": 0.11616329239960173,
+      "val_ppl": 1175.8809704317514,
+      "epoch_seconds": 1.4913563999871258
+    },
+    {
+      "epoch": 3,
+      "train_loss": 6.516526149270572,
+      "train_acc": 0.10687478252224487,
+      "train_ppl": 676.2251950029942,
+      "val_loss": 7.053884686167122,
+      "val_acc": 0.12446067042814471,
+      "val_ppl": 1157.3459472417162,
+      "epoch_seconds": 1.5168591999972705
+    },
+    {
+      "epoch": 4,
+      "train_loss": 6.266415337240529,
+      "train_acc": 0.11955062882139485,
+      "train_ppl": 526.5863560646601,
+      "val_loss": 7.06286320130848,
+      "val_acc": 0.13043478260869565,
+      "val_ppl": 1167.7839842688948,
+      "epoch_seconds": 1.5067319000081625
+    },
+    {
+      "epoch": 5,
+      "train_loss": 6.034830933164257,
+      "train_acc": 0.12839886663021324,
+      "train_ppl": 417.72817968636656,
+      "val_loss": 7.103952560082964,
+      "val_acc": 0.1384002655160969,
+      "val_ppl": 1216.7669267764545,
+      "epoch_seconds": 1.509100600000238
+    },
+    {
+      "epoch": 6,
+      "train_loss": 5.79510967083312,
+      "train_acc": 0.13446338917333597,
+      "train_ppl": 328.6882295173112,
+      "val_loss": 7.161070749445528,
+      "val_acc": 0.13607699966810488,
+      "val_ppl": 1288.2896300616176,
+      "epoch_seconds": 1.5268059000081848
+    },
+    {
+      "epoch": 7,
+      "train_loss": 5.572198018725731,
+      "train_acc": 0.1435601729880201,
+      "train_ppl": 263.01156871654734,
+      "val_loss": 7.224501748279682,
+      "val_acc": 0.14138732160637238,
+      "val_ppl": 1372.654517742001,
+      "epoch_seconds": 1.504943199994159
+    },
+    {
+      "epoch": 8,
+      "train_loss": 5.350830551430382,
+      "train_acc": 0.15061887955460557,
+      "train_ppl": 210.7832915502857,
+      "val_loss": 7.306169382330195,
+      "val_acc": 0.1400597411218055,
+      "val_ppl": 1489.4606928770859,
+      "epoch_seconds": 1.517938699995284
+    }
+  ],
+  "train_time_seconds": 12.3604861000058,
+  "peak_gpu_memory_mb": 198.5302734375,
+  "inference_time_seconds_full_test_set": 0.08051050000358373,
+  "inference_ms_per_example": 0.026694462865909725,
+  "n_test_examples": 3016,
+  "test_loss": 7.251116380767417,
+  "test_accuracy": 0.11936339522546419,
+  "test_perplexity": 1409.6777071671308,
+  "errors_sample": [
+    {
+      "context": "= Robert <unk> = Robert <unk> is an English film",
+      "target": ",",
+      "predicted": "of"
+    },
+    {
+      "context": "as \" Craig \" in the episode \" Teddy 's",
+      "target": "Story",
+      "predicted": "\""
+    },
+    {
+      "context": ", Fraser <unk> , Sophie Stanton and Dominic Hall .",
+      "target": "In",
+      "predicted": "The"
+    },
+    {
+      "context": "2011 film <unk> directed by Paris <unk> . = =",
+      "target": "Career",
+      "predicted": "="
+    },
+    {
+      "context": "A review of <unk> 's performance in The Independent on",
+      "target": "Sunday",
+      "predicted": "the"
+    },
+    {
+      "context": "in 2003 on two episodes of The Bill , as",
+      "target": "character",
+      "predicted": "a"
+    },
+    {
+      "context": "Plymouth , and the <unk> <unk> Factory in London .",
+      "target": "He",
+      "predicted": "The"
+    },
+    {
+      "context": "<unk> . \" The Guardian noted , \" Ben <unk>",
+      "target": "and",
+      "predicted": "\""
+    },
+    {
+      "context": ": \" I loved working with a guy called Robert",
+      "target": "<unk>",
+      "predicted": "\""
+    },
+    {
+      "context": "How to Curse was performed at Bush Theatre in the",
+      "target": "London",
+      "predicted": "United"
+    },
+    {
+      "context": "television series <unk> in 2010 , as \" <unk> Fletcher",
+      "target": "\"",
+      "predicted": ","
+    },
+    {
+      "context": "stand there and look like you know what you 're",
+      "target": "doing",
+      "predicted": ","
+    },
+    {
+      "context": "he was little @-@ known to other writers , his",
+      "target": "works",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Virgil , Horace , <unk> , Shakespeare , Milton ,",
+      "target": "Burns",
+      "predicted": "and"
+    },
+    {
+      "context": ". Another reason , identified by the Chinese historian William",
+      "target": "<unk>",
+      "predicted": "and"
+    },
+    {
+      "context": "the poem or fail to understand it altogether \" .",
+      "target": "Stephen",
+      "predicted": "The"
+    },
+    {
+      "context": "a noted politician and poet during the reign of Empress",
+      "target": "Wu",
+      "predicted": "."
+    },
+    {
+      "context": "was partially raised by his aunt . He had an",
+      "target": "elder",
+      "predicted": "the"
+    },
+    {
+      "context": ". He later claimed to have produced <unk> poems by",
+      "target": "his",
+      "predicted": "the"
+    },
+    {
+      "context": "and that of centuries of later critics . <unk> concludes",
+      "target": "that",
+      "predicted": ","
+    },
+    {
+      "context": "his father 's rank , but he is thought to",
+      "target": "have",
+      "predicted": "the"
+    },
+    {
+      "context": "element in Du Fu 's artistic development \" because it",
+      "target": "gave",
+      "predicted": "."
+    },
+    {
+      "context": "one in the other direction . They met again only",
+      "target": "once",
+      "predicted": ","
+    },
+    {
+      "context": "directly in <unk> , 754 and probably again in <unk>",
+      "target": ".",
+      "predicted": ","
+    },
+    {
+      "context": "Fu was forced to move his family due to the",
+      "target": "turmoil",
+      "predicted": "United"
+    },
+    {
+      "context": "largely itinerant life <unk> by wars , associated <unk> and",
+      "target": "imperial",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Even when he learned of the death of his youngest",
+      "target": "child",
+      "predicted": ","
+    },
+    {
+      "context": "away from the city , took his family to a",
+      "target": "place",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "was appointed <unk> when he rejoined the court in May",
+      "target": "<unk>",
+      "predicted": ","
+    },
+    {
+      "context": "he soon rejoined the court and on December 8 ,",
+      "target": "<unk>",
+      "predicted": "and"
+    },
+    {
+      "context": "Especially when they bring more papers to pile higher on",
+      "target": "my",
+      "predicted": "the"
+    },
+    {
+      "context": "<unk> ( modern Gansu ) . He departed on December",
+      "target": "24",
+      "predicted": ","
+    },
+    {
+      "context": "Empire . = = = Last years = = =",
+      "target": "Luoyang",
+      "predicted": "="
+    },
+    {
+      "context": "old age in addition to his previous <unk> ) .",
+      "target": "They",
+      "predicted": "The"
+    },
+    {
+      "context": "and employed him as his unofficial secretary . In March",
+      "target": "<unk>",
+      "predicted": ","
+    },
+    {
+      "context": "poet from Yuan <unk> in <unk> . <unk> <unk> his",
+      "target": "life",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Tang it featured the theme of a long parting between",
+      "target": "friends",
+      "predicted": "the"
+    },
+    {
+      "context": ") . The most directly historical of his poems are",
+      "target": "those",
+      "predicted": ","
+    },
+    {
+      "context": "the era \" . Du Fu 's political comments are",
+      "target": "based",
+      "predicted": "\""
+    },
+    {
+      "context": "epithet of Chinese critics is that of \" poet sage",
+      "target": "\"",
+      "predicted": ","
+    }
+  ]
+}

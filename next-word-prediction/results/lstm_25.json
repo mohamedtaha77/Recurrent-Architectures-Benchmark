@@ -1,0 +1,317 @@
+{
+  "arch": "lstm",
+  "seq_len": 25,
+  "hyperparams": {
+    "arch": "lstm",
+    "seq_len": 25,
+    "emb_dim": 128,
+    "hidden_dim": 128,
+    "num_layers": 1,
+    "dropout": 0.3,
+    "batch_size": 128,
+    "lr": 0.001,
+    "epochs": 8,
+    "min_freq": 1,
+    "seed": 42,
+    "target_train": 20000,
+    "target_eval": 3000
+  },
+  "vocab_size": 33279,
+  "n_train_windows": 20117,
+  "n_val_windows": 3013,
+  "train_stride": 102,
+  "n_params": 8684799,
+  "device": "cuda",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 8.118303223313303,
+      "train_acc": 0.05443157528458518,
+      "train_ppl": 3355.322678976133,
+      "val_loss": 6.969897636099587,
+      "val_acc": 0.0896116827082642,
+      "val_ppl": 1064.1138181219062,
+      "epoch_seconds": 1.9920376999943983
+    },
+    {
+      "epoch": 2,
+      "train_loss": 6.8317534789748935,
+      "train_acc": 0.09086841974449471,
+      "train_ppl": 926.8145382849984,
+      "val_loss": 6.9384467229074,
+      "val_acc": 0.10421506803849984,
+      "val_ppl": 1031.1672818654886,
+      "epoch_seconds": 1.7669525000092108
+    },
+    {
+      "epoch": 3,
+      "train_loss": 6.597883592313472,
+      "train_acc": 0.10031316796739076,
+      "train_ppl": 733.5410732847079,
+      "val_loss": 6.962302919008627,
+      "val_acc": 0.1191503484898772,
+      "val_ppl": 1056.0627860744419,
+      "epoch_seconds": 1.7416147000039928
+    },
+    {
+      "epoch": 4,
+      "train_loss": 6.418632430502166,
+      "train_acc": 0.1111994830243078,
+      "train_ppl": 613.1639961019854,
+      "val_loss": 6.984343610093161,
+      "val_acc": 0.12412877530700299,
+      "val_ppl": 1079.5975481764606,
+      "epoch_seconds": 1.7331282999948598
+    },
+    {
+      "epoch": 5,
+      "train_loss": 6.248883570995199,
+      "train_acc": 0.11716458716508425,
+      "train_ppl": 517.4348228350649,
+      "val_loss": 7.008722210974936,
+      "val_acc": 0.1297709923664122,
+      "val_ppl": 1106.2400600043134,
+      "epoch_seconds": 1.7224174000002677
+    },
+    {
+      "epoch": 6,
+      "train_loss": 6.073306422634877,
+      "train_acc": 0.12506835015161305,
+      "train_ppl": 434.1136745083364,
+      "val_loss": 7.014487750024602,
+      "val_acc": 0.13906405575838035,
+      "val_ppl": 1112.636552162191,
+      "epoch_seconds": 1.7305371000111336
+    },
+    {
+      "epoch": 7,
+      "train_loss": 5.905212175148633,
+      "train_acc": 0.1288462494407715,
+      "train_ppl": 366.94507415407907,
+      "val_loss": 7.078149857728378,
+      "val_acc": 0.13906405575838035,
+      "val_ppl": 1185.7726397061208,
+      "epoch_seconds": 1.7250694999966072
+    },
+    {
+      "epoch": 8,
+      "train_loss": 5.72539744420039,
+      "train_acc": 0.13719739523785854,
+      "train_ppl": 306.55507957303774,
+      "val_loss": 7.153951122323184,
+      "val_acc": 0.14570195818121473,
+      "val_ppl": 1279.1500620345348,
+      "epoch_seconds": 1.7523205000034068
+    }
+  ],
+  "train_time_seconds": 14.16424700000789,
+  "peak_gpu_memory_mb": 215.54638671875,
+  "inference_time_seconds_full_test_set": 0.09444080000685062,
+  "inference_ms_per_example": 0.03132364842681613,
+  "n_test_examples": 3015,
+  "test_loss": 7.242289605148594,
+  "test_accuracy": 0.14063018242122718,
+  "test_perplexity": 1397.289552513858,
+  "errors_sample": [
+    {
+      "context": "= Robert <unk> = Robert <unk> is an English film , television and theatre actor . He had a guest @-@ starring role on the",
+      "target": "television",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "as \" Craig \" in the episode \" Teddy 's Story \" of the television series The Long Firm ; he starred alongside actors Mark",
+      "target": "Strong",
+      "predicted": "."
+    },
+    {
+      "context": ", Fraser <unk> , Sophie Stanton and Dominic Hall . In 2006 , <unk> starred alongside <unk> in the play <unk> written by Mark <unk>",
+      "target": ".",
+      "predicted": ","
+    },
+    {
+      "context": "2008 , <unk> <unk> by filmmaker Paris <unk> , and <unk> Punch directed by <unk> Blackburn . In May 2008 , <unk> made a guest",
+      "target": "appearance",
+      "predicted": "of"
+    },
+    {
+      "context": "2011 film <unk> directed by Paris <unk> . = = Career = = = = = 2000 – 2005 = = = In 2000 <unk>",
+      "target": "had",
+      "predicted": ","
+    },
+    {
+      "context": "A review of <unk> 's performance in The Independent on Sunday described him as \" horribly menacing \" in the role , and he received",
+      "target": "critical",
+      "predicted": ","
+    },
+    {
+      "context": "in 2003 on two episodes of The Bill , as character \" Connor Price \" . In 2004 <unk> landed a role as \" Craig",
+      "target": "\"",
+      "predicted": ","
+    },
+    {
+      "context": "Plymouth , and the <unk> <unk> Factory in London . He was directed by John <unk> and starred alongside Ben <unk> , Shane <unk> ,",
+      "target": "Harry",
+      "predicted": "and"
+    },
+    {
+      "context": "<unk> . \" The Guardian noted , \" Ben <unk> and Robert <unk> offer <unk> amid the <unk> . \" = = = 2006 –",
+      "target": "present",
+      "predicted": "="
+    },
+    {
+      "context": "How to Curse was performed at Bush Theatre in the London Borough of <unk> and Fulham . In a review of the production for The",
+      "target": "Daily",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "<unk> Punch , who <unk> along with character \" Josh \" as the \" quiet brother ... who hits it off with <unk> \" .",
+      "target": "<unk>",
+      "predicted": "The"
+    },
+    {
+      "context": "television series <unk> in 2010 , as \" <unk> Fletcher \" . He portrayed an emergency physician applying for a medical <unk> . He commented",
+      "target": "on",
+      "predicted": ","
+    },
+    {
+      "context": "stand there and look like you know what you 're doing . \" <unk> starred in the 2011 film <unk> directed by Paris <unk> .",
+      "target": "=",
+      "predicted": "The"
+    },
+    {
+      "context": "Tang dynasty . Along with Li <unk> ( Li Po ) , he is frequently called the greatest of the Chinese poets . His greatest",
+      "target": "ambition",
+      "predicted": ","
+    },
+    {
+      "context": "he was little @-@ known to other writers , his works came to be hugely influential in both Chinese and Japanese literary culture . Of",
+      "target": "his",
+      "predicted": "the"
+    },
+    {
+      "context": ". Another reason , identified by the Chinese historian William <unk> , is that Chinese poems are typically <unk> , <unk> context that might be",
+      "target": "relevant",
+      "predicted": "a"
+    },
+    {
+      "context": "a noted politician and poet during the reign of Empress Wu . Du Fu was born in <unk> ; the exact birthplace is unknown ,",
+      "target": "except",
+      "predicted": "and"
+    },
+    {
+      "context": "was partially raised by his aunt . He had an elder brother , who died young . He also had three half brothers and one",
+      "target": "half",
+      "predicted": "of"
+    },
+    {
+      "context": ". He later claimed to have produced <unk> poems by his early teens , but these have been lost . In the early <unk> ,",
+      "target": "he",
+      "predicted": "and"
+    },
+    {
+      "context": "and that of centuries of later critics . <unk> concludes that he probably failed because his prose style at the time was too dense and",
+      "target": "obscure",
+      "predicted": "the"
+    },
+    {
+      "context": "his father 's rank , but he is thought to have given up the privilege in favour of one of his half brothers . He",
+      "target": "spent",
+      "predicted": ","
+    },
+    {
+      "context": "element in Du Fu 's artistic development \" because it gave him a living example of the reclusive poet @-@ scholar life to which he",
+      "target": "was",
+      "predicted": "the"
+    },
+    {
+      "context": "one in the other direction . They met again only once , in <unk> . In 746 , he moved to the capital in an",
+      "target": "attempt",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "directly in <unk> , 754 and probably again in <unk> . He married around <unk> , and by <unk> the couple had had five children",
+      "target": "—",
+      "predicted": ","
+    },
+    {
+      "context": "swept away by events . = = = War = = = The An <unk> Rebellion began in December <unk> , and was not completely",
+      "target": "suppressed",
+      "predicted": "the"
+    },
+    {
+      "context": "largely itinerant life <unk> by wars , associated <unk> and imperial <unk> . This period of <unk> was the making of Du Fu as a",
+      "target": "poet",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Even when he learned of the death of his youngest child , he turned to the suffering of others in his poetry instead of dwelling",
+      "target": "upon",
+      "predicted": "."
+    },
+    {
+      "context": "was appointed <unk> when he rejoined the court in May <unk> . This post gave access to the emperor but was largely ceremonial . Du",
+      "target": "Fu",
+      "predicted": "the"
+    },
+    {
+      "context": "he soon rejoined the court and on December 8 , <unk> , he returned to Chang 'an with the emperor following its recapture by government",
+      "target": "forces",
+      "predicted": "."
+    },
+    {
+      "context": "Especially when they bring more papers to pile higher on my desk . He moved on in the summer of <unk> ; this has traditionally",
+      "target": "been",
+      "predicted": "."
+    },
+    {
+      "context": "<unk> ( modern Gansu ) . He departed on December 24 for <unk> ( Sichuan province ) , where he was hosted by local <unk>",
+      "target": "and",
+      "predicted": "."
+    },
+    {
+      "context": "appointed governor general at <unk> . Despite his financial problems , this was one of the <unk> and most peaceful periods of his life .",
+      "target": "Many",
+      "predicted": "The"
+    },
+    {
+      "context": "Empire . = = = Last years = = = Luoyang , the region of his birthplace , was recovered by government forces in the",
+      "target": "winter",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "old age in addition to his previous <unk> ) . They stayed in <unk> ( in what is now <unk> , <unk> ) at the",
+      "target": "entrance",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "and employed him as his unofficial secretary . In March <unk> , he began his journey again and got as far as <unk> province ,",
+      "target": "where",
+      "predicted": "and"
+    },
+    {
+      "context": "poet from Yuan <unk> in <unk> . <unk> <unk> his life by concluding that , \" He appeared to be a <unk> son , an",
+      "target": "affectionate",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Tang it featured the theme of a long parting between friends , which was often due to officials being frequently transferred to the provinces :",
+      "target": "=",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "the era \" . Du Fu 's political comments are based on emotion rather than calculation : his <unk> have been <unk> as , \"",
+      "target": "Let",
+      "predicted": ","
+    },
+    {
+      "context": "epithet of Chinese critics is that of \" poet sage \" ( <unk> <unk> <unk> ) , a counterpart to the philosophical sage , <unk>",
+      "target": ".",
+      "predicted": ","
+    },
+    {
+      "context": "civilians produced by Du Fu throughout his life . Although Du Fu 's frequent references to his own difficulties can give the impression of an",
+      "target": "all",
+      "predicted": "<unk>"
+    }
+  ]
+}
