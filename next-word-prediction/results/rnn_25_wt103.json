@@ -1,0 +1,414 @@
+{
+  "arch": "rnn",
+  "seq_len": 25,
+  "hyperparams": {
+    "arch": "rnn",
+    "seq_len": 25,
+    "emb_dim": 256,
+    "hidden_dim": 256,
+    "num_layers": 1,
+    "dropout": 0.3,
+    "batch_size": 128,
+    "lr": 0.001,
+    "epochs": 25,
+    "min_freq": 25,
+    "seed": 42,
+    "target_train": 600000,
+    "target_eval": 3000,
+    "out_suffix": "_wt103",
+    "tie_weights": true,
+    "clip_grad": 1.0,
+    "early_stop_patience": 3
+  },
+  "vocab_size": 82820,
+  "n_train_windows": 600152,
+  "n_val_windows": 3013,
+  "train_stride": 169,
+  "n_params": 21416324,
+  "device": "cuda",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 11.319788757000001,
+      "train_acc": 0.06528679401218358,
+      "train_ppl": 82436.9268585984,
+      "val_loss": 7.547007430165541,
+      "val_acc": 0.12446067042814471,
+      "val_ppl": 1895.0631285213658,
+      "epoch_seconds": 88.00833504100001
+    },
+    {
+      "epoch": 2,
+      "train_loss": 8.125122485767656,
+      "train_acc": 0.09396286274143884,
+      "train_ppl": 3378.281697759899,
+      "val_loss": 7.23565261007107,
+      "val_acc": 0.134749419183538,
+      "val_ppl": 1388.0464557554062,
+      "epoch_seconds": 90.22406930999978
+    },
+    {
+      "epoch": 3,
+      "train_loss": 7.659697240115206,
+      "train_acc": 0.1114550980418294,
+      "train_ppl": 2121.1151427779273,
+      "val_loss": 7.053400459061656,
+      "val_acc": 0.14205111184865582,
+      "val_ppl": 1156.7856646266225,
+      "epoch_seconds": 91.02979284699995
+    },
+    {
+      "epoch": 4,
+      "train_loss": 7.364930636741134,
+      "train_acc": 0.1226206027806289,
+      "train_ppl": 1579.605856107174,
+      "val_loss": 6.949525256430711,
+      "val_acc": 0.1520079654829074,
+      "val_ppl": 1042.654617089746,
+      "epoch_seconds": 90.92819122599985
+    },
+    {
+      "epoch": 5,
+      "train_loss": 7.145818345422999,
+      "train_acc": 0.1317632866340527,
+      "train_ppl": 1268.7892083213108,
+      "val_loss": 6.808342328468827,
+      "val_acc": 0.15964155326916693,
+      "val_ppl": 905.3687583240176,
+      "epoch_seconds": 91.51132451700005
+    },
+    {
+      "epoch": 6,
+      "train_loss": 6.974559620962103,
+      "train_acc": 0.1384599234860502,
+      "train_ppl": 1069.0862824045919,
+      "val_loss": 6.741487466810234,
+      "val_acc": 0.15864586790574178,
+      "val_ppl": 846.8194152715085,
+      "epoch_seconds": 91.0635155519999
+    },
+    {
+      "epoch": 7,
+      "train_loss": 6.831309763573121,
+      "train_acc": 0.1435802929924419,
+      "train_ppl": 926.4033876234612,
+      "val_loss": 6.789592700664522,
+      "val_acc": 0.16661135081314304,
+      "val_ppl": 888.5515816497534,
+      "epoch_seconds": 90.46461132500008
+    },
+    {
+      "epoch": 8,
+      "train_loss": 6.702450534036606,
+      "train_acc": 0.14932217171649848,
+      "train_ppl": 814.3990945834423,
+      "val_loss": 6.6857230100685525,
+      "val_acc": 0.17324925323597742,
+      "val_ppl": 800.8895200829642,
+      "epoch_seconds": 90.66630576300031
+    },
+    {
+      "epoch": 9,
+      "train_loss": 6.587181523811128,
+      "train_acc": 0.15418260707287487,
+      "train_ppl": 725.7325248082059,
+      "val_loss": 6.638734184465177,
+      "val_acc": 0.16793893129770993,
+      "val_ppl": 764.1271365853452,
+      "epoch_seconds": 90.67174244500029
+    },
+    {
+      "epoch": 10,
+      "train_loss": 6.479542458603562,
+      "train_acc": 0.15865147495967688,
+      "train_ppl": 651.6727108067163,
+      "val_loss": 6.578362521561838,
+      "val_acc": 0.1792233654165284,
+      "val_ppl": 719.3604271105029,
+      "epoch_seconds": 90.78355947799992
+    },
+    {
+      "epoch": 11,
+      "train_loss": 6.373298735741838,
+      "train_acc": 0.16348191791412842,
+      "train_ppl": 585.9876625824633,
+      "val_loss": 6.604162477315402,
+      "val_acc": 0.17490872884168604,
+      "val_ppl": 738.1613833464284,
+      "epoch_seconds": 90.18506249600023
+    },
+    {
+      "epoch": 12,
+      "train_loss": 6.2737277360107955,
+      "train_acc": 0.16681440701688904,
+      "train_ppl": 530.4510784619167,
+      "val_loss": 6.5644940486430645,
+      "val_acc": 0.17324925323597742,
+      "val_ppl": 709.4528567407892,
+      "epoch_seconds": 90.50089085199988
+    },
+    {
+      "epoch": 13,
+      "train_loss": 6.17904750687977,
+      "train_acc": 0.1707300817126328,
+      "train_ppl": 482.53212886325787,
+      "val_loss": 6.542235482858733,
+      "val_acc": 0.17656820444739463,
+      "val_ppl": 693.8359039155313,
+      "epoch_seconds": 90.28780492599981
+    },
+    {
+      "epoch": 14,
+      "train_loss": 6.082551618343743,
+      "train_acc": 0.1744124821711833,
+      "train_ppl": 438.1457503344803,
+      "val_loss": 6.518507143369435,
+      "val_acc": 0.18221042150680386,
+      "val_ppl": 677.5661208683905,
+      "epoch_seconds": 90.35209106799994
+    },
+    {
+      "epoch": 15,
+      "train_loss": 5.990221003143397,
+      "train_acc": 0.17840980284994468,
+      "train_ppl": 399.5028915663229,
+      "val_loss": 6.522981301202277,
+      "val_acc": 0.18785263856621306,
+      "val_ppl": 680.6044505501534,
+      "epoch_seconds": 90.29168107700025
+    },
+    {
+      "epoch": 16,
+      "train_loss": 5.90376831718353,
+      "train_acc": 0.18112078273504045,
+      "train_ppl": 366.4156398919215,
+      "val_loss": 6.540288252566211,
+      "val_acc": 0.18685695320278792,
+      "val_ppl": 692.4861601828151,
+      "epoch_seconds": 90.6154527929998
+    },
+    {
+      "epoch": 17,
+      "train_loss": 5.815995159989971,
+      "train_acc": 0.1846215625374905,
+      "train_ppl": 335.6252331677772,
+      "val_loss": 6.561038776287556,
+      "val_acc": 0.1845336873547959,
+      "val_ppl": 707.0057340696778,
+      "epoch_seconds": 90.34552157999997
+    }
+  ],
+  "train_time_seconds": 1537.934254025,
+  "epochs_run": 17,
+  "best_epoch": 14,
+  "best_val_loss": 6.518507143369435,
+  "peak_gpu_memory_mb": 708.8388671875,
+  "inference_time_seconds_full_test_set": 0.1323338040001545,
+  "inference_ms_per_example": 0.04389180895527512,
+  "n_test_examples": 3015,
+  "test_loss": 6.471466151122034,
+  "test_accuracy": 0.1747927031509121,
+  "test_perplexity": 646.4307977604093,
+  "errors_sample": [
+    {
+      "context": "= Robert <unk> = Robert <unk> is an English film , television and theatre actor . He had a guest @-@ starring role on the",
+      "target": "television",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "as \" Craig \" in the episode \" Teddy 's Story \" of the television series The Long Firm ; he starred alongside actors Mark",
+      "target": "Strong",
+      "predicted": "<unk>"
+    },
+    {
+      "context": ", Fraser Ayres , Sophie Stanton and Dominic Hall . In 2006 , <unk> starred alongside <unk> in the play Citizenship written by Mark <unk>",
+      "target": ".",
+      "predicted": ","
+    },
+    {
+      "context": "2008 , Daylight Robbery by filmmaker Paris <unk> , and Donkey Punch directed by Olly Blackburn . In May 2008 , <unk> made a guest",
+      "target": "appearance",
+      "predicted": "appearances"
+    },
+    {
+      "context": "2011 film Mercenaries directed by Paris <unk> . = = Career = = = = = 2000 – 2005 = = = In 2000 <unk>",
+      "target": "had",
+      "predicted": ","
+    },
+    {
+      "context": "A review of <unk> 's performance in The Independent on Sunday described him as \" horribly menacing \" in the role , and he received",
+      "target": "critical",
+      "predicted": "a"
+    },
+    {
+      "context": "in 2003 on two episodes of The Bill , as character \" Connor Price \" . In 2004 <unk> landed a role as \" Craig",
+      "target": "\"",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Plymouth , and the <unk> Chocolate Factory in London . He was directed by John Tiffany and starred alongside Ben <unk> , Shane <unk> ,",
+      "target": "Harry",
+      "predicted": "the"
+    },
+    {
+      "context": "Ayres . \" The Guardian noted , \" Ben <unk> and Robert <unk> offer tenderness amid the savagery . \" = = = 2006 –",
+      "target": "present",
+      "predicted": "the"
+    },
+    {
+      "context": "How to Curse was performed at Bush Theatre in the London Borough of Hammersmith and Fulham . In a review of the production for The",
+      "target": "Daily",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Donkey Punch , who tags along with character \" Josh \" as the \" quiet brother ... who hits it off with <unk> \" .",
+      "target": "<unk>",
+      "predicted": "The"
+    },
+    {
+      "context": "television series Casualty in 2010 , as \" Kieron Fletcher \" . He portrayed an emergency physician applying for a medical fellowship . He commented",
+      "target": "on",
+      "predicted": "that"
+    },
+    {
+      "context": "stand there and look like you know what you 're doing . \" <unk> starred in the 2011 film Mercenaries directed by Paris <unk> .",
+      "target": "=",
+      "predicted": "The"
+    },
+    {
+      "context": "Tang dynasty . Along with Li Bai ( Li Po ) , he is frequently called the greatest of the Chinese poets . His greatest",
+      "target": "ambition",
+      "predicted": "release"
+    },
+    {
+      "context": "he was little @-@ known to other writers , his works came to be hugely influential in both Chinese and Japanese literary culture . Of",
+      "target": "his",
+      "predicted": "the"
+    },
+    {
+      "context": ". Another reason , identified by the Chinese historian William Hung , is that Chinese poems are typically concise , omitting context that might be",
+      "target": "relevant",
+      "predicted": "used"
+    },
+    {
+      "context": "a noted politician and poet during the reign of Empress Wu . Du Fu was born in 712 ; the exact birthplace is unknown ,",
+      "target": "except",
+      "predicted": "and"
+    },
+    {
+      "context": "was partially raised by his aunt . He had an elder brother , who died young . He also had three half brothers and one",
+      "target": "half",
+      "predicted": "of"
+    },
+    {
+      "context": ". He later claimed to have produced creditable poems by his early teens , but these have been lost . In the early <unk> ,",
+      "target": "he",
+      "predicted": "the"
+    },
+    {
+      "context": "and that of centuries of later critics . Hung concludes that he probably failed because his prose style at the time was too dense and",
+      "target": "obscure",
+      "predicted": "the"
+    },
+    {
+      "context": "his father 's rank , but he is thought to have given up the privilege in favour of one of his half brothers . He",
+      "target": "spent",
+      "predicted": "was"
+    },
+    {
+      "context": "directly in 751 , 754 and probably again in 755 . He married around 752 , and by 757 the couple had had five children",
+      "target": "—",
+      "predicted": ","
+    },
+    {
+      "context": "Fu was forced to move his family due to the turmoil of a famine brought about by massive floods in the region . In 755",
+      "target": ",",
+      "predicted": "and"
+    },
+    {
+      "context": "swept away by events . = = = War = = = The An Lushan Rebellion began in December 755 , and was not completely",
+      "target": "suppressed",
+      "predicted": "in"
+    },
+    {
+      "context": "largely itinerant life unsettled by wars , associated famines and imperial displeasure . This period of unhappiness was the making of Du Fu as a",
+      "target": "poet",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Even when he learned of the death of his youngest child , he turned to the suffering of others in his poetry instead of dwelling",
+      "target": "upon",
+      "predicted": "in"
+    },
+    {
+      "context": "was appointed <unk> when he rejoined the court in May 757 . This post gave access to the emperor but was largely ceremonial . Du",
+      "target": "Fu",
+      "predicted": "and"
+    },
+    {
+      "context": "he soon rejoined the court and on December 8 , 757 , he returned to Chang 'an with the emperor following its recapture by government",
+      "target": "forces",
+      "predicted": ","
+    },
+    {
+      "context": "Especially when they bring more papers to pile higher on my desk . He moved on in the summer of 759 ; this has traditionally",
+      "target": "been",
+      "predicted": "a"
+    },
+    {
+      "context": "<unk> ( modern Gansu ) . He departed on December 24 for Chengdu ( Sichuan province ) , where he was hosted by local Prefect",
+      "target": "and",
+      "predicted": ","
+    },
+    {
+      "context": "appointed governor general at Chengdu . Despite his financial problems , this was one of the happiest and most peaceful periods of his life .",
+      "target": "Many",
+      "predicted": "The"
+    },
+    {
+      "context": "Empire . = = = Last years = = = Luoyang , the region of his birthplace , was recovered by government forces in the",
+      "target": "winter",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "old age in addition to his previous ailments ) . They stayed in <unk> ( in what is now <unk> , Chongqing ) at the",
+      "target": "entrance",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "and employed him as his unofficial secretary . In March 768 , he began his journey again and got as far as Hunan province ,",
+      "target": "where",
+      "predicted": "and"
+    },
+    {
+      "context": "poet from Yuan Zhen in 813 . Hung summarises his life by concluding that , \" He appeared to be a filial son , an",
+      "target": "affectionate",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Tang it featured the theme of a long parting between friends , which was often due to officials being frequently transferred to the provinces :",
+      "target": "=",
+      "predicted": "The"
+    },
+    {
+      "context": ") . The most directly historical of his poems are those commenting on military tactics or the successes and failures of the government , or",
+      "target": "the",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "the era \" . Du Fu 's political comments are based on emotion rather than calculation : his prescriptions have been paraphrased as , \"",
+      "target": "Let",
+      "predicted": ","
+    },
+    {
+      "context": "epithet of Chinese critics is that of \" poet sage \" ( <unk> <unk> <unk> ) , a counterpart to the philosophical sage , Confucius",
+      "target": ".",
+      "predicted": "with"
+    },
+    {
+      "context": "civilians produced by Du Fu throughout his life . Although Du Fu 's frequent references to his own difficulties can give the impression of an",
+      "target": "all",
+      "predicted": "<unk>"
+    }
+  ]
+}
