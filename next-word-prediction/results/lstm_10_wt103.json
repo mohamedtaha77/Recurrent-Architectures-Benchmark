@@ -1,0 +1,464 @@
+{
+  "arch": "lstm",
+  "seq_len": 10,
+  "hyperparams": {
+    "arch": "lstm",
+    "seq_len": 10,
+    "emb_dim": 256,
+    "hidden_dim": 256,
+    "num_layers": 1,
+    "dropout": 0.3,
+    "batch_size": 128,
+    "lr": 0.001,
+    "epochs": 25,
+    "min_freq": 25,
+    "seed": 42,
+    "target_train": 600000,
+    "target_eval": 3000,
+    "out_suffix": "_wt103",
+    "tie_weights": true,
+    "clip_grad": 1.0,
+    "early_stop_patience": 3
+  },
+  "vocab_size": 82820,
+  "n_train_windows": 600152,
+  "n_val_windows": 3013,
+  "train_stride": 169,
+  "n_params": 21811076,
+  "device": "cuda",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 7.366813953999024,
+      "train_acc": 0.12601974166544475,
+      "train_ppl": 1582.5835581753622,
+      "val_loss": 6.644281941713624,
+      "val_acc": 0.1676070361765682,
+      "val_ppl": 768.378109225317,
+      "epoch_seconds": 108.02683170000091
+    },
+    {
+      "epoch": 2,
+      "train_loss": 6.679831630636767,
+      "train_acc": 0.1543575627507698,
+      "train_ppl": 796.1850475605753,
+      "val_loss": 6.477523133163629,
+      "val_acc": 0.1745768337205443,
+      "val_ppl": 650.3580992842332,
+      "epoch_seconds": 107.95652120001614
+    },
+    {
+      "epoch": 3,
+      "train_loss": 6.462456134838399,
+      "train_acc": 0.16587464508991057,
+      "train_ppl": 640.6326058729105,
+      "val_loss": 6.372006407458245,
+      "val_acc": 0.18221042150680386,
+      "val_ppl": 585.230863274175,
+      "epoch_seconds": 107.89690900000278
+    },
+    {
+      "epoch": 4,
+      "train_loss": 6.315890572037038,
+      "train_acc": 0.17384929151281675,
+      "train_ppl": 553.2945899326238,
+      "val_loss": 6.31089539231947,
+      "val_acc": 0.1885164288084965,
+      "val_ppl": 550.5376753934476,
+      "epoch_seconds": 108.02079059998505
+    },
+    {
+      "epoch": 5,
+      "train_loss": 6.2031119669044195,
+      "train_acc": 0.17916461163171996,
+      "train_ppl": 494.2848482524089,
+      "val_loss": 6.253539669367312,
+      "val_acc": 0.19449054098904747,
+      "val_ppl": 519.8496677864975,
+      "epoch_seconds": 108.25754049996613
+    },
+    {
+      "epoch": 6,
+      "train_loss": 6.1071470300448185,
+      "train_acc": 0.18438995454484863,
+      "train_ppl": 449.0557433538339,
+      "val_loss": 6.214651260508915,
+      "val_acc": 0.19482243611018918,
+      "val_ppl": 500.02158150910964,
+      "epoch_seconds": 107.85707590001402
+    },
+    {
+      "epoch": 7,
+      "train_loss": 6.022364237347307,
+      "train_acc": 0.18834395286527414,
+      "train_ppl": 412.55281640469707,
+      "val_loss": 6.172185895611509,
+      "val_acc": 0.19747759707932294,
+      "val_ppl": 479.23251425289544,
+      "epoch_seconds": 108.23144579998916
+    },
+    {
+      "epoch": 8,
+      "train_loss": 5.9450927431386775,
+      "train_acc": 0.1920546794811981,
+      "train_ppl": 381.87477592071053,
+      "val_loss": 6.136957638611083,
+      "val_acc": 0.19747759707932294,
+      "val_ppl": 462.643897647903,
+      "epoch_seconds": 108.4503714000457
+    },
+    {
+      "epoch": 9,
+      "train_loss": 5.87412115050976,
+      "train_acc": 0.19582039216731761,
+      "train_ppl": 355.7119060314937,
+      "val_loss": 6.11842770312183,
+      "val_acc": 0.1984732824427481,
+      "val_ppl": 454.1500741052997,
+      "epoch_seconds": 107.81474790000357
+    },
+    {
+      "epoch": 10,
+      "train_loss": 5.809822506581007,
+      "train_acc": 0.1989212732774364,
+      "train_ppl": 333.55991573015353,
+      "val_loss": 6.094978569118121,
+      "val_acc": 0.2017922336541653,
+      "val_ppl": 443.62453781018235,
+      "epoch_seconds": 108.54692069999874
+    },
+    {
+      "epoch": 11,
+      "train_loss": 5.750158930907293,
+      "train_acc": 0.20156726962502833,
+      "train_ppl": 314.2405988606829,
+      "val_loss": 6.083861113939814,
+      "val_acc": 0.20511118486558247,
+      "val_ppl": 438.7198760905134,
+      "epoch_seconds": 108.01879800000461
+    },
+    {
+      "epoch": 12,
+      "train_loss": 5.685535217059587,
+      "train_acc": 0.20485810261400444,
+      "train_ppl": 294.5754646806998,
+      "val_loss": 6.063910355806905,
+      "val_acc": 0.2054430799867242,
+      "val_ppl": 430.0538166287253,
+      "epoch_seconds": 108.52997440000763
+    },
+    {
+      "epoch": 13,
+      "train_loss": 5.629040153951506,
+      "train_acc": 0.20742245297857875,
+      "train_ppl": 278.3947732258267,
+      "val_loss": 6.045258973549261,
+      "val_acc": 0.20411549950215732,
+      "val_ppl": 422.10705789214364,
+      "epoch_seconds": 114.23920780001208
+    },
+    {
+      "epoch": 14,
+      "train_loss": 5.571896578508919,
+      "train_acc": 0.2101784214665618,
+      "train_ppl": 262.9322984004801,
+      "val_loss": 6.0452140407074815,
+      "val_acc": 0.20809824095585794,
+      "val_ppl": 422.08809184859956,
+      "epoch_seconds": 125.88647359999595
+    },
+    {
+      "epoch": 15,
+      "train_loss": 5.518706577604954,
+      "train_acc": 0.2125578186859329,
+      "train_ppl": 249.31236236441185,
+      "val_loss": 6.027609937024045,
+      "val_acc": 0.20345170925987388,
+      "val_ppl": 414.7226307017984,
+      "epoch_seconds": 110.36895220004953
+    },
+    {
+      "epoch": 16,
+      "train_loss": 5.46609793759525,
+      "train_acc": 0.21522714245724417,
+      "train_ppl": 236.53541371653728,
+      "val_loss": 6.025811891242432,
+      "val_acc": 0.20610687022900764,
+      "val_ppl": 413.97761041613535,
+      "epoch_seconds": 124.33068079996156
+    },
+    {
+      "epoch": 17,
+      "train_loss": 5.4147111671465655,
+      "train_acc": 0.21739659286314134,
+      "train_ppl": 224.68763913355326,
+      "val_loss": 6.020656847771797,
+      "val_acc": 0.20809824095585794,
+      "val_ppl": 411.8490290172173,
+      "epoch_seconds": 126.65266720001819
+    },
+    {
+      "epoch": 18,
+      "train_loss": 5.362806244373455,
+      "train_acc": 0.22058911742358603,
+      "train_ppl": 213.32274302294522,
+      "val_loss": 6.025063098485866,
+      "val_acc": 0.20942582144042482,
+      "val_ppl": 413.66774300778906,
+      "epoch_seconds": 126.98859879997326
+    },
+    {
+      "epoch": 19,
+      "train_loss": 5.313705123760056,
+      "train_acc": 0.22210539996534212,
+      "train_ppl": 203.10135167027974,
+      "val_loss": 6.0032721754327945,
+      "val_acc": 0.2071025555924328,
+      "val_ppl": 404.75104542002657,
+      "epoch_seconds": 127.9796045999974
+    },
+    {
+      "epoch": 20,
+      "train_loss": 5.26409547212217,
+      "train_acc": 0.2249763393273704,
+      "train_ppl": 193.2714103204545,
+      "val_loss": 6.020136487867759,
+      "val_acc": 0.21340856289412546,
+      "val_ppl": 411.63477504542203,
+      "epoch_seconds": 124.24796239996795
+    },
+    {
+      "epoch": 21,
+      "train_loss": 5.218281284131368,
+      "train_acc": 0.22641264213066023,
+      "train_ppl": 184.61660774378126,
+      "val_loss": 6.025856865231792,
+      "val_acc": 0.21307666777298373,
+      "val_ppl": 413.9962290594558,
+      "epoch_seconds": 113.65651820000494
+    },
+    {
+      "epoch": 22,
+      "train_loss": 5.170014695088076,
+      "train_acc": 0.22911362454844772,
+      "train_ppl": 175.91742258709016,
+      "val_loss": 6.017782865233727,
+      "val_acc": 0.21340856289412546,
+      "val_ppl": 410.6670813615139,
+      "epoch_seconds": 123.1446908999933
+    }
+  ],
+  "train_time_seconds": 2515.1114746000385,
+  "epochs_run": 22,
+  "best_epoch": 19,
+  "best_val_loss": 6.0032721754327945,
+  "peak_gpu_memory_mb": 716.353515625,
+  "inference_time_seconds_full_test_set": 0.1857947999960743,
+  "inference_ms_per_example": 0.061603050396576355,
+  "n_test_examples": 3016,
+  "test_loss": 6.1571594397648575,
+  "test_accuracy": 0.1909814323607427,
+  "test_perplexity": 472.0851820581286,
+  "errors_sample": [
+    {
+      "context": "= Robert <unk> = Robert <unk> is an English film",
+      "target": ",",
+      "predicted": "of"
+    },
+    {
+      "context": "as \" Craig \" in the episode \" Teddy 's",
+      "target": "Story",
+      "predicted": "\""
+    },
+    {
+      "context": ", Fraser Ayres , Sophie Stanton and Dominic Hall .",
+      "target": "In",
+      "predicted": "The"
+    },
+    {
+      "context": "2008 , Daylight Robbery by filmmaker Paris <unk> , and",
+      "target": "Donkey",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "2011 film Mercenaries directed by Paris <unk> . = =",
+      "target": "Career",
+      "predicted": "="
+    },
+    {
+      "context": "A review of <unk> 's performance in The Independent on",
+      "target": "Sunday",
+      "predicted": "the"
+    },
+    {
+      "context": "in 2003 on two episodes of The Bill , as",
+      "target": "character",
+      "predicted": "well"
+    },
+    {
+      "context": "Plymouth , and the <unk> Chocolate Factory in London .",
+      "target": "He",
+      "predicted": "The"
+    },
+    {
+      "context": "Ayres . \" The Guardian noted , \" Ben <unk>",
+      "target": "and",
+      "predicted": "\""
+    },
+    {
+      "context": "How to Curse was performed at Bush Theatre in the",
+      "target": "London",
+      "predicted": "United"
+    },
+    {
+      "context": "stand there and look like you know what you 're",
+      "target": "doing",
+      "predicted": "not"
+    },
+    {
+      "context": "he was little @-@ known to other writers , his",
+      "target": "works",
+      "predicted": "wife"
+    },
+    {
+      "context": "Virgil , Horace , Ovid , Shakespeare , Milton ,",
+      "target": "Burns",
+      "predicted": "and"
+    },
+    {
+      "context": ". Another reason , identified by the Chinese historian William",
+      "target": "Hung",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "the poem or fail to understand it altogether \" .",
+      "target": "Stephen",
+      "predicted": "The"
+    },
+    {
+      "context": "a noted politician and poet during the reign of Empress",
+      "target": "Wu",
+      "predicted": "'s"
+    },
+    {
+      "context": "was partially raised by his aunt . He had an",
+      "target": "elder",
+      "predicted": "annual"
+    },
+    {
+      "context": ". He later claimed to have produced creditable poems by",
+      "target": "his",
+      "predicted": "the"
+    },
+    {
+      "context": "his father 's rank , but he is thought to",
+      "target": "have",
+      "predicted": "be"
+    },
+    {
+      "context": "element in Du Fu 's artistic development \" because it",
+      "target": "gave",
+      "predicted": "was"
+    },
+    {
+      "context": "one in the other direction . They met again only",
+      "target": "once",
+      "predicted": "in"
+    },
+    {
+      "context": "Fu was forced to move his family due to the",
+      "target": "turmoil",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "largely itinerant life unsettled by wars , associated famines and",
+      "target": "imperial",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Even when he learned of the death of his youngest",
+      "target": "child",
+      "predicted": "."
+    },
+    {
+      "context": "away from the city , took his family to a",
+      "target": "place",
+      "predicted": "new"
+    },
+    {
+      "context": "was appointed <unk> when he rejoined the court in May",
+      "target": "757",
+      "predicted": ","
+    },
+    {
+      "context": "he soon rejoined the court and on December 8 ,",
+      "target": "757",
+      "predicted": "2010"
+    },
+    {
+      "context": "Especially when they bring more papers to pile higher on",
+      "target": "my",
+      "predicted": "the"
+    },
+    {
+      "context": "<unk> ( modern Gansu ) . He departed on December",
+      "target": "24",
+      "predicted": "27"
+    },
+    {
+      "context": "Empire . = = = Last years = = =",
+      "target": "Luoyang",
+      "predicted": "="
+    },
+    {
+      "context": "old age in addition to his previous ailments ) .",
+      "target": "They",
+      "predicted": "The"
+    },
+    {
+      "context": "and employed him as his unofficial secretary . In March",
+      "target": "768",
+      "predicted": ","
+    },
+    {
+      "context": "poet from Yuan Zhen in 813 . Hung summarises his",
+      "target": "life",
+      "predicted": "wife"
+    },
+    {
+      "context": "Tang it featured the theme of a long parting between",
+      "target": "friends",
+      "predicted": "the"
+    },
+    {
+      "context": ") . The most directly historical of his poems are",
+      "target": "those",
+      "predicted": "the"
+    },
+    {
+      "context": "the era \" . Du Fu 's political comments are",
+      "target": "based",
+      "predicted": "the"
+    },
+    {
+      "context": "civilians produced by Du Fu throughout his life . Although",
+      "target": "Du",
+      "predicted": "the"
+    },
+    {
+      "context": "himself and for others , was part of his general",
+      "target": "broadening",
+      "predicted": "election"
+    },
+    {
+      "context": "'s work is notable above all for its range .",
+      "target": "Chinese",
+      "predicted": "The"
+    },
+    {
+      "context": "Chou says that in every form he \" either made",
+      "target": "outstanding",
+      "predicted": "the"
+    }
+  ]
+}

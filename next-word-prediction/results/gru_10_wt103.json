@@ -1,0 +1,414 @@
+{
+  "arch": "gru",
+  "seq_len": 10,
+  "hyperparams": {
+    "arch": "gru",
+    "seq_len": 10,
+    "emb_dim": 256,
+    "hidden_dim": 256,
+    "num_layers": 1,
+    "dropout": 0.3,
+    "batch_size": 128,
+    "lr": 0.001,
+    "epochs": 25,
+    "min_freq": 25,
+    "seed": 42,
+    "target_train": 600000,
+    "target_eval": 3000,
+    "out_suffix": "_wt103",
+    "tie_weights": true,
+    "clip_grad": 1.0,
+    "early_stop_patience": 3
+  },
+  "vocab_size": 82820,
+  "n_train_windows": 600152,
+  "n_val_windows": 3013,
+  "train_stride": 169,
+  "n_params": 21679492,
+  "device": "cuda",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 8.257761269482456,
+      "train_acc": 0.09127021154640824,
+      "train_ppl": 3857.4486386750614,
+      "val_loss": 6.927842034321863,
+      "val_acc": 0.1470295386657816,
+      "val_ppl": 1020.2898517799765,
+      "epoch_seconds": 116.73061909998069
+    },
+    {
+      "epoch": 2,
+      "train_loss": 6.9517410874826,
+      "train_acc": 0.13123342086671377,
+      "train_ppl": 1044.9675251270667,
+      "val_loss": 6.671856809445801,
+      "val_acc": 0.15599070693660802,
+      "val_ppl": 789.8608648016592,
+      "epoch_seconds": 111.32745460001752
+    },
+    {
+      "epoch": 3,
+      "train_loss": 6.661331494867482,
+      "train_acc": 0.14692277956251082,
+      "train_ppl": 781.5909289116101,
+      "val_loss": 6.509382179873036,
+      "val_acc": 0.16694324593428478,
+      "val_ppl": 671.4114779007249,
+      "epoch_seconds": 106.8558037999901
+    },
+    {
+      "epoch": 4,
+      "train_loss": 6.472288327892196,
+      "train_acc": 0.15696523547368,
+      "train_ppl": 646.9624966911484,
+      "val_loss": 6.413890834824809,
+      "val_acc": 0.18121473614337869,
+      "val_ppl": 610.2635022673209,
+      "epoch_seconds": 106.15612470003543
+    },
+    {
+      "epoch": 5,
+      "train_loss": 6.32621830795185,
+      "train_acc": 0.16481991228888682,
+      "train_ppl": 559.038479975749,
+      "val_loss": 6.326014580459164,
+      "val_acc": 0.18353800199137071,
+      "val_ppl": 558.9246000685366,
+      "epoch_seconds": 111.335973200039
+    },
+    {
+      "epoch": 6,
+      "train_loss": 6.201587083407417,
+      "train_acc": 0.1701535610978552,
+      "train_ppl": 493.53169582528403,
+      "val_loss": 6.281663187547969,
+      "val_acc": 0.1885164288084965,
+      "val_ppl": 534.6771931751379,
+      "epoch_seconds": 110.50540429999819
+    },
+    {
+      "epoch": 7,
+      "train_loss": 6.09369089836729,
+      "train_acc": 0.17569715672029754,
+      "train_ppl": 443.0536630967094,
+      "val_loss": 6.2262345753038915,
+      "val_acc": 0.1881845336873548,
+      "val_ppl": 505.84716353096275,
+      "epoch_seconds": 108.72982999996748
+    },
+    {
+      "epoch": 8,
+      "train_loss": 5.992526829491394,
+      "train_acc": 0.18024433810101442,
+      "train_ppl": 400.42513872207337,
+      "val_loss": 6.1794263282330215,
+      "val_acc": 0.19083969465648856,
+      "val_ppl": 482.71495696470924,
+      "epoch_seconds": 107.29712740000105
+    },
+    {
+      "epoch": 9,
+      "train_loss": 5.897080594089005,
+      "train_acc": 0.18513643210386702,
+      "train_ppl": 363.97332940576086,
+      "val_loss": 6.1461337588373866,
+      "val_acc": 0.19747759707932294,
+      "val_ppl": 466.90871096942465,
+      "epoch_seconds": 116.20142840000335
+    },
+    {
+      "epoch": 10,
+      "train_loss": 5.809540319901032,
+      "train_acc": 0.18912042282621735,
+      "train_ppl": 333.4658028442868,
+      "val_loss": 6.129971605339518,
+      "val_acc": 0.1934948556256223,
+      "val_ppl": 459.42311533134875,
+      "epoch_seconds": 116.40512080001645
+    },
+    {
+      "epoch": 11,
+      "train_loss": 5.724677041344798,
+      "train_acc": 0.19374591770084912,
+      "train_ppl": 306.33431594723777,
+      "val_loss": 6.112084292827395,
+      "val_acc": 0.19747759707932294,
+      "val_ppl": 451.2783317994831,
+      "epoch_seconds": 124.88900780002587
+    },
+    {
+      "epoch": 12,
+      "train_loss": 5.644520591797419,
+      "train_acc": 0.19735167091003614,
+      "train_ppl": 282.7379768211701,
+      "val_loss": 6.094541985530454,
+      "val_acc": 0.19415864586790574,
+      "val_ppl": 443.43090089031443,
+      "epoch_seconds": 123.63438649999443
+    },
+    {
+      "epoch": 13,
+      "train_loss": 5.564357178510495,
+      "train_acc": 0.20039589970540797,
+      "train_ppl": 260.9574007568226,
+      "val_loss": 6.074746848814439,
+      "val_acc": 0.19780949220046465,
+      "val_ppl": 434.73943378182884,
+      "epoch_seconds": 113.53494300000602
+    },
+    {
+      "epoch": 14,
+      "train_loss": 5.491115261003589,
+      "train_acc": 0.20491808741785414,
+      "train_ppl": 242.52753759024316,
+      "val_loss": 6.07031112456298,
+      "val_acc": 0.1984732824427481,
+      "val_ppl": 432.81532010603195,
+      "epoch_seconds": 117.52234269998735
+    },
+    {
+      "epoch": 15,
+      "train_loss": 5.414040851298089,
+      "train_acc": 0.2081805942494568,
+      "train_ppl": 224.5370779155081,
+      "val_loss": 6.07161451090304,
+      "val_acc": 0.19780949220046465,
+      "val_ppl": 433.37981347858823,
+      "epoch_seconds": 112.04137890000129
+    },
+    {
+      "epoch": 16,
+      "train_loss": 5.339452613056175,
+      "train_acc": 0.2120562790759674,
+      "train_ppl": 208.39860438675225,
+      "val_loss": 6.076140822503324,
+      "val_acc": 0.19913707268503153,
+      "val_ppl": 435.3458716950881,
+      "epoch_seconds": 124.2586319000111
+    },
+    {
+      "epoch": 17,
+      "train_loss": 5.268466569456366,
+      "train_acc": 0.21510883909409617,
+      "train_ppl": 194.11806752936323,
+      "val_loss": 6.075503340758163,
+      "val_acc": 0.1951543312313309,
+      "val_ppl": 435.0684350888329,
+      "epoch_seconds": 118.46030460001202
+    }
+  ],
+  "train_time_seconds": 1945.8918609999819,
+  "epochs_run": 17,
+  "best_epoch": 14,
+  "best_val_loss": 6.07031112456298,
+  "peak_gpu_memory_mb": 714.087890625,
+  "inference_time_seconds_full_test_set": 0.12401169998338446,
+  "inference_ms_per_example": 0.041117937660273364,
+  "n_test_examples": 3016,
+  "test_loss": 6.182541778928721,
+  "test_accuracy": 0.17572944297082227,
+  "test_perplexity": 484.2211766715417,
+  "errors_sample": [
+    {
+      "context": "as \" Craig \" in the episode \" Teddy 's",
+      "target": "Story",
+      "predicted": "\""
+    },
+    {
+      "context": ", Fraser Ayres , Sophie Stanton and Dominic Hall .",
+      "target": "In",
+      "predicted": "The"
+    },
+    {
+      "context": "2008 , Daylight Robbery by filmmaker Paris <unk> , and",
+      "target": "Donkey",
+      "predicted": "the"
+    },
+    {
+      "context": "2011 film Mercenaries directed by Paris <unk> . = =",
+      "target": "Career",
+      "predicted": "="
+    },
+    {
+      "context": "A review of <unk> 's performance in The Independent on",
+      "target": "Sunday",
+      "predicted": "the"
+    },
+    {
+      "context": "in 2003 on two episodes of The Bill , as",
+      "target": "character",
+      "predicted": "a"
+    },
+    {
+      "context": "Plymouth , and the <unk> Chocolate Factory in London .",
+      "target": "He",
+      "predicted": "The"
+    },
+    {
+      "context": "Ayres . \" The Guardian noted , \" Ben <unk>",
+      "target": "and",
+      "predicted": "\""
+    },
+    {
+      "context": ": \" I loved working with a guy called Robert",
+      "target": "<unk>",
+      "predicted": "\""
+    },
+    {
+      "context": "How to Curse was performed at Bush Theatre in the",
+      "target": "London",
+      "predicted": "United"
+    },
+    {
+      "context": "television series Casualty in 2010 , as \" Kieron Fletcher",
+      "target": "\"",
+      "predicted": ","
+    },
+    {
+      "context": "stand there and look like you know what you 're",
+      "target": "doing",
+      "predicted": "you"
+    },
+    {
+      "context": "he was little @-@ known to other writers , his",
+      "target": "works",
+      "predicted": "wife"
+    },
+    {
+      "context": "Virgil , Horace , Ovid , Shakespeare , Milton ,",
+      "target": "Burns",
+      "predicted": "and"
+    },
+    {
+      "context": ". Another reason , identified by the Chinese historian William",
+      "target": "Hung",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "the poem or fail to understand it altogether \" .",
+      "target": "Stephen",
+      "predicted": "The"
+    },
+    {
+      "context": "a noted politician and poet during the reign of Empress",
+      "target": "Wu",
+      "predicted": ","
+    },
+    {
+      "context": "was partially raised by his aunt . He had an",
+      "target": "elder",
+      "predicted": "<unk>"
+    },
+    {
+      "context": ". He later claimed to have produced creditable poems by",
+      "target": "his",
+      "predicted": "the"
+    },
+    {
+      "context": "and that of centuries of later critics . Hung concludes",
+      "target": "that",
+      "predicted": ","
+    },
+    {
+      "context": "his father 's rank , but he is thought to",
+      "target": "have",
+      "predicted": "be"
+    },
+    {
+      "context": "element in Du Fu 's artistic development \" because it",
+      "target": "gave",
+      "predicted": "was"
+    },
+    {
+      "context": "one in the other direction . They met again only",
+      "target": "once",
+      "predicted": "the"
+    },
+    {
+      "context": "Fu was forced to move his family due to the",
+      "target": "turmoil",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "largely itinerant life unsettled by wars , associated famines and",
+      "target": "imperial",
+      "predicted": "the"
+    },
+    {
+      "context": "Even when he learned of the death of his youngest",
+      "target": "child",
+      "predicted": ","
+    },
+    {
+      "context": "away from the city , took his family to a",
+      "target": "place",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "was appointed <unk> when he rejoined the court in May",
+      "target": "757",
+      "predicted": ","
+    },
+    {
+      "context": "he soon rejoined the court and on December 8 ,",
+      "target": "757",
+      "predicted": "he"
+    },
+    {
+      "context": "Especially when they bring more papers to pile higher on",
+      "target": "my",
+      "predicted": "the"
+    },
+    {
+      "context": "<unk> ( modern Gansu ) . He departed on December",
+      "target": "24",
+      "predicted": "21"
+    },
+    {
+      "context": "Empire . = = = Last years = = =",
+      "target": "Luoyang",
+      "predicted": "="
+    },
+    {
+      "context": "old age in addition to his previous ailments ) .",
+      "target": "They",
+      "predicted": "The"
+    },
+    {
+      "context": "and employed him as his unofficial secretary . In March",
+      "target": "768",
+      "predicted": ","
+    },
+    {
+      "context": "poet from Yuan Zhen in 813 . Hung summarises his",
+      "target": "life",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Tang it featured the theme of a long parting between",
+      "target": "friends",
+      "predicted": "the"
+    },
+    {
+      "context": ") . The most directly historical of his poems are",
+      "target": "those",
+      "predicted": "not"
+    },
+    {
+      "context": "the era \" . Du Fu 's political comments are",
+      "target": "based",
+      "predicted": "not"
+    },
+    {
+      "context": "epithet of Chinese critics is that of \" poet sage",
+      "target": "\"",
+      "predicted": ","
+    },
+    {
+      "context": "civilians produced by Du Fu throughout his life . Although",
+      "target": "Du",
+      "predicted": "the"
+    }
+  ]
+}
