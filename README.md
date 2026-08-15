@@ -112,7 +112,7 @@ set, every run shares identical hyperparameters except `--arch` and
 and the new `--tie-weights` / `--clip-grad` / `--early-stop-patience` /
 `--out-suffix` flags on [`train.py`](next-word-prediction/train.py).
 
-**Result: perplexity drops 43–64% at every single length, and LSTM still
+**Result: perplexity drops 43-64% at every single length, and LSTM still
 wins at every length, exactly like the original finding.**
 
 | Seq len | RNN: old → new | GRU: old → new | LSTM: old → new |
@@ -188,6 +188,36 @@ streamlit run app.py
 Every task uses one model class per folder, parametrized by a `cell` argument (`rnn` / `gru` / `lstm`), instead of three separate hand-written model classes that could quietly drift apart from each other. Data prep, vocabulary building, and evaluation code are shared identically across all three runs within a task; only that one argument changes.
 
 Two of the three tasks (error classification, NER) use a bidirectional recurrent layer, since the model gets to see the whole input before deciding anything. Next-word prediction runs one direction only, since predicting a word from a future word would be seeing the answer.
+
+## Analysis
+
+**Which model performs best?**
+
+No single model wins across the board. LSTM comes out ahead most often, tying GRU on Arabic error classification (0.8707 vs. 0.8690, both well past RNN's 0.2217) and winning at every context length tested for next-word prediction, in both the original sweep and the WikiText-103 retraining. GRU is the one real exception: it beats LSTM outright on named entity recognition, 0.7274 entity F1 against 0.7147. LSTM is the strongest performer overall, but which model is "best" depends on what the task actually needs, and NER didn't need what LSTM is good at.
+
+**Which model is fastest?**
+
+RNN, consistently, across all three tasks. It trained faster than GRU and LSTM on Arabic classification (136.6s vs. 153.7s vs. 158.6s) and on NER (111.0s vs. 118.4s vs. 120.3s), and the same ordering holds for next-word prediction. This isn't a coincidence: RNN has one set of weights per step, GRU has three gates, LSTM has four, so every training step does less arithmetic for RNN than for the other two. The gap is a few percent at these model sizes, but it would widen at larger scale, since it comes from the architecture itself, not from anything specific to this dataset size.
+
+**Which model has the most parameters?**
+
+LSTM, in every task, without exception. 280,070 vs. GRU's 214,022 and RNN's 81,926 on Arabic classification; 3,290,505 vs. 3,224,457 vs. 3,092,361 on NER; and on next-word prediction the same ordering holds at every context length, both for the original models (8.68M) and the showcase ones (21.8M). This follows directly from gate count: with embedding size, hidden size, and vocabulary held identical across architectures, the only thing left to change parameter count is how many gates the recurrent cell has, and LSTM has the most.
+
+**How does sequence length affect each model?**
+
+This is what the next-word prediction task was built to test directly, sweeping context length from 10 to 200 tokens. All three models get better, not worse, as context grows from 10 up to around 100 tokens: more history genuinely helps prediction. None of them collapses at long range, unlike RNN's behavior on the Arabic task. What does change is the gap between architectures. In the original sweep, RNN trails LSTM by a fairly steady margin regardless of length. In the WikiText-103 retraining, a sharper pattern shows up: RNN and GRU actually converge as length increases (519.1 vs. 542.3 perplexity at length 200, their closest gap anywhere in the sweep), while LSTM keeps extending its lead instead of closing it. Its separate cell state is doing more with the extra context than GRU's simpler gating can.
+
+**Does GRU provide a good trade-off between RNN and LSTM?**
+
+Mostly yes, and on one task it stops being a trade-off entirely. On Arabic classification and next-word prediction, GRU sits where you'd expect: between RNN and LSTM in accuracy, faster than LSTM to train, and lighter on parameters. That's a genuine trade-off, not a free improvement. On NER, GRU wins outright over LSTM while still costing less to train and run. There, GRU is simply the better model, no trade-off involved.
+
+**Why does RNN struggle with long-term dependencies?**
+
+The vanishing gradient problem. Training a network means computing how much the loss would change if a weight changed slightly, and for a recurrent network that computation has to multiply a gradient term through every time step between where an error is measured and where the relevant information first appeared. RNN reuses the same hidden-to-hidden weight matrix at every step, and since the derivatives involved are typically less than 1, multiplying dozens of them together shrinks the gradient toward zero. By the time the signal reaches an early time step, there is nothing left to learn from. GRU and LSTM add gates that let information flow through mostly additive paths instead of repeated multiplication, which is why they don't run into the same wall. The Arabic task shows exactly what this costs in practice: the character that decides the label can sit far from where the model reads out its answer, and RNN has no way to carry that signal across the distance, landing at 22% accuracy, barely above the 1-in-6 random baseline.
+
+**Which model would you choose, and why?**
+
+LSTM, if there's no tight constraint on speed or memory. It's the most consistently strong model across all three tasks, never loses badly anywhere, and the cost difference against GRU is small at this scale. If resources are actually limited, GRU is the reasonable substitute: it's the cheapest option after RNN on every task, and on NER it actually outperforms LSTM, so there it isn't a downgrade at all. RNN is the one to avoid by default for a new task, even though it didn't collapse on two of the three tasks tested here. Real applications often do need long-range memory that this benchmark's easier tasks didn't force, and the Arabic task shows exactly how badly that assumption can fail once it turns out to matter.
 
 ## Running it
 
