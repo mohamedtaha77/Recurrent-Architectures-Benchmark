@@ -26,14 +26,15 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 
-from dataset import WindowDataset, build_vocab, collate, read_tokens, stride_for_target_count
+from dataset import (WindowDataset, build_vocab_from_text, collate, encode_text, read_text,
+                     stride_for_target_count)
 from models import WordLM
 
 RESULTS_DIR = os.path.join(os.path.dirname(__file__), "results")
 CHECKPOINTS_DIR = os.path.join(os.path.dirname(__file__), "checkpoints")
 
 
-def run_epoch(model, loader, device, criterion, optimizer=None):
+def run_epoch(model, loader, device, criterion, optimizer=None, clip_grad=0.0):
     train_mode = optimizer is not None
     model.train(train_mode)
     total_loss, n, correct = 0.0, 0, 0
@@ -46,6 +47,8 @@ def run_epoch(model, loader, device, criterion, optimizer=None):
             loss = criterion(logits, y)
             if train_mode:
                 loss.backward()
+                if clip_grad:
+                    torch.nn.utils.clip_grad_norm_(model.parameters(), clip_grad)
                 optimizer.step()
         total_loss += loss.item() * y.size(0)
         correct += (logits.argmax(-1) == y).sum().item()
@@ -70,23 +73,42 @@ def main():
                      help="window stride is chosen so every seq_len gets about this many "
                           "training examples, keeping data volume comparable across lengths")
     ap.add_argument("--target-eval", type=int, default=3000)
+    ap.add_argument("--out-suffix", default="",
+                     help="Appended to the results/checkpoint filename, e.g. _wt103, so a "
+                          "differently-configured run (bigger dataset, more epochs, ...) "
+                          "doesn't overwrite the original benchmark's results/checkpoint.")
+    ap.add_argument("--tie-weights", action="store_true", default=False,
+                     help="Share the embedding and output-projection matrix (requires "
+                          "emb_dim == hidden_dim). Standard in GPT-2 and most modern LMs; "
+                          "cuts the dominant parameter cost roughly in half.")
+    ap.add_argument("--clip-grad", type=float, default=0.0,
+                     help="Max gradient norm; 0 disables clipping.")
+    ap.add_argument("--early-stop-patience", type=int, default=0,
+                     help="Stop after this many epochs with no val_loss improvement; 0 "
+                          "disables early stopping and always runs the full --epochs. "
+                          "Either way, the checkpoint saved is the best val_loss epoch "
+                          "seen, not necessarily the last one.")
     a = ap.parse_args()
 
     torch.manual_seed(a.seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    train_tokens, val_tokens, test_tokens = (read_tokens("train"), read_tokens("val"),
-                                              read_tokens("test"))
-    stoi, itos = build_vocab(train_tokens, min_freq=a.min_freq)
-    tag = f"{a.arch}_{a.seq_len}"
+    train_text, val_text, test_text = read_text("train"), read_text("val"), read_text("test")
+    stoi, itos = build_vocab_from_text(train_text, min_freq=a.min_freq)
+    tag = f"{a.arch}_{a.seq_len}{a.out_suffix}"
     print(f"[{tag}] vocab size {len(itos)}")
 
-    train_stride = stride_for_target_count(len(train_tokens), a.seq_len, a.target_train)
-    val_stride = stride_for_target_count(len(val_tokens), a.seq_len, a.target_eval)
-    test_stride = stride_for_target_count(len(test_tokens), a.seq_len, a.target_eval)
-    train_ds = WindowDataset(train_tokens, stoi, a.seq_len, stride=train_stride)
-    val_ds = WindowDataset(val_tokens, stoi, a.seq_len, stride=val_stride)
-    test_ds = WindowDataset(test_tokens, stoi, a.seq_len, stride=test_stride)
+    train_ids = encode_text(train_text, stoi)
+    val_ids = encode_text(val_text, stoi)
+    test_ids = encode_text(test_text, stoi)
+    del train_text, val_text, test_text  # free the raw text now that it's encoded to ids
+
+    train_stride = stride_for_target_count(len(train_ids), a.seq_len, a.target_train)
+    val_stride = stride_for_target_count(len(val_ids), a.seq_len, a.target_eval)
+    test_stride = stride_for_target_count(len(test_ids), a.seq_len, a.target_eval)
+    train_ds = WindowDataset(train_ids, itos, a.seq_len, stride=train_stride)
+    val_ds = WindowDataset(val_ids, itos, a.seq_len, stride=val_stride)
+    test_ds = WindowDataset(test_ids, itos, a.seq_len, stride=test_stride)
     print(f"[{tag}] train/val/test windows = {len(train_ds)}/{len(val_ds)}/{len(test_ds)} "
           f"(strides {train_stride}/{val_stride}/{test_stride})")
 
@@ -97,6 +119,7 @@ def main():
     model = WordLM(
         vocab_size=len(itos), cell=a.arch, emb_dim=a.emb_dim,
         hidden_dim=a.hidden_dim, num_layers=a.num_layers, dropout=a.dropout,
+        tie_weights=a.tie_weights,
     ).to(device)
     n_params = model.num_params()
     print(f"[{tag}] {n_params:,} trainable params")
@@ -108,10 +131,15 @@ def main():
         torch.cuda.reset_peak_memory_stats(device)
 
     history = []
+    best_val_loss = float("inf")
+    best_state = None
+    best_epoch = 0
+    epochs_without_improvement = 0
     t0 = time.perf_counter()
     for epoch in range(1, a.epochs + 1):
         ep_t0 = time.perf_counter()
-        train_loss, train_acc = run_epoch(model, train_dl, device, criterion, optimizer)
+        train_loss, train_acc = run_epoch(model, train_dl, device, criterion, optimizer,
+                                           clip_grad=a.clip_grad)
         val_loss, val_acc = run_epoch(model, val_dl, device, criterion, optimizer=None)
         ep_time = time.perf_counter() - ep_t0
         history.append({"epoch": epoch, "train_loss": train_loss, "train_acc": train_acc,
@@ -121,7 +149,24 @@ def main():
         print(f"[{tag}] epoch {epoch}/{a.epochs}  train_loss={train_loss:.4f} "
               f"val_loss={val_loss:.4f} val_acc={val_acc:.4f} val_ppl={history[-1]['val_ppl']:.1f} "
               f"({ep_time:.1f}s)")
+
+        if val_loss < best_val_loss - 1e-4:
+            best_val_loss, best_epoch = val_loss, epoch
+            best_state = {k: v.detach().clone() for k, v in model.state_dict().items()}
+            epochs_without_improvement = 0
+        else:
+            epochs_without_improvement += 1
+
+        if a.early_stop_patience and epochs_without_improvement >= a.early_stop_patience:
+            print(f"[{tag}] no val_loss improvement for {a.early_stop_patience} epochs, "
+                  f"stopping early at epoch {epoch} (best was epoch {best_epoch})")
+            break
     train_time = time.perf_counter() - t0
+
+    if best_state is not None and best_epoch != epoch:
+        print(f"[{tag}] restoring epoch {best_epoch}'s weights (best val_loss={best_val_loss:.4f}) "
+              f"over epoch {epoch}'s")
+        model.load_state_dict(best_state)
 
     peak_mem_mb = (torch.cuda.max_memory_allocated(device) / (1024 ** 2)
                    if device.type == "cuda" else None)
@@ -168,6 +213,9 @@ def main():
         "device": str(device),
         "history": history,
         "train_time_seconds": train_time,
+        "epochs_run": epoch,
+        "best_epoch": best_epoch,
+        "best_val_loss": best_val_loss,
         "peak_gpu_memory_mb": peak_mem_mb,
         "inference_time_seconds_full_test_set": inf_time,
         "inference_ms_per_example": per_example_ms,
@@ -194,7 +242,7 @@ def main():
         "model_kwargs": {
             "vocab_size": len(itos), "cell": a.arch, "emb_dim": a.emb_dim,
             "hidden_dim": a.hidden_dim, "num_layers": a.num_layers,
-            "dropout": a.dropout,
+            "dropout": a.dropout, "tie_weights": a.tie_weights,
         },
         "test_perplexity": test_ppl,
         "test_accuracy": test_acc,

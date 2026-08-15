@@ -20,25 +20,48 @@ Usage (from repo root):
 """
 from __future__ import annotations
 
+import argparse
 import os
 
 from datasets import load_dataset
 
-OUT_DIR = os.path.join(os.path.dirname(__file__), "data")
+DEFAULT_OUT_DIR = os.path.join(os.path.dirname(__file__), "data")
 
 
 def main():
-    ds = load_dataset("Salesforce/wikitext", "wikitext-2-v1")
-    os.makedirs(OUT_DIR, exist_ok=True)
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--config", default="wikitext-2-v1",
+                     help="Hugging Face Salesforce/wikitext config, e.g. wikitext-2-v1 "
+                          "or wikitext-103-v1 for the ~50x larger sibling corpus.")
+    ap.add_argument("--out-dir", default=None,
+                     help="Defaults to ./data; pass a different path (e.g. data/wikitext103) "
+                          "to avoid overwriting the data an existing run was trained on.")
+    a = ap.parse_args()
+    out_dir = a.out_dir or DEFAULT_OUT_DIR
+
+    ds = load_dataset("Salesforce/wikitext", a.config)
+    os.makedirs(out_dir, exist_ok=True)
 
     split_map = {"train": "train", "val": "validation", "test": "test"}
     for out_name, hf_split in split_map.items():
-        text = " ".join(row["text"] for row in ds[hf_split])
-        tokens = text.split()
-        path = os.path.join(OUT_DIR, f"{out_name}.txt")
+        # Stream row by row instead of building one giant string + token list
+        # in memory: fine at WikiText-2's ~2M tokens, but WikiText-103's
+        # ~103M tokens as individual Python string objects is several GB and
+        # was blowing out memory.
+        path = os.path.join(out_dir, f"{out_name}.txt")
+        n_tokens = 0
         with open(path, "w", encoding="utf-8") as f:
-            f.write(" ".join(tokens))
-        print(f"{out_name}: {len(tokens):,} tokens -> {path}")
+            wrote_any = False
+            for row in ds[hf_split]:
+                tokens = row["text"].split()
+                if not tokens:
+                    continue
+                if wrote_any:
+                    f.write(" ")
+                f.write(" ".join(tokens))
+                wrote_any = True
+                n_tokens += len(tokens)
+        print(f"{out_name}: {n_tokens:,} tokens -> {path}")
 
 
 if __name__ == "__main__":

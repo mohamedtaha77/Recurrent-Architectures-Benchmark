@@ -17,10 +17,12 @@ CELLS = {"rnn": nn.RNN, "gru": nn.GRU, "lstm": nn.LSTM}
 
 class WordLM(nn.Module):
     def __init__(self, vocab_size, cell="lstm", emb_dim=128, hidden_dim=128,
-                 num_layers=1, dropout=0.3, pad_idx=0):
+                 num_layers=1, dropout=0.3, pad_idx=0, tie_weights=False):
         super().__init__()
         if cell not in CELLS:
             raise ValueError(f"unknown cell {cell!r}, expected one of {list(CELLS)}")
+        if tie_weights and emb_dim != hidden_dim:
+            raise ValueError(f"tie_weights requires emb_dim == hidden_dim, got {emb_dim} != {hidden_dim}")
         self.embedding = nn.Embedding(vocab_size, emb_dim, padding_idx=pad_idx)
         self.emb_dropout = nn.Dropout(dropout)
         self.rnn = CELLS[cell](
@@ -32,6 +34,14 @@ class WordLM(nn.Module):
         )
         self.out_dropout = nn.Dropout(dropout)
         self.classifier = nn.Linear(hidden_dim, vocab_size)
+        if tie_weights:
+            # Share the embedding and output-projection matrix (Press &
+            # Wolf 2017 / standard practice in GPT-2 and most modern word-
+            # and subword-level LMs): removes a whole vocab_size x hidden_dim
+            # matrix's worth of duplicate parameters, freeing that budget up
+            # for a bigger hidden state instead, usually for a lower
+            # perplexity, not just a smaller checkpoint.
+            self.classifier.weight = self.embedding.weight
 
     def forward(self, input_ids):
         x = self.emb_dropout(self.embedding(input_ids))

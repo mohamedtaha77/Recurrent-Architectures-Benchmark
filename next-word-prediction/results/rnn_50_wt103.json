@@ -1,0 +1,444 @@
+{
+  "arch": "rnn",
+  "seq_len": 50,
+  "hyperparams": {
+    "arch": "rnn",
+    "seq_len": 50,
+    "emb_dim": 256,
+    "hidden_dim": 256,
+    "num_layers": 1,
+    "dropout": 0.3,
+    "batch_size": 128,
+    "lr": 0.001,
+    "epochs": 25,
+    "min_freq": 25,
+    "seed": 42,
+    "target_train": 600000,
+    "target_eval": 3000,
+    "out_suffix": "_wt103",
+    "tie_weights": true,
+    "clip_grad": 1.0,
+    "early_stop_patience": 3
+  },
+  "vocab_size": 82820,
+  "n_train_windows": 600152,
+  "n_val_windows": 3012,
+  "train_stride": 169,
+  "n_params": 21416324,
+  "device": "cuda",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 11.32946365637492,
+      "train_acc": 0.06461196496887456,
+      "train_ppl": 83238.36650322613,
+      "val_loss": 7.588424338762504,
+      "val_acc": 0.11221779548472775,
+      "val_ppl": 1975.1988163252813,
+      "epoch_seconds": 119.33449869998731
+    },
+    {
+      "epoch": 2,
+      "train_loss": 8.12727110406775,
+      "train_acc": 0.09346965435423026,
+      "train_ppl": 3385.54813924766,
+      "val_loss": 7.2740268169013,
+      "val_acc": 0.1248339973439575,
+      "val_ppl": 1442.3468413451726,
+      "epoch_seconds": 119.23175939999055
+    },
+    {
+      "epoch": 3,
+      "train_loss": 7.657673668268036,
+      "train_acc": 0.11128514109758861,
+      "train_ppl": 2116.8272537793127,
+      "val_loss": 7.049017905555715,
+      "val_acc": 0.12848605577689243,
+      "val_ppl": 1151.7270824066973,
+      "epoch_seconds": 120.23436529998435
+    },
+    {
+      "epoch": 4,
+      "train_loss": 7.362491161573886,
+      "train_acc": 0.12254228928671403,
+      "train_ppl": 1575.7571431756262,
+      "val_loss": 6.884184247785672,
+      "val_acc": 0.1407702523240372,
+      "val_ppl": 976.7045957088119,
+      "epoch_seconds": 119.60627509996993
+    },
+    {
+      "epoch": 5,
+      "train_loss": 7.143022204477049,
+      "train_acc": 0.13103847025420226,
+      "train_ppl": 1265.2464501978952,
+      "val_loss": 6.797493164599496,
+      "val_acc": 0.14873837981407703,
+      "val_ppl": 895.5993550561893,
+      "epoch_seconds": 119.08525070000906
+    },
+    {
+      "epoch": 6,
+      "train_loss": 6.97170318067483,
+      "train_acc": 0.13840660366040602,
+      "train_ppl": 1066.036858598884,
+      "val_loss": 6.755841315346727,
+      "val_acc": 0.14707835325365207,
+      "val_ppl": 859.0621881493404,
+      "epoch_seconds": 119.1951138000004
+    },
+    {
+      "epoch": 7,
+      "train_loss": 6.8281714841257655,
+      "train_acc": 0.14417180980818192,
+      "train_ppl": 923.5006321234721,
+      "val_loss": 6.6402375156660955,
+      "val_acc": 0.1550464807436919,
+      "val_ppl": 765.2767366495567,
+      "epoch_seconds": 119.09255669999402
+    },
+    {
+      "epoch": 8,
+      "train_loss": 6.701213370924365,
+      "train_acc": 0.14943381010144097,
+      "train_ppl": 813.392173056497,
+      "val_loss": 6.612519430765909,
+      "val_acc": 0.16069057104913678,
+      "val_ppl": 744.3560117245066,
+      "epoch_seconds": 119.12511700001778
+    },
+    {
+      "epoch": 9,
+      "train_loss": 6.586386405455039,
+      "train_acc": 0.15423259440941628,
+      "train_ppl": 725.155710904171,
+      "val_loss": 6.60349110746447,
+      "val_acc": 0.1643426294820717,
+      "val_ppl": 737.6659703698041,
+      "epoch_seconds": 119.17120769998292
+    },
+    {
+      "epoch": 10,
+      "train_loss": 6.478250939888086,
+      "train_acc": 0.15820825390900972,
+      "train_ppl": 650.8316065721896,
+      "val_loss": 6.507297529800638,
+      "val_acc": 0.15869853917662682,
+      "val_ppl": 670.0132778000352,
+      "epoch_seconds": 119.17846979998285
+    },
+    {
+      "epoch": 11,
+      "train_loss": 6.371157112930602,
+      "train_acc": 0.16324364494328103,
+      "train_ppl": 584.7340409087099,
+      "val_loss": 6.478625995387753,
+      "val_acc": 0.16733067729083664,
+      "val_ppl": 651.0757503264587,
+      "epoch_seconds": 119.16587480000453
+    },
+    {
+      "epoch": 12,
+      "train_loss": 6.273358689907443,
+      "train_acc": 0.1669627027819619,
+      "train_ppl": 530.2553536763475,
+      "val_loss": 6.453123485266292,
+      "val_acc": 0.16600265604249667,
+      "val_ppl": 634.6816186901918,
+      "epoch_seconds": 119.28260700003011
+    },
+    {
+      "epoch": 13,
+      "train_loss": 6.176060222912322,
+      "train_acc": 0.17067676188698863,
+      "train_ppl": 481.09281925453564,
+      "val_loss": 6.466389328676708,
+      "val_acc": 0.17197875166002657,
+      "val_ppl": 643.1572998916753,
+      "epoch_seconds": 119.2309271999984
+    },
+    {
+      "epoch": 14,
+      "train_loss": 6.079602804257565,
+      "train_acc": 0.1743708260573988,
+      "train_ppl": 436.8556430522026,
+      "val_loss": 6.381148212301145,
+      "val_acc": 0.16367861885790172,
+      "val_ppl": 590.6054589359037,
+      "epoch_seconds": 119.17261130001862
+    },
+    {
+      "epoch": 15,
+      "train_loss": 5.986970782005062,
+      "train_acc": 0.17858809101694237,
+      "train_ppl": 398.20652670079886,
+      "val_loss": 6.412775646326235,
+      "val_acc": 0.1752988047808765,
+      "val_ppl": 609.5833227631649,
+      "epoch_seconds": 119.08902269997634
+    },
+    {
+      "epoch": 16,
+      "train_loss": 5.895919936094725,
+      "train_acc": 0.18175062317546223,
+      "train_ppl": 363.5511259156062,
+      "val_loss": 6.462817116720902,
+      "val_acc": 0.18160690571049137,
+      "val_ppl": 640.8639043817452,
+      "epoch_seconds": 119.05965309997555
+    },
+    {
+      "epoch": 17,
+      "train_loss": 5.810802269405258,
+      "train_acc": 0.1855429957744038,
+      "train_ppl": 333.8868854854959,
+      "val_loss": 6.380590654147732,
+      "val_acc": 0.17397078353253653,
+      "val_ppl": 590.2762538308474,
+      "epoch_seconds": 119.2821029999759
+    },
+    {
+      "epoch": 18,
+      "train_loss": 5.727039303025309,
+      "train_acc": 0.18897879203935003,
+      "train_ppl": 307.05881315231017,
+      "val_loss": 6.397678777357814,
+      "val_acc": 0.17363877822045154,
+      "val_ppl": 600.4496416822427,
+      "epoch_seconds": 119.15089140000055
+    },
+    {
+      "epoch": 19,
+      "train_loss": 5.645544725171291,
+      "train_acc": 0.1919863634545915,
+      "train_ppl": 283.0276865446702,
+      "val_loss": 6.4726799639414345,
+      "val_acc": 0.1699867197875166,
+      "val_ppl": 647.2159201489999,
+      "epoch_seconds": 119.31259099999443
+    },
+    {
+      "epoch": 20,
+      "train_loss": 5.569202402298156,
+      "train_acc": 0.19525220277529692,
+      "train_ppl": 262.2248658589637,
+      "val_loss": 6.416502889250696,
+      "val_acc": 0.17861885790172644,
+      "val_ppl": 611.8596274247592,
+      "epoch_seconds": 119.27823469997384
+    }
+  ],
+  "train_time_seconds": 2385.285505799984,
+  "epochs_run": 20,
+  "best_epoch": 17,
+  "best_val_loss": 6.380590654147732,
+  "peak_gpu_memory_mb": 708.86328125,
+  "inference_time_seconds_full_test_set": 0.1516457999823615,
+  "inference_ms_per_example": 0.050297114422010444,
+  "n_test_examples": 3015,
+  "test_loss": 6.54402571641786,
+  "test_accuracy": 0.18043117744610282,
+  "test_perplexity": 695.0791447489364,
+  "errors_sample": [
+    {
+      "context": "= Robert <unk> = Robert <unk> is an English film , television and theatre actor . He had a guest @-@ starring role on the television series The Bill in 2000 . This was followed by a starring role in the play <unk> written by Simon Stephens , which was",
+      "target": "performed",
+      "predicted": "a"
+    },
+    {
+      "context": "2008 , Daylight Robbery by filmmaker Paris <unk> , and Donkey Punch directed by Olly Blackburn . In May 2008 , <unk> made a guest appearance on a two @-@ part episode arc of the television series Waking the Dead , followed by an appearance on the television series Survivors",
+      "target": "in",
+      "predicted": "="
+    },
+    {
+      "context": "2011 film Mercenaries directed by Paris <unk> . = = Career = = = = = 2000 – 2005 = = = In 2000 <unk> had a guest @-@ starring role on the television series The Bill ; he portrayed \" Scott Parry \" in the episode , \" In",
+      "target": "Safe",
+      "predicted": "the"
+    },
+    {
+      "context": "A review of <unk> 's performance in The Independent on Sunday described him as \" horribly menacing \" in the role , and he received critical reviews in The Herald , and Evening Standard . He appeared in the television series Judge John Deed in 2002 as \" <unk> Armitage",
+      "target": "\"",
+      "predicted": "and"
+    },
+    {
+      "context": "in 2003 on two episodes of The Bill , as character \" Connor Price \" . In 2004 <unk> landed a role as \" Craig \" in the episode \" Teddy 's Story \" of the television series The Long Firm ; he starred alongside actors Mark Strong and Derek",
+      "target": "Jacobi",
+      "predicted": "Drymon"
+    },
+    {
+      "context": "Plymouth , and the <unk> Chocolate Factory in London . He was directed by John Tiffany and starred alongside Ben <unk> , Shane <unk> , Harry Kent , Fraser Ayres , Sophie Stanton and Dominic Hall . <unk> received a favorable review in The Daily Telegraph : \" The acting",
+      "target": "is",
+      "predicted": "of"
+    },
+    {
+      "context": "Ayres . \" The Guardian noted , \" Ben <unk> and Robert <unk> offer tenderness amid the savagery . \" = = = 2006 – present = = = In 2006 <unk> starred in the play Citizenship written by Mark <unk> . The play was part of a series which",
+      "target": "featured",
+      "predicted": "was"
+    },
+    {
+      "context": "television series Casualty in 2010 , as \" Kieron Fletcher \" . He portrayed an emergency physician applying for a medical fellowship . He commented on the inherent difficulties in portraying a physician on television : \" Playing a doctor is a strange experience . Pretending you know what you",
+      "target": "'re",
+      "predicted": "'ll"
+    },
+    {
+      "context": "Tang dynasty . Along with Li Bai ( Li Po ) , he is frequently called the greatest of the Chinese poets . His greatest ambition was to serve his country as a successful civil servant , but he proved unable to make the necessary accommodations . His life ,",
+      "target": "like",
+      "predicted": "the"
+    },
+    {
+      "context": "he was little @-@ known to other writers , his works came to be hugely influential in both Chinese and Japanese literary culture . Of his poetic writing , nearly fifteen hundred poems have been preserved over the ages . He has been called the \" Poet @-@ Historian \"",
+      "target": "and",
+      "predicted": "\""
+    },
+    {
+      "context": "Virgil , Horace , Ovid , Shakespeare , Milton , Burns , Wordsworth , <unk> , Hugo or Baudelaire \" . = = Life = = Traditional Chinese literary criticism emphasized the life of the author when interpreting a work , a practice which Burton Watson attributes to \" the",
+      "target": "close",
+      "predicted": "<unk>"
+    },
+    {
+      "context": ". Another reason , identified by the Chinese historian William Hung , is that Chinese poems are typically concise , omitting context that might be relevant , but which an informed contemporary could be assumed to know . For modern Western readers , \" The less accurately we know the",
+      "target": "time",
+      "predicted": "\""
+    },
+    {
+      "context": "the poem or fail to understand it altogether \" . Stephen Owen suggests a third factor particular to Du Fu , arguing that the variety of the poet 's work required consideration of his whole life , rather than the \" reductive \" <unk> used for more limited poets .",
+      "target": "=",
+      "predicted": "The"
+    },
+    {
+      "context": "a noted politician and poet during the reign of Empress Wu . Du Fu was born in 712 ; the exact birthplace is unknown , except that it was near Luoyang , Henan province ( Gong county is a favourite candidate ) . In later life , he considered himself",
+      "target": "to",
+      "predicted": "as"
+    },
+    {
+      "context": "was partially raised by his aunt . He had an elder brother , who died young . He also had three half brothers and one half sister , to whom he frequently refers in his poems , although he never mentions his stepmother . The son of a minor scholar",
+      "target": "@-@",
+      "predicted": ","
+    },
+    {
+      "context": ". He later claimed to have produced creditable poems by his early teens , but these have been lost . In the early <unk> , he travelled in the Jiangsu / Zhejiang area ; his earliest surviving poem , describing a poetry contest , is thought to date from the",
+      "target": "end",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "and that of centuries of later critics . Hung concludes that he probably failed because his prose style at the time was too dense and obscure , while Chou suggests his failure to cultivate connections in the capital may have been to blame . After this failure , he went",
+      "target": "back",
+      "predicted": "to"
+    },
+    {
+      "context": "his father 's rank , but he is thought to have given up the privilege in favour of one of his half brothers . He spent the next four years living in the Luoyang area , fulfilling his duties in domestic affairs . In the autumn of 744 , he",
+      "target": "met",
+      "predicted": "was"
+    },
+    {
+      "context": "element in Du Fu 's artistic development \" because it gave him a living example of the reclusive poet @-@ scholar life to which he was attracted after his failure in the civil service exam . The relationship was somewhat one @-@ sided , however . Du Fu was by",
+      "target": "some",
+      "predicted": "the"
+    },
+    {
+      "context": "one in the other direction . They met again only once , in 745 . In 746 , he moved to the capital in an attempt to resurrect his official career . He took the civil service exam a second time during the following year , but all the candidates",
+      "target": "were",
+      "predicted": ","
+    },
+    {
+      "context": "directly in 751 , 754 and probably again in 755 . He married around 752 , and by 757 the couple had had five children — three sons and two daughters — but one of the sons died in infancy in 755 . From 754 he began to have lung",
+      "target": "problems",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "Fu was forced to move his family due to the turmoil of a famine brought about by massive floods in the region . In 755 , he received an appointment as Registrar of the Right Commandant 's office of the Crown Prince 's Palace . Although this was a minor",
+      "target": "post",
+      "predicted": "league"
+    },
+    {
+      "context": "swept away by events . = = = War = = = The An Lushan Rebellion began in December 755 , and was not completely suppressed for almost eight years . It caused enormous disruption to Chinese society : the census of 754 recorded 52 @.@ 9 million people ,",
+      "target": "but",
+      "predicted": "and"
+    },
+    {
+      "context": "largely itinerant life unsettled by wars , associated famines and imperial displeasure . This period of unhappiness was the making of Du Fu as a poet : Even Shan Chou has written that , \" What he saw around him — the lives of his family , neighbors , and",
+      "target": "strangers",
+      "predicted": "the"
+    },
+    {
+      "context": "Even when he learned of the death of his youngest child , he turned to the suffering of others in his poetry instead of dwelling upon his own misfortunes . Du Fu wrote : <unk> on what I have lived through , if even I know such suffering , the",
+      "target": "common",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "away from the city , took his family to a place of safety and attempted to join the court of the new emperor ( <unk> ) , but he was captured by the rebels and taken to Chang 'an . In the autumn , his youngest son , Du <unk>",
+      "target": "(",
+      "predicted": ","
+    },
+    {
+      "context": "Especially when they bring more papers to pile higher on my desk . He moved on in the summer of 759 ; this has traditionally been ascribed to famine , but Hung believes that frustration is a more likely reason . He next spent around six weeks in <unk> (",
+      "target": "now",
+      "predicted": "<unk>"
+    },
+    {
+      "context": "<unk> ( modern Gansu ) . He departed on December 24 for Chengdu ( Sichuan province ) , where he was hosted by local Prefect and fellow poet Pei Di . Du subsequently based himself in Sichuan for most of the next five years . By the autumn of that",
+      "target": "year",
+      "predicted": "the"
+    },
+    {
+      "context": "Empire . = = = Last years = = = Luoyang , the region of his birthplace , was recovered by government forces in the winter of 762 , and in the spring of 765 Du Fu and his family sailed down the Yangtze , apparently with the intention of",
+      "target": "making",
+      "predicted": "the"
+    },
+    {
+      "context": "and employed him as his unofficial secretary . In March 768 , he began his journey again and got as far as Hunan province , where he died in <unk> ( now Changsha ) in November or December 770 , in his 58th year . He was survived by his",
+      "target": "wife",
+      "predicted": "own"
+    },
+    {
+      "context": "poet from Yuan Zhen in 813 . Hung summarises his life by concluding that , \" He appeared to be a filial son , an affectionate father , a generous brother , a faithful husband , a loyal friend , a dutiful official , and a patriotic subject . \"",
+      "target": "Below",
+      "predicted": "\""
+    },
+    {
+      "context": "Tang it featured the theme of a long parting between friends , which was often due to officials being frequently transferred to the provinces : = = Works = = Criticism of Du Fu 's works has focused on his strong sense of history , his moral engagement , and",
+      "target": "his",
+      "predicted": "the"
+    },
+    {
+      "context": ") . The most directly historical of his poems are those commenting on military tactics or the successes and failures of the government , or the poems of advice which he wrote to the emperor . <unk> , he wrote about the effect of the times in which he lived",
+      "target": "on",
+      "predicted": "in"
+    },
+    {
+      "context": "the era \" . Du Fu 's political comments are based on emotion rather than calculation : his prescriptions have been paraphrased as , \" Let us all be less selfish , let us all do what we are supposed to do \" . Since his views were impossible to",
+      "target": "disagree",
+      "predicted": "the"
+    },
+    {
+      "context": "epithet of Chinese critics is that of \" poet sage \" ( <unk> <unk> <unk> ) , a counterpart to the philosophical sage , Confucius . One of the earliest surviving works , The Song of the <unk> ( from around 750 ) , gives voice to the sufferings of",
+      "target": "a",
+      "predicted": "the"
+    },
+    {
+      "context": "civilians produced by Du Fu throughout his life . Although Du Fu 's frequent references to his own difficulties can give the impression of an all @-@ consuming <unk> , Hawkes argues that his \" famous compassion in fact includes himself , viewed quite objectively and almost as an afterthought",
+      "target": "\"",
+      "predicted": "."
+    },
+    {
+      "context": "himself and for others , was part of his general broadening of the scope of poetry : he devoted many works to topics which had previously been considered unsuitable for poetic treatment . Zhang Jie wrote that for Du Fu , \" everything in this world is poetry \" ,",
+      "target": "Du",
+      "predicted": "\""
+    },
+    {
+      "context": "'s work is notable above all for its range . Chinese critics traditionally used the term <unk> ( <unk> \" complete symphony \" ) , a reference to <unk> ' description of Confucius . Yuan Zhen was the first to note the breadth of Du Fu 's achievement , writing",
+      "target": "in",
+      "predicted": ","
+    },
+    {
+      "context": "Chou says that in every form he \" either made outstanding advances or contributed outstanding examples \" . Furthermore , his poems use a wide range of registers , from the direct and colloquial to the <unk> and self @-@ consciously literary . This variety is manifested even within individual",
+      "target": "works",
+      "predicted": ","
+    },
+    {
+      "context": "the term \" juxtaposition \" as the major analytical tool in her work . Du Fu is noted for having written more on poetics and painting than any other writer of his time . He wrote eighteen poems on painting alone , more than any other Tang poet . Du",
+      "target": "Fu",
+      "predicted": "Bois"
+    }
+  ]
+}

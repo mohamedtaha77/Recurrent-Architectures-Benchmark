@@ -2,26 +2,52 @@
 """Shared vocab and windowing code for all 15 (architecture, length) runs."""
 from __future__ import annotations
 
+import array
 import os
+import re
 from collections import Counter
 
 import torch
 from torch.utils.data import Dataset
 
 PAD, UNK = "<pad>", "<unk>"
-DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+DATA_DIR = os.environ.get("NWP_DATA_DIR") or os.path.join(os.path.dirname(__file__), "data")
+
+_TOKEN_RE = re.compile(r"\S+")
 
 
-def read_tokens(split):
+def iter_tokens(text):
+    """
+    Lazily yields tokens from raw text, equivalent to str.split() but
+    without ever materializing the full token list as one object: with
+    ~100M+ tokens (WikiText-103 scale) a plain list of that many Python
+    string objects alone runs into several GB, which is what was crashing
+    read_tokens() before this rewrite.
+    """
+    for m in _TOKEN_RE.finditer(text):
+        yield m.group()
+
+
+def read_text(split):
     with open(os.path.join(DATA_DIR, f"{split}.txt"), encoding="utf-8") as f:
-        return f.read().split()
+        return f.read()
 
 
-def build_vocab(tokens, min_freq=1):
-    counts = Counter(tokens)
+def build_vocab_from_text(text, min_freq=1):
+    counts = Counter()
+    counts.update(iter_tokens(text))
     itos = [PAD, UNK] + [w for w, c in counts.items() if c >= min_freq]
     stoi = {w: i for i, w in enumerate(itos)}
     return stoi, itos
+
+
+def encode_text(text, stoi):
+    """Tokens -> a compact array('i') of vocab ids (4 bytes/token, no
+    per-token Python object overhead), instead of a Python list of ints."""
+    unk_id = stoi[UNK]
+    ids = array.array("i")
+    ids.extend(stoi.get(t, unk_id) for t in iter_tokens(text))
+    return ids
 
 
 def stride_for_target_count(n_tokens, seq_len, target_n):
@@ -50,9 +76,9 @@ class WindowDataset(Dataset):
     `stride_for_target_count` for why this run uses the latter.
     """
 
-    def __init__(self, tokens, stoi, seq_len, stride=None):
-        self.ids = [stoi.get(t, stoi[UNK]) for t in tokens]
-        self.words = tokens
+    def __init__(self, ids, itos, seq_len, stride=None):
+        self.ids = ids  # array('i') of vocab ids for the whole split
+        self.itos = itos
         self.seq_len = seq_len
         self.stride = stride or seq_len
         self.n = max(0, (len(self.ids) - seq_len - 1) // self.stride + 1)
@@ -63,10 +89,11 @@ class WindowDataset(Dataset):
     def __getitem__(self, idx):
         start = idx * self.stride
         end = start + self.seq_len
-        x = torch.tensor(self.ids[start:end], dtype=torch.long)
+        window = self.ids[start:end]
+        x = torch.tensor(window, dtype=torch.long)
         y = torch.tensor(self.ids[end], dtype=torch.long)
-        context_words = self.words[start:end]
-        target_word = self.words[end]
+        context_words = [self.itos[i] for i in window]
+        target_word = self.itos[self.ids[end]]
         return x, y, context_words, target_word
 
 

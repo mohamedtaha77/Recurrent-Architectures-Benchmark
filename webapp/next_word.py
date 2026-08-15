@@ -17,6 +17,7 @@ WordLM = _models_mod.WordLM
 ARCHS = ["rnn", "gru", "lstm"]
 SEQ_LENS = [10, 25, 50, 100, 200]
 PUNCT_RE = re.compile(r"([.,!?;:()\"])")
+SHOWCASE_SUFFIX = "_wt103"  # trained on WikiText-103, more data + epochs than the benchmark
 
 
 def tokenize(text: str) -> list[str]:
@@ -29,7 +30,18 @@ def load_model(arch: str, seq_len: int):
     # max_entries=6 (two context lengths' worth of models) caps memory on
     # small deploy tiers, since a user clicking through all 5 lengths would
     # otherwise keep all 15 checkpoints (~500MB) resident at once.
-    ckpt = load_checkpoint("next-word-prediction", f"{arch}_{seq_len}.pt")
+    #
+    # Prefers the WikiText-103 "showcase" checkpoint (bigger data, more
+    # epochs, trained purely for generation quality) over the original
+    # WikiText-2 benchmark checkpoint (the one results/report.md and the
+    # README's numbers are based on), falling back to the benchmark
+    # checkpoint if the showcase one hasn't been trained for this
+    # (arch, seq_len) yet.
+    ckpt = load_checkpoint("next-word-prediction", f"{arch}_{seq_len}{SHOWCASE_SUFFIX}.pt")
+    variant = "showcase"
+    if ckpt is None:
+        ckpt = load_checkpoint("next-word-prediction", f"{arch}_{seq_len}.pt")
+        variant = "benchmark"
     if ckpt is None:
         return None
     model = WordLM(**ckpt["model_kwargs"])
@@ -39,6 +51,7 @@ def load_model(arch: str, seq_len: int):
     return {
         "model": model, "stoi": ckpt["stoi"], "itos": ckpt["itos"],
         "test_perplexity": ckpt.get("test_perplexity"),
+        "variant": variant,
     }
 
 
@@ -58,7 +71,8 @@ def predict_top_k(arch: str, seq_len: int, tokens: list[str], k: int = 5):
 
 
 def generate(arch: str, seq_len: int, tokens: list[str], n_words: int = 10,
-             temperature: float = 0.7, top_k: int = 8):
+             temperature: float = 0.7, top_k: int = 8,
+             repetition_penalty: float = 1.3, no_repeat_ngram_size: int = 3):
     """
     Autoregressive multi-word continuation: feed the model's own prediction
     back in as context, one word at a time, up to n_words.
@@ -69,6 +83,14 @@ def generate(arch: str, seq_len: int, tokens: list[str], n_words: int = 10,
     full-vocabulary sampling did. temperature reshapes the distribution
     *within* that shortlist: low = closer to always picking the single most
     likely word, high = closer to uniform among the shortlist.
+
+    Small word-level LMs love to fall into loops ("United States United
+    States United States"), same failure mode real LLM sampling guards
+    against, so two standard inference-time fixes, no retraining needed:
+    - repetition_penalty: softly discourages re-picking any word already
+      generated (Keskar et al. CTRL-style: divide/multiply its logit).
+    - no_repeat_ngram_size: hard-blocks any word that would recreate an
+      n-gram that already appeared earlier in this continuation.
     """
     bundle = load_model(arch, seq_len)
     if bundle is None or not tokens:
@@ -76,21 +98,39 @@ def generate(arch: str, seq_len: int, tokens: list[str], n_words: int = 10,
     model, stoi, itos = bundle["model"], bundle["stoi"], bundle["itos"]
     unk_id = stoi.get("<unk>")
     generated = list(tokens)
+    generated_ids = [stoi.get(t, stoi.get("<unk>", 1)) for t in generated]
+    n = no_repeat_ngram_size
     for _ in range(n_words):
         context = generated[-seq_len:]
         ids = [stoi.get(t, stoi.get("<unk>", 1)) for t in context]
         input_ids = torch.tensor([ids], dtype=torch.long, device=DEVICE)
         with torch.no_grad():
             logits = model(input_ids)[0]
+        logits = logits.clone()
         if unk_id is not None:
-            logits = logits.clone()
             logits[unk_id] = float("-inf")
+
+        if repetition_penalty and repetition_penalty != 1.0:
+            for prev_id in set(generated_ids):
+                if logits[prev_id] > 0:
+                    logits[prev_id] /= repetition_penalty
+                else:
+                    logits[prev_id] *= repetition_penalty
+
+        if n and len(generated_ids) >= n - 1:
+            prefix = tuple(generated_ids[-(n - 1):])
+            banned = {generated_ids[i + n - 1] for i in range(len(generated_ids) - n + 1)
+                      if tuple(generated_ids[i:i + n - 1]) == prefix}
+            for b in banned:
+                logits[b] = float("-inf")
+
         k = min(top_k, logits.numel())
         top_logits, top_ids = logits.topk(k)
         probs = torch.softmax(top_logits / max(temperature, 1e-4), dim=-1)
         choice = int(torch.multinomial(probs, 1))
         next_id = int(top_ids[choice])
         generated.append(itos[next_id])
+        generated_ids.append(next_id)
     return generated[len(tokens):]
 
 
@@ -159,8 +199,11 @@ def render_tab():
             if bundle is None:
                 st.caption("checkpoint not found")
                 continue
+            variant_label = "WikiText-103 showcase" if bundle.get("variant") == "showcase" else "WikiText-2 benchmark"
             if bundle.get("test_perplexity") is not None:
-                st.caption(f"test perplexity {bundle['test_perplexity']:.1f}")
+                st.caption(f"test perplexity {bundle['test_perplexity']:.1f} · {variant_label}")
+            else:
+                st.caption(variant_label)
             continuation = generate(arch, seq_len, tokens, n_words=n_words,
                                      temperature=temperature, top_k=top_k)
             if not continuation:
