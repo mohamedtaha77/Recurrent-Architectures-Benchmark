@@ -135,6 +135,17 @@ match. That's a more specific version of the same story the original
 sweep told: LSTM leads throughout, RNN never collapses, because next-word
 prediction leans on recent context more than it forces long-range memory.
 
+**Training and validation curves, all 5 lengths (showcase runs):**
+
+<img src="next-word-prediction/results/wt103_curves.png" alt="Showcase training curves by sequence length" width="100%">
+
+GRU and LSTM's training loss (dashed) drops well below their validation
+loss (solid) in later epochs at every length: the overfitting gap that
+early stopping is watching for, and why those two runs stop between
+epochs 11 and 19 rather than running the full 25. RNN's train/val gap
+stays much tighter throughout, consistent with a smaller-capacity model
+that has less room to overfit in the first place.
+
 <img src="next-word-prediction/results/wt103_improvement_bars.png" alt="Improvement percentage by architecture and length" width="100%">
 
 Generated continuation, same prompt, old model vs new model (temperature

@@ -33,6 +33,32 @@ def load(suffix):
     return out
 
 
+def plot_curves(new):
+    """Training curves for the showcase runs only (the old runs' curves are
+    already in curves.png from compare.py). Early stopping means each run
+    has a different epoch count, so each line simply runs however long
+    that particular run did."""
+    fig, axes = plt.subplots(len(LENGTHS), 2, figsize=(11, 3.6 * len(LENGTHS)))
+    for row, L in enumerate(LENGTHS):
+        for arch in ARCHS:
+            h = new[(arch, L)]["history"]
+            epochs = [e["epoch"] for e in h]
+            axes[row][0].plot(epochs, [e["train_loss"] for e in h], color=COLORS[arch], linestyle="--", alpha=0.6)
+            axes[row][0].plot(epochs, [e["val_loss"] for e in h], color=COLORS[arch], label=arch.upper())
+            axes[row][1].plot(epochs, [e["train_acc"] for e in h], color=COLORS[arch], linestyle="--", alpha=0.6)
+            axes[row][1].plot(epochs, [e["val_acc"] for e in h], color=COLORS[arch], label=arch.upper())
+        axes[row][0].set_title(f"seq_len={L}: loss (solid=val, dashed=train)")
+        axes[row][0].set_xlabel("epoch"); axes[row][0].set_ylabel("cross-entropy loss")
+        axes[row][0].legend(fontsize=8)
+        axes[row][1].set_title(f"seq_len={L}: next-word accuracy")
+        axes[row][1].set_xlabel("epoch"); axes[row][1].set_ylabel("accuracy")
+        axes[row][1].legend(fontsize=8)
+    fig.tight_layout()
+    path = os.path.join(RESULTS_DIR, "wt103_curves.png")
+    fig.savefig(path, dpi=130)
+    print(f"wrote {path}")
+
+
 def plot_sweep_comparison(old, new):
     fig, ax = plt.subplots(figsize=(9.5, 5.8))
     for arch in ARCHS:
@@ -93,6 +119,7 @@ def comparison_table(old, new):
 def main():
     old = load("")
     new = load("_wt103")
+    plot_curves(new)
     plot_sweep_comparison(old, new)
     plot_improvement_bars(old, new)
     print()
