@@ -167,6 +167,8 @@ sweeps exist in `results/`.
 <a name="live-demo"></a>
 ### Live demo
 
+**[recurrent-architectures-benchmark.streamlit.app](https://recurrent-architectures-benchmark.streamlit.app/)**
+
 `app.py` at the repo root is a Streamlit app that loads the trained
 checkpoints from all three tasks and runs RNN, GRU, and LSTM side by
 side on live input: a typed sentence or a sample button produces all
