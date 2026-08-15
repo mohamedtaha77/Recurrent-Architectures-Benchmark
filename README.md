@@ -88,22 +88,22 @@ The sweep above is deliberately capped: every length trains on the same
 ~20,000 windows and 8 epochs, on purpose, so that "does sequence length
 matter" isn't confounded by "does one length just get more data." That's
 the right call for answering the research question, but it also caps how
-fluent the models can get, which matters if you're actually going to type
-into them and read what comes out (the [live demo app](#live-demo) does
-exactly that). So there's now a second, separate set of checkpoints for
-all 3 architectures × all 5 lengths, trained for that purpose instead,
-without touching the original benchmark numbers above:
+fluent the models can get, which matters for the [live demo app](#live-demo),
+where each model's raw output is read directly. A second, separate set of
+checkpoints exists for all 3 architectures across all 5 lengths, trained
+for that purpose instead, without touching the original benchmark numbers
+above:
 
 | | Original benchmark | WikiText-103 showcase |
 |---|---|---|
 | Dataset | WikiText-2, ~2.05M train tokens | WikiText-103, ~101.4M train tokens (~50x) |
 | Vocabulary | 33,279 words | 82,820 words |
-| Embedding / hidden size | 128 / 128 | 256 / 256, tied (embedding and output-projection share one matrix — standard in GPT-2 and most modern LMs, roughly halves the parameter cost of going bigger) |
+| Embedding / hidden size | 128 / 128 | 256 / 256, tied (embedding and output-projection share one matrix, standard in GPT-2 and most modern LMs, which roughly halves the parameter cost of going bigger) |
 | Training windows / epoch | ~20,000 (fixed on purpose, for the length comparison) | 600,000 |
-| Epoch count | fixed at 8 | up to 25, early-stopped on validation loss (each run actually stopped between epochs 14–23, never hit the cap) |
+| Epoch count | fixed at 8 | up to 25, early-stopped on validation loss (each run stopped between epochs 14 and 23, never hit the cap) |
 | Gradient clipping | none | max norm 1.0 |
 | Params (rnn / gru / lstm) | 8.59M / 8.65M / 8.68M | 21.4M / 21.7M / 21.8M |
-| Generation decoding | — | top-k sampling + repetition penalty + no-repeat-3-gram blocking, so it can't loop on phrases the way plain sampling did |
+| Generation decoding | none | top-k sampling with repetition penalty and no-repeat-3-gram blocking, preventing loops on repeated phrases |
 
 Same fairness rule as everywhere else in this repo: within the showcase
 set, every run shares identical hyperparameters except `--arch` and
@@ -129,7 +129,7 @@ wins at every length, exactly like the original finding.**
 
 RNN and GRU visibly converge toward each other as context grows past 100
 tokens (519.1 vs 542.3 at length 200, the closest they get anywhere in the
-sweep), while LSTM keeps pulling further ahead — its separate cell state
+sweep), while LSTM keeps pulling further ahead: its separate cell state
 keeps paying off with more context in a way GRU's simpler gating doesn't
 match. That's a more specific version of the same story the original
 sweep told: LSTM leads throughout, RNN never collapses, because next-word
@@ -145,11 +145,11 @@ Generated continuation, same prompt, old model vs new model (temperature
 > **New (WikiText-103):** *the east , but the ship was not used by the United States . =*
 
 The old model loops on high-frequency phrases and never forms a real
-clause. The new one produces actual subject/verb structure — still a
+clause. The new one produces actual subject/verb structure: still a
 small, 22M-parameter model rather than a fluent writer, but a clearly
 different regime, not just a better score.
 
-Rebuild this comparison yourself with
+This comparison can be rebuilt with
 [`compare_wt103.py`](next-word-prediction/compare_wt103.py) once both
 sweeps exist in `results/`.
 
@@ -157,9 +157,9 @@ sweeps exist in `results/`.
 ### Live demo
 
 `app.py` at the repo root is a Streamlit app that loads the trained
-checkpoints from all three tasks and lets you test RNN, GRU, and LSTM
-side by side on your own input — type a sentence, or click a sample
-button, and compare all three models' live predictions at once. Next-word
+checkpoints from all three tasks and runs RNN, GRU, and LSTM side by
+side on live input: a typed sentence or a sample button produces all
+three models' predictions at once, for direct comparison. Next-word
 prediction defaults to the WikiText-103 showcase checkpoints described
 above; the other two tasks use their benchmark checkpoints directly.
 
