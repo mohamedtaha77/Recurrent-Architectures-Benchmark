@@ -82,6 +82,92 @@ Predict the next word from a fixed window of previous words, on WikiText-2, swep
 
 <img src="next-word-prediction/results/curves.png" alt="Task 3 training curves by sequence length" width="100%">
 
+#### WikiText-103 showcase: retraining the same 15 runs on a bigger dataset
+
+The sweep above is deliberately capped: every length trains on the same
+~20,000 windows and 8 epochs, on purpose, so that "does sequence length
+matter" isn't confounded by "does one length just get more data." That's
+the right call for answering the research question, but it also caps how
+fluent the models can get, which matters if you're actually going to type
+into them and read what comes out (the [live demo app](#live-demo) does
+exactly that). So there's now a second, separate set of checkpoints for
+all 3 architectures × all 5 lengths, trained for that purpose instead,
+without touching the original benchmark numbers above:
+
+| | Original benchmark | WikiText-103 showcase |
+|---|---|---|
+| Dataset | WikiText-2, ~2.05M train tokens | WikiText-103, ~101.4M train tokens (~50x) |
+| Vocabulary | 33,279 words | 82,820 words |
+| Embedding / hidden size | 128 / 128 | 256 / 256, tied (embedding and output-projection share one matrix — standard in GPT-2 and most modern LMs, roughly halves the parameter cost of going bigger) |
+| Training windows / epoch | ~20,000 (fixed on purpose, for the length comparison) | 600,000 |
+| Epoch count | fixed at 8 | up to 25, early-stopped on validation loss (each run actually stopped between epochs 14–23, never hit the cap) |
+| Gradient clipping | none | max norm 1.0 |
+| Params (rnn / gru / lstm) | 8.59M / 8.65M / 8.68M | 21.4M / 21.7M / 21.8M |
+| Generation decoding | — | top-k sampling + repetition penalty + no-repeat-3-gram blocking, so it can't loop on phrases the way plain sampling did |
+
+Same fairness rule as everywhere else in this repo: within the showcase
+set, every run shares identical hyperparameters except `--arch` and
+`--seq-len`. Trained partly locally, partly on Colab, using
+[`prep_data.py --config wikitext-103-v1`](next-word-prediction/prep_data.py)
+and the new `--tie-weights` / `--clip-grad` / `--early-stop-patience` /
+`--out-suffix` flags on [`train.py`](next-word-prediction/train.py).
+
+**Result: perplexity drops 43–64% at every single length, and LSTM still
+wins at every length, exactly like the original finding.**
+
+| Seq len | RNN: old → new | GRU: old → new | LSTM: old → new |
+|---|---|---|---|
+| 10 | 1305.2 → **717.8** (+45%) | 1167.7 → **484.2** (+59%) | 1181.3 → **472.1** (+60%) |
+| 25 | 1307.7 → **646.4** (+51%) | 1248.7 → **457.5** (+63%) | 1208.8 → **435.9** (+64%) |
+| 50 | 1229.7 → **695.1** (+43%) | 1127.3 → **500.5** (+56%) | 1128.3 → **429.9** (+62%) |
+| 100 | 1088.0 → **608.5** (+44%) | 1049.5 → **476.1** (+55%) | 957.0 → **399.4** (+58%) |
+| 200 | 1067.8 → **542.3** (+49%) | 1034.4 → **519.1** (+50%) | 939.9 → **366.2** (+61%) |
+
+*(test perplexity, lower is better; % is the reduction from old to new)*
+
+<img src="next-word-prediction/results/wt103_sweep_comparison.png" alt="Old vs new perplexity by context length" width="100%">
+
+RNN and GRU visibly converge toward each other as context grows past 100
+tokens (519.1 vs 542.3 at length 200, the closest they get anywhere in the
+sweep), while LSTM keeps pulling further ahead — its separate cell state
+keeps paying off with more context in a way GRU's simpler gating doesn't
+match. That's a more specific version of the same story the original
+sweep told: LSTM leads throughout, RNN never collapses, because next-word
+prediction leans on recent context more than it forces long-range memory.
+
+<img src="next-word-prediction/results/wt103_improvement_bars.png" alt="Improvement percentage by architecture and length" width="100%">
+
+Generated continuation, same prompt, old model vs new model (temperature
+0.7, top-k 6):
+
+> **Prompt:** *"During World War II , the country was forced to"*
+> **Old (WikiText-2):** *the first . The of the first of the first , and the United ,*
+> **New (WikiText-103):** *the east , but the ship was not used by the United States . =*
+
+The old model loops on high-frequency phrases and never forms a real
+clause. The new one produces actual subject/verb structure — still a
+small, 22M-parameter model rather than a fluent writer, but a clearly
+different regime, not just a better score.
+
+Rebuild this comparison yourself with
+[`compare_wt103.py`](next-word-prediction/compare_wt103.py) once both
+sweeps exist in `results/`.
+
+<a name="live-demo"></a>
+### Live demo
+
+`app.py` at the repo root is a Streamlit app that loads the trained
+checkpoints from all three tasks and lets you test RNN, GRU, and LSTM
+side by side on your own input — type a sentence, or click a sample
+button, and compare all three models' live predictions at once. Next-word
+prediction defaults to the WikiText-103 showcase checkpoints described
+above; the other two tasks use their benchmark checkpoints directly.
+
+```
+pip install -r requirements.txt
+streamlit run app.py
+```
+
 ---
 
 ## Method
@@ -100,3 +186,18 @@ python compare.py       # builds the comparison report and charts once all three
 ```
 
 `named-entity-recognition` and `next-word-prediction` fetch their data from Hugging Face on first run, no account needed. `arabic-error-classification` needs a local copy of the QALB shared-task release under `arabic-error-classification/data/raw/qalb/`. Register at CAMeL Lab's QALB page; the license doesn't allow redistributing the data itself, which is why it isn't bundled here.
+
+To reproduce the WikiText-103 showcase sweep (`next-word-prediction/`
+only), fetch the bigger corpus into its own subfolder first, so it never
+overwrites the original benchmark's data, then pass the same extra flags
+to every run:
+
+```
+cd next-word-prediction
+python prep_data.py --config wikitext-103-v1 --out-dir data/wikitext103
+NWP_DATA_DIR=data/wikitext103 python train.py --arch rnn --seq-len 50 \
+    --emb-dim 256 --hidden-dim 256 --tie-weights --min-freq 25 \
+    --target-train 600000 --epochs 25 --early-stop-patience 3 \
+    --clip-grad 1.0 --out-suffix _wt103      # repeat per --arch / --seq-len
+python compare_wt103.py     # builds the old-vs-new comparison once both sweeps exist
+```
